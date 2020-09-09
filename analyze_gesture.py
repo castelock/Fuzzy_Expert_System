@@ -27,10 +27,25 @@ def calculate_total_accuracy(accuracy_list):
 def calculate_single_accuracy(gesture_label, prediction_list):
 	num_correct = 0
 	acc_rate = 0
+	# Dictionary with the gesture recognized
+	dict_gestures = {}
+
 	for i in range(0, len(prediction_list)):
+		if prediction_list[i] in dict_gestures:
+			dict_gestures[prediction_list[i]] = dict_gestures[prediction_list[i]] + 1
+		else:
+			dict_gestures[prediction_list[i]] = 1
 		if(prediction_list[i] == gesture_label):
 			num_correct = num_correct + 1
+	# Calculating accuracy
 	acc_rate = (num_correct/len(prediction_list))*100
+	# Get the gesture label detected 
+	values_list = list(dict_gestures.values())
+	keys_list = list(dict_gestures.keys())
+	max_value = max(values_list)
+	gesture_detected = keys_list[values_list.index(max_value)]
+	print ("The gesture detected has been: ", gesture_detected)
+
 	return acc_rate
 
 def write_header(filename):
@@ -51,9 +66,9 @@ def append_list_as_row(filename, row):
 ########## END METHODS ##########
 
 # Initialize variables
-# gesture_label = "swipe_left"
-gesture_label = "thumb_up"
-path_videos = "Keras/videos/"+gesture_label
+gesture_label = "swipe_left"
+# gesture_label = "thumb_up"
+path_videos = "Keras/input/"+gesture_label
 model_path = "Keras/model/model_Adam_vgg19_mse_100_3g_10vids_lr0001_eps01.model"
 label_bin = "Keras/model/label_Adam_vgg19_mse_100_3g_10vids_lr0001_eps01.pickle"
 output_path = "Keras/output/sample_predicted.avi"
