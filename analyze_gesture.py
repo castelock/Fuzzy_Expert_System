@@ -46,11 +46,11 @@ def calculate_single_accuracy(gesture_label, prediction_list):
 	gesture_detected = keys_list[values_list.index(max_value)]
 	print ("The gesture detected has been: ", gesture_detected)
 
-	return acc_rate
+	return acc_rate, gesture_detected
 
 def write_header(filename):
 	with open(filename, 'w', newline='') as csvfile:
-		fieldnames = ['Name', 'Accuracy']
+		fieldnames = ['Name', 'Total Accuracy per Frame (%)', 'Gesture Detected']
 		# writer = csv.writer(csvfile, delimiter=' ')
 		writer = csv.writer(csvfile)
 		writer.writerow(fieldnames)    
@@ -66,13 +66,14 @@ def append_list_as_row(filename, row):
 ########## END METHODS ##########
 
 # Initialize variables
-gesture_label = "swipe_left"
+# gesture_label = "swipe_left"
 # gesture_label = "thumb_up"
-path_videos = "Keras/input/"+gesture_label
-model_path = "Keras/model/model_Adam_vgg19_mse_100_3g_10vids_lr0001_eps01.model"
-label_bin = "Keras/model/label_Adam_vgg19_mse_100_3g_10vids_lr0001_eps01.pickle"
-output_path = "Keras/output/sample_predicted.avi"
-results_path = "Keras/results/"
+gesture_label = "pull_hand_in"
+path_videos = "input/"+gesture_label
+model_path = "model/model_Adam_vgg16_categorical_200_10g_10vids_lr0001_eps01.model"
+label_path = "model/label_Adam_vgg16_categorical_200_10g_10vids_lr0001_eps01.pickle"
+output_path = "output/sample_predicted.avi"
+results_path = "results/"
 filename = "accuracy.csv"
 filename_path = results_path + filename
 size = 1
@@ -80,7 +81,7 @@ size = 1
 # Load the trained model and label binarizer from disk
 print("Loading model and label binarizer")
 model = load_model(model_path)
-lb = pickle.loads(open(label_bin, "rb").read())
+lb = pickle.loads(open(label_path, "rb").read())
 # Initialize the image mean for mean subtraction along with the predictions queue
 mean = np.array([123.68, 116.779, 103.939][::1], dtype="float32")
 Q = deque(maxlen=size)
@@ -142,12 +143,12 @@ for i in range(0, len(videoPaths)):
 		if key == ord("q"):
 			break
 	# Calculate the accuracy for a single video
-	acc_rate = calculate_single_accuracy(gesture_label, prediction_list)
+	acc_rate, gesture_detected = calculate_single_accuracy(gesture_label, prediction_list)
 	accuracy_list.append(acc_rate)
 	# Write in the csv file
 	path_elems = videoPaths[i].split(os.path.sep)[-1]
 	name_vid = path_elems.split('.')[0]
-	row = [name_vid, acc_rate]
+	row = [name_vid, acc_rate, gesture_detected]
 	append_list_as_row(filename_path, row)
 	# Release the file pointers
 	print("Cleaning up")
