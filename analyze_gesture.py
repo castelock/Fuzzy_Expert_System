@@ -67,11 +67,11 @@ def append_list_as_row(filename, row):
 
 # Initialize variables
 # gesture_label = "swipe_left"
-# gesture_label = "thumb_up"
+gesture_label = "thumb_up"
 # gesture_label = "pull_hand_in"
 # gesture_label = "slide_2_fingers_right"
 # gesture_label = "slide_2_fingers_up"
-gesture_label = "stop_sign"
+# gesture_label = "stop_sign"
 # gesture_label = "swipe_down"
 # gesture_label = "zoom_in_with_2_fingers"
 # gesture_label = "zoom_in_with_full_hand"
@@ -79,17 +79,18 @@ gesture_label = "stop_sign"
 
 
 path_videos = "input/"+gesture_label
-"""model_path = "model/model_Adam_vgg16_categorical_200_10g_10vids_lr0001_eps01.model"
+model_path = "model/model_Adam_vgg16_categorical_200_10g_10vids_lr0001_eps01.model"
 label_path = "model/label_Adam_vgg16_categorical_200_10g_10vids_lr0001_eps01.pickle" 
-"""
+
 """model_path = "model/model_Adam_Vgg16_mse_100_3g_10vids_lr0001_eps01.model"
 label_path = "model/label_Adam_Vgg16_mse_100_3g_10vids_lr0001_eps01.pickle"
 """
 """model_path = "model/model_SGD_Resnet50_mse_100_3g_10vids.model"
 label_path = "model/label_SGD_Resnet50_mse_100_3g_10vids.pickle"
 """
-model_path = "model/model_Adam_vgg16_categorical_100_3g_10vids_lr0001_eps01.model"
+"""model_path = "model/model_Adam_vgg16_categorical_100_3g_10vids_lr0001_eps01.model"
 label_path = "model/label_Adam_vgg16_categorical_100_3g_10vids_lr0001_eps01.pickle"
+"""
 output_path = "output/sample_predicted.avi"
 results_path = "results/"
 filename = "accuracy.csv"

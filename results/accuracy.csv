@@ -1,2 +1,3 @@
 Name,Total Accuracy per Frame (%),Gesture Detected
-stop_sign_1,100.0,stop_sign
+thumb_up,100.0,thumb_up
+Total,100.0
