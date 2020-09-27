@@ -11,7 +11,7 @@ class Experiment:
         self.epochs = epochs
         self.loss_function = loss_function
         self.num_gestures = num_gestures
-        # The type of this attribute should be a list
+        # The type of this attribute is a list
         self.gestures = gestures
         self.num_videos = num_videos
 
@@ -49,7 +49,7 @@ class Experiment:
         return self.num_videos
     
     def print(self):
-        data = self.id + self.framework + self.model + self.optimizer + self.loss_function
+        data = "Id: " + self.id +  " " + "Framework: " + self.framework + " " + "Model: " + self.model + " " + "Optimizer: " + self.optimizer + " " + "Loss_function: " + self.loss_function
         print(data)
     
 
@@ -74,14 +74,26 @@ class Experiment_Metrics:
     def getSupport(self):
         return self.support
 
+# Input folder path
+input_path = "input/"
+# File to store the experiments characteristics
+filename_exp = "experiments.csv"
+filenameExp_path = input_path + filename_exp
+# File to store the experiments metrics
+filename_metrics = "experiments_metrics.csv"
+filenameExp_path = input_path + filename_metrics
+
 
 print("Starting the input generation")
 
 exp1 = Experiment_Metrics("1.0", "1.0", "0.86", "98")
 
-gestures_list = ["swipe_lef", "thumb_up", "stop_sign"]
+gestures_list = ["swipe_left", "thumb_up", "stop_sign"]
 
 exp_test = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "1.0", "100", "categorical_crossentropy", "3", gestures_list, "10")
 exp_test.print()
+print(exp_test.getGestures())
 
 print(exp1.getF1_score())
+
+# Writing the data in the files
