@@ -1,7 +1,8 @@
 class Experiment:
 
-    def __init__(self, framework, model, optimizer, learning_rate, epsilon, epochs, loss_function, num_gestures, gestures, num_videos):
+    def __init__(self, id, framework, model, optimizer, learning_rate, epsilon, epochs, loss_function, num_gestures, gestures, num_videos):
 
+        self.id = id
         self.framework = framework
         self.model = model
         self.optimizer = optimizer
@@ -10,8 +11,12 @@ class Experiment:
         self.epochs = epochs
         self.loss_function = loss_function
         self.num_gestures = num_gestures
+        # The type of this attribute should be a list
         self.gestures = gestures
         self.num_videos = num_videos
+
+    def getId(self):
+        return id
 
     def getFramework(self):
         return self.framework
@@ -43,6 +48,10 @@ class Experiment:
     def getNum_videos(self):
         return self.num_videos
     
+    def print(self):
+        data = self.id + self.framework + self.model + self.optimizer + self.loss_function
+        print(data)
+    
 
 class Experiment_Metrics:
 
@@ -69,5 +78,10 @@ class Experiment_Metrics:
 print("Starting the input generation")
 
 exp1 = Experiment_Metrics("1.0", "1.0", "0.86", "98")
+
+gestures_list = ["swipe_lef", "thumb_up", "stop_sign"]
+
+exp_test = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "1.0", "100", "categorical_crossentropy", "3", gestures_list, "10")
+exp_test.print()
 
 print(exp1.getF1_score())
