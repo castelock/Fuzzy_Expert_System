@@ -1,3 +1,5 @@
+import csv
+
 class Experiment:
 
     def __init__(self, id, framework, model, optimizer, learning_rate, epsilon, epochs, loss_function, num_gestures, gestures, num_videos):
@@ -16,7 +18,7 @@ class Experiment:
         self.num_videos = num_videos
 
     def getId(self):
-        return id
+        return self.id
 
     def getFramework(self):
         return self.framework
@@ -47,6 +49,24 @@ class Experiment:
 
     def getNum_videos(self):
         return self.num_videos
+
+    def writeNewFile(self, filename):
+        with open(filename, 'w', newline='') as csvfile:
+            fieldnames = ['Id', 'Framework', 'Model', 'Optimizer', 'Learning_rate', 'Epsilon', 'Epochs', 'Loss_function', 'Num_gestures', 'Gestures', 'Num_videos']
+            writer = csv.writer(csvfile, delimiter=';')
+            # Writing the header
+            writer.writerow(fieldnames) 
+            # Writing the content
+            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpsilon(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGestures(), self.getNum_videos()]
+            writer.writerow(row)
+
+    def append_row(self, filename, row):
+        # Open file in append mode
+        with open(filename,'a+', newline='') as csvfile:
+            # Create a writer object from csv module
+            writer = csv.writer(csvfile, delimiter=';')
+            # Add contents of list as last row in the csv file
+            writer.writerow(row)
     
     def print(self):
         data = "Id: " + self.id +  " " + "Framework: " + self.framework + " " + "Model: " + self.model + " " + "Optimizer: " + self.optimizer + " " + "Loss_function: " + self.loss_function
@@ -81,7 +101,7 @@ filename_exp = "experiments.csv"
 filenameExp_path = input_path + filename_exp
 # File to store the experiments metrics
 filename_metrics = "experiments_metrics.csv"
-filenameExp_path = input_path + filename_metrics
+filenameMetrics_path = input_path + filename_metrics
 
 
 print("Starting the input generation")
@@ -94,6 +114,13 @@ exp_test = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "1.0", "100", "
 exp_test.print()
 print(exp_test.getGestures())
 
+# Testing write files
+exp_test.writeNewFile(filenameExp_path)
+
 print(exp1.getF1_score())
 
-# Writing the data in the files
+# Reading the file
+with open(filenameExp_path, newline='') as f:
+    reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
+    for row in reader:
+        print("New row:", row)

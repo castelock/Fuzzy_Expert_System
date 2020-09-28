@@ -1,0 +1,2 @@
+Id;Framework;Model;Optimizer;Learning_rate;Epsilon;Epochs;Loss_function;Num_gestures;Gestures;Num_videos
+1;Keras;ResNet50;Adam;0.001;1.0;100;categorical_crossentropy;3;['swipe_left', 'thumb_up', 'stop_sign'];10
