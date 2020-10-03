@@ -338,7 +338,7 @@ zoom_in_with_full_hand89 = Gesture("89", "thumb_up", "1.0", "1.0", "1.0", "90.0"
 zoom_out_with_2_fingers89 = Gesture("89", "zoom_in_with_2_fingers", "0.98", "0.94", "0.96", "88.0")
 
 # Testing write files
-exp_test.writeNewFile(filenameExp_path)
+exp_1.writeNewFile(filenameExp_path)
 
 print(exp1.getF1_score())
 
