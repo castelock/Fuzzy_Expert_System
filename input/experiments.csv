@@ -1,2 +1,29 @@
 Id;Framework;Model;Optimizer;Learning_rate;Epsilon;Epochs;Loss_function;Num_gestures;Gestures;Num_videos
 1;Keras;ResNet50;Adam;0.001;1.0;100;categorical_crossentropy;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+4;Keras;ResNet50;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+7;Keras;ResNet50V2;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+11;Keras;ResNet50;Adam;0.001;1.0;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+15;Keras;ResNet101V2;Adam;0.001;1.0;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+22;Keras;VGG16;SGD;;;100;categorical_crossentropy;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+24;Keras;VGG16;Adam;0.001;0.1;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+27;Keras;VGG19;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+30;Keras;InceptionV3;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+33;Keras;InceptionResNetV2;Adam;0.001;0.1;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+34;Keras;MobileNetV2;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+37;Keras;DenseNet121;Adam;0.001;0.1;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+38;Keras;DenseNet169;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+41;Keras;DenseNet201;Adam;0.001;0.1;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+42;Keras;NasNetLarge;SGD;;;100;mse;3;['swipe_left', 'thumb_up', 'stop_sign'];10
+51;Keras;ResNet152;Adam;0.001;0.1;100;mse;5;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right'];10
+54;Keras;VGG16;Adam;0.001;0.1;100;categorical_crossentropy;5;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right'];10
+56;Keras;ResNet50;SGD;;;100;mse;5;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right'];10
+59;Keras;ResNet152;Adam;0.001;0.1;200;mse;5;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right'];10
+69;Keras;VGG16;Adam;0.001;0.1;100;categorical_crossentropy;8;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in'];10
+71;Keras;ResNet50;SGD;;;100;mse;8;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in'];10
+73;Keras;ResNet101;Adam;0.001;0.1;200;mse;8;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in'];10
+75;Keras;VGG16;Adam;0.001;0.1;200;mse;8;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in'];10
+76;Keras;VGG19;Adam;0.001;0.1;200;mse;8;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in'];10
+82;Keras;VGG16;Adam;0.001;0.1;100;mse;10;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in', 'zoom_in_with_full_hand', 'zoom_out_with_2_fingers'];10
+85;Keras;VGG19;Adam;0.001;0.1;100;categorical_crossentropy;10;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in', 'zoom_in_with_full_hand', 'zoom_out_with_2_fingers'];10
+88;Keras;ResNet152;Adam;0.001;0.1;200;mse;10;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in', 'zoom_in_with_full_hand', 'zoom_out_with_2_fingers'];10
+89;Keras;VGG16;Adam;0.001;0.1;200;mse;10;['swipe_left', 'thumb_up', 'stop_sign', 'swipe_down', 'slide_2_fingers_right', 'slide_2_fingers_up', 'zoom_in_with_2_fingers', 'pull_hand_in', 'zoom_in_with_full_hand', 'zoom_out_with_2_fingers'];10

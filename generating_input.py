@@ -57,15 +57,16 @@ class Experiment:
             # Writing the header
             writer.writerow(fieldnames) 
             # Writing the content
-            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpsilon(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGestures(), self.getNum_videos()]
+            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpsilon(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGesture_names(), self.getNum_videos()]
             writer.writerow(row)
 
-    def append_row(self, filename, row):
+    def append_row(self, filename):
         # Open file in append mode
         with open(filename,'a+', newline='') as csvfile:
             # Create a writer object from csv module
             writer = csv.writer(csvfile, delimiter=';')
             # Add contents of list as last row in the csv file
+            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpsilon(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGesture_names(), self.getNum_videos()]
             writer.writerow(row)
     
     def print(self):
@@ -163,7 +164,7 @@ exp_85 = Experiment("85", "Keras", "VGG19", "Adam", "0.001", "0.1", "100", "cate
 exp_88 = Experiment("88", "Keras", "ResNet152", "Adam", "0.001", "0.1", "200", "mse", "10", gestures_10g, "10")
 exp_89 = Experiment("89", "Keras", "VGG16", "Adam", "0.001", "0.1", "200", "mse", "10", gestures_10g, "10")
 
-# Adding the metrics
+# Adding the metrics gesture
 stop_sign1 = Gesture("1", "stop_sign", "1.0", "0.3", "0.46", "90.0")
 swipe_left1 = Gesture("1", "swipe_left", "0.92", "0.89", "0.9", "123.0")
 thumb_up1 = Gesture("1", "thumb_up", "0.55", "0.99", "0.71", "86.0")
@@ -337,10 +338,39 @@ zoom_in_with_2_fingers89 = Gesture("89", "zoom_in_with_2_fingers", "1.0", "1.0",
 zoom_in_with_full_hand89 = Gesture("89", "thumb_up", "1.0", "1.0", "1.0", "90.0")
 zoom_out_with_2_fingers89 = Gesture("89", "zoom_in_with_2_fingers", "0.98", "0.94", "0.96", "88.0")
 
-# Testing write files
-exp_1.writeNewFile(filenameExp_path)
+# Adding the experiments metrics 
 
-print(exp1.getF1_score())
+# Writing the experiments
+exp_1.writeNewFile(filenameExp_path)
+exp_4.append_row(filenameExp_path)
+exp_7.append_row(filenameExp_path)
+exp_11.append_row(filenameExp_path)
+exp_15.append_row(filenameExp_path)
+exp_22.append_row(filenameExp_path)
+exp_24.append_row(filenameExp_path)
+exp_27.append_row(filenameExp_path)
+exp_30.append_row(filenameExp_path)
+exp_33.append_row(filenameExp_path)
+exp_34.append_row(filenameExp_path)
+exp_37.append_row(filenameExp_path)
+exp_38.append_row(filenameExp_path)
+exp_41.append_row(filenameExp_path)
+exp_42.append_row(filenameExp_path)
+exp_51.append_row(filenameExp_path)
+exp_54.append_row(filenameExp_path)
+exp_56.append_row(filenameExp_path)
+exp_59.append_row(filenameExp_path)
+exp_69.append_row(filenameExp_path)
+exp_71.append_row(filenameExp_path)
+exp_73.append_row(filenameExp_path)
+exp_75.append_row(filenameExp_path)
+exp_76.append_row(filenameExp_path)
+exp_82.append_row(filenameExp_path)
+exp_85.append_row(filenameExp_path)
+exp_88.append_row(filenameExp_path)
+exp_89.append_row(filenameExp_path)
+
+# Writing the experiments metrics
 
 # Reading the file
 with open(filenameExp_path, newline='') as f:
