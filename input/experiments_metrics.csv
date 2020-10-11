@@ -60,7 +60,7 @@ Id;Gesture;Precision;Recall;F1_score;Support
 56;swipe_left;0.44;0.29;0.35;87.0
 56;thumb_up;0.23;0.84;0.36;86.0
 59;slide_2_fingers_right;0.96;0.53;0.68;89.0
-51;stop_sign;0.88;0.84;0.86;90.0
+59;stop_sign;0.95;0.89;0.92;90.0
 59;swipe_down;1.0;0.21;0.34;87.0
 59;swipe_left;0.69;0.84;0.76;87.0
 59;thumb_up;0.47;0.99;0.63;86.0

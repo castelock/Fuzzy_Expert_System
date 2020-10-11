@@ -289,7 +289,7 @@ stop_sign59 = Gesture("59", "stop_sign", "0.95", "0.89", "0.92", "90.0")
 swipe_down59 = Gesture("59", "swipe_down", "1.0", "0.21", "0.34", "87.0")
 swipe_left59 = Gesture("59", "swipe_left", "0.69", "0.84", "0.76", "87.0")
 thumb_up59 = Gesture("59", "thumb_up", "0.47", "0.99", "0.63", "86.0")
-gestures_59 = [slide_2_fingers_right59, stop_sign51, swipe_down59, swipe_left59, thumb_up59]
+gestures_59 = [slide_2_fingers_right59, stop_sign59, swipe_down59, swipe_left59, thumb_up59]
 
 pull_hand_in69 = Gesture("69", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
 slide_2_fingers_right69 = Gesture("69", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
@@ -483,11 +483,57 @@ exp85_metrics.append_row(filenameMetrics_path)
 exp88_metrics.append_row(filenameMetrics_path)
 exp89_metrics.append_row(filenameMetrics_path)
 
-# Reading the file
+# READING THE FILES
+
+# Reading the experiments features
 with open(filenameExp_path, newline='') as f:
+    reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
+    # Skipping the header line
+    next(reader)
+    # Initializing the list of experiments
+    list_exp = []
+    for row in reader:
+        experiment = Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
+        list_exp.append(experiment)
+
+# Reading the experiments metrics
+with open(filenameMetrics_path, newline='') as f:
+    reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
+    # Skipping the header line
+    next(reader)
+    # Initializing the list of experiments
+    list_metrics = []
+    list_gestures = []
+    prev_id = -1
+    for row in reader:
+        # Check if current gesture id is the same than the previous one
+        if row[0] == prev_id or prev_id == -1:
+            # Adding a new gesture
+            gesture = Gesture(row[0], row[1], row[2], row[3], row[4], row[5])
+            list_gestures.append(gesture)
+            prev_id = row[0]
+        else:
+            if list_gestures is not None:
+                # Creating a new metric
+                metric = Experiment_Metrics(prev_id, list_gestures)
+                list_metrics.append(metric)
+                # Adding the current gesture
+                list_gestures = []
+                gesture = Gesture(row[0], row[1], row[2], row[3], row[4], row[5])
+                list_gestures.append(gesture)
+                prev_id = row[0]
+            else:
+                print("ERROR: The gestures list is empty")
+    # Including the last metric
+    metric = Experiment_Metrics(prev_id, list_gestures)
+    list_metrics.append(metric)
+    
+print("READING is over")
+# Reading the file
+"""with open(filenameExp_path, newline='') as f:
     reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
     for row in reader:
         print("New row: ", row)
         for item in row:
-            print("New item: ", item)
+            print("New item: ", item)"""
         
