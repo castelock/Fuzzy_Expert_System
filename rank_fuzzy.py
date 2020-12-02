@@ -4,36 +4,31 @@ class TKS_fuzzylite:
 
     def __init__(self):
         # Declaring and Initializing the Fuzzy Engine
-        engine = fl.Engine(
-        name="SimpleDimmer",
+        self.engine = fl.Engine(
+        name="GestureRecognition_Rank",
         description="")
 
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
-        engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
-            name="Ambient",
+            name="Precision",
             description="",
             enabled=True,
             minimum=0.000,
             maximum=1.000,
             lock_range=False,
-            """terms=[
-                fl.Triangle("DARK", 0.000, 0.250, 0.500),
-                fl.Triangle("MEDIUM", 0.250, 0.500, 0.750),
-                fl.Triangle("BRIGHT", 0.500, 0.750, 1.000)]"""
             terms=[
-                fl.Gaussian("DARK",0.750,4)
-                fl.Gaussian("MEDIUM",0.500,4)
-                fl.Gaussian("BRIGHT", 0.250,4)
-            ]
+                fl.Gaussian("HIGH",0.750,4),
+                fl.Gaussian("MEDIUM",0.500,4),
+                fl.Gaussian("LOW", 0.250,4) ]
                 
             )
         ]
 
 # Defining the Output Variables (Defuzzification)
-    def creating output(self):
-        engine.output_variables = [
+    def creating_output(self):
+        self.engine.output_variables = [
         fl.OutputVariable(
             name="Power",
             description="",
@@ -53,7 +48,7 @@ class TKS_fuzzylite:
 
 # Creation of Fuzzy Rule Base
     def create_fuzzy_rules(self):
-        engine.rule_blocks = [
+        self.engine.rule_blocks = [
             fl.RuleBlock(
                 name="",
                 description="",
@@ -63,16 +58,20 @@ class TKS_fuzzylite:
                 implication=None,
                 activation=fl.General(),
                 rules=[
-                    fl.Rule.create("if Ambient is DARK then Power is HIGH", engine),
-                    fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", engine),
-                    fl.Rule.create("if Ambient is BRIGHT then Power is LOW", engine)
+                    fl.Rule.create("if Ambient is DARK then Power is HIGH", self.engine),
+                    fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", self.engine),
+                    fl.Rule.create("if Ambient is BRIGHT then Power is LOW", self.engine)
                 ]
             )
         ]
 
+# Creating the TKS Fuzzy System
+tks = TKS_fuzzylite()
+
+tks.creating_input
      
 
-class FuzzySet():
+"""class FuzzySet():
     
     def __init__(self):
 
@@ -222,4 +221,4 @@ class FuzzySystem():
         for output_var_name, output_var in self._output_variables.items():
             output[output_var_name] = output_var.get_crisp_output()
 
-        return output
+        return output"""
