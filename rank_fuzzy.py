@@ -68,8 +68,6 @@ class TKS_fuzzylite:
 # Creating the TKS Fuzzy System
 tks = TKS_fuzzylite()
 
-tks.creating_input
-     
 
 """class FuzzySet():
     
