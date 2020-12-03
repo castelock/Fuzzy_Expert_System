@@ -58,15 +58,31 @@ class TKS_fuzzylite:
                 implication=None,
                 activation=fl.General(),
                 rules=[
-                    fl.Rule.create("if Ambient is DARK then Power is HIGH", self.engine),
-                    fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", self.engine),
-                    fl.Rule.create("if Ambient is BRIGHT then Power is LOW", self.engine)
+                    fl.Rule.create("if Precision is HIGH then Power is HIGH", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM then Power is MEDIUM", self.engine),
+                    fl.Rule.create("if Precision is LOW then Power is LOW", self.engine)
                 ]
             )
         ]
 
 # Creating the TKS Fuzzy System
 tks = TKS_fuzzylite()
+tks.creating_input()
+tks.creating_output()
+tks.create_fuzzy_rules()
+tks.engine.input_variable("Precision").value = 0.5
+tks.engine.process()
+print("Output value:", tks.engine.output_variable("Power").value)
+print("Output defuzzifier:", tks.engine.output_variable("Power").defuzzifier)
+print("Output default value:", tks.engine.output_variable("Power").default_value)
+print("Output fuzzy:", tks.engine.output_variable("Power").fuzzy)
+tks.engine.output_variable("Power").defuzzify()
+print("Output value:", tks.engine.output_variable("Power").value)
+print("Output previous value:", tks.engine.output_variable("Power").previous_value)
+print("Output fuzzy value:", tks.engine.output_variable("Power").fuzzy_value())
+print("Output _value:", tks.engine.output_variable("Power")._value)
+print("Output rule blocks:", tks.engine.rule_blocks.count()
+# print("Activation degree: ", tks.engine.output_variable("Power").fuzzy.activation_degree(tks.engine.output_variable("Power").term("HIGH")))
 
 
 """class FuzzySet():
