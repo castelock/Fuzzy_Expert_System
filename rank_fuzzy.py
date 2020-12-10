@@ -274,7 +274,7 @@ for term in list_terms:
 
 list_rules = tks.engine.rule_block("Rules").rules
 
-tks.engine.rule_block("Rules").
+#tks.engine.rule_block("Rules").
 
 for rule in list_rules:
     print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
