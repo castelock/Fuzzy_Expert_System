@@ -486,24 +486,23 @@ exp89_metrics.append_row(filenameMetrics_path)
 # READING THE FILES
 
 # Reading the experiments features
+list_exp = []
 with open(filenameExp_path, newline='') as f:
     reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
     # Skipping the header line
-    next(reader)
-    # Initializing the list of experiments
-    list_exp = []
+    next(reader)   
     for row in reader:
         experiment = Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
         list_exp.append(experiment)
 
 # Reading the experiments metrics
+list_metrics = []
+list_gestures = []
 with open(filenameMetrics_path, newline='') as f:
     reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
     # Skipping the header line
     next(reader)
-    # Initializing the list of experiments
-    list_metrics = []
-    list_gestures = []
+    
     prev_id = -1
     for row in reader:
         # Check if current gesture id is the same than the previous one

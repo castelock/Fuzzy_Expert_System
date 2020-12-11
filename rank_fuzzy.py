@@ -4,8 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats
 import statistics
+import csv
+import generating_input as input_exp
 
 # TAKAGI-SUGENO-KANG
+
 
 class TKS:
 
@@ -95,11 +98,20 @@ class TKS:
                 activation=fl.Highest(),
                 rules=[
                     fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
+                    fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
+                    fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                    fl.Rule.create("if Precision is HIGH and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                     fl.Rule.create("if F1_score is LOW then Result is BAD", self.engine),
                     fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
                 ]
             )
         ]
+
+
 
 # MANDANI
 
@@ -245,16 +257,25 @@ y = scipy.stats.norm(0.5, 0.5)
 plt.plot(x,y.pdf(x))
 plt.show()"""
 
+# Input folder path
+input_path = "input/"
+# File to store the experiments characteristics
+filename_exp = "experiments.csv"
+filenameExp_path = input_path + filename_exp
+# File to store the experiments metrics
+filename_metrics = "experiments_metrics.csv"
+filenameMetrics_path = input_path + filename_metrics
 
 # Creating the TKS Fuzzy System
 tks = TKS()
 tks.creating_input()
 tks.creating_output()
 tks.creating_fuzzy_rules()
-tks.engine.input_variable("Precision").value = 0.5
+tks.engine.input_variable("Precision").value = 1
+tks.engine.input_variable("Recall").value = 1
+tks.engine.input_variable("F1_score").value = 1
 tks.engine.process()
 tks.engine.output_variable("Result").defuzzify()
-
 
 
 # print("Activation degree: ", tks.engine.output_variable("Power").fuzzy.activation_degree(tks.engine.output_variable("Power").term("HIGH")))
@@ -279,8 +300,9 @@ list_rules = tks.engine.rule_block("Rules").rules
 for rule in list_rules:
     print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
 
-threshold = 0.8
+threshold = 0.9
 print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")).__str__())
+print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")).__str__())
 print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")).__str__())
 print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")).__str__())
 
@@ -288,3 +310,57 @@ if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.outpu
     print("Result is over threshold")
 else:
     print("Result is under threshold")
+
+# GETTING RESULTS
+
+# Initialize dictionary
+list_perfect=[]
+list_good=[]
+list_mediocre=[]
+list_low=[]
+dic_result={"PERFECT": list_perfect, "GOOD": list_good, "MEDIOCRE": list_mediocre, "LOW": list_low}
+
+# READING THE EXPERIMENTS
+# Reading the experiments features
+list_exp = []
+with open(filenameExp_path, newline='') as f:
+    reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
+    # Skipping the header line
+    next(reader)   
+    for row in reader:
+        experiment = input_exp.Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
+        list_exp.append(experiment)
+
+# Reading the experiments metrics
+list_metrics = []
+list_gestures = []
+with open(filenameMetrics_path, newline='') as f:
+    reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
+    # Skipping the header line
+    next(reader)
+    
+    prev_id = -1
+    for row in reader:
+        # Check if current gesture id is the same than the previous one
+        if row[0] == prev_id or prev_id == -1:
+            # Adding a new gesture
+            gesture = input_exp.Gesture(row[0], row[1], row[2], row[3], row[4], row[5])
+            list_gestures.append(gesture)
+            prev_id = row[0]
+        else:
+            if list_gestures is not None:
+                # Creating a new metric
+                metric = input_exp.Experiment_Metrics(prev_id, list_gestures)
+                list_metrics.append(metric)
+                # Adding the current gesture
+                list_gestures = []
+                gesture = input_exp.Gesture(row[0], row[1], row[2], row[3], row[4], row[5])
+                list_gestures.append(gesture)
+                prev_id = row[0]
+            else:
+                print("ERROR: The gestures list is empty")
+    # Including the last metric
+    metric = input_exp.Experiment_Metrics(prev_id, list_gestures)
+    list_metrics.append(metric)
+
+print("PROCESS FINISHED")
