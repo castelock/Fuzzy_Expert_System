@@ -322,14 +322,15 @@ dic_result={"PERFECT": list_perfect, "GOOD": list_good, "MEDIOCRE": list_mediocr
 
 # READING THE EXPERIMENTS
 # Reading the experiments features
-list_exp = []
+list_exp = {}
 with open(filenameExp_path, newline='') as f:
     reader = csv.reader(f, delimiter=';', quoting=csv.QUOTE_NONE)
     # Skipping the header line
     next(reader)   
     for row in reader:
         experiment = input_exp.Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
-        list_exp.append(experiment)
+        # list_exp.append(experiment)
+        list_exp[experiment.getId()]=experiment
 
 # Reading the experiments metrics
 list_metrics = []
