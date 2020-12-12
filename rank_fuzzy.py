@@ -265,60 +265,7 @@ filenameExp_path = input_path + filename_exp
 # File to store the experiments metrics
 filename_metrics = "experiments_metrics.csv"
 filenameMetrics_path = input_path + filename_metrics
-
-# Creating the TKS Fuzzy System
-tks = TKS()
-tks.creating_input()
-tks.creating_output()
-tks.creating_fuzzy_rules()
-tks.engine.input_variable("Precision").value = 1
-tks.engine.input_variable("Recall").value = 1
-tks.engine.input_variable("F1_score").value = 1
-tks.engine.process()
-tks.engine.output_variable("Result").defuzzify()
-
-
-# print("Activation degree: ", tks.engine.output_variable("Power").fuzzy.activation_degree(tks.engine.output_variable("Power").term("HIGH")))
-#result = tks.engine.output_variable("Power").fuzzy_value()
-#print("Result: ", result)
-
-print("Rules: ", tks.engine.rule_block("Rules").rules[0].weight.__str__())
-print("Rules: ", tks.engine.rule_block("Rules").rules[1].weight.__str__())
-print("Rules: ", tks.engine.rule_block("Rules").rules[2].weight.__str__())
-
-#print("Value output low:", tks.engine.output_variable("Result").terms.
-
-list_terms = tks.engine.output_variable("Result").terms
-for term in list_terms:
-    print("Terms name: ", term.name.__str__())
-    print("Terms value: ", term.membership(0.2).__str__())
-
-list_rules = tks.engine.rule_block("Rules").rules
-
-#tks.engine.rule_block("Rules").
-
-for rule in list_rules:
-    print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
-
 threshold = 0.9
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")).__str__())
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")).__str__())
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")).__str__())
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")).__str__())
-
-if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
-    print("Result is over threshold")
-else:
-    print("Result is under threshold")
-
-# GETTING RESULTS
-
-# Initialize dictionary
-list_perfect=[]
-list_good=[]
-list_mediocre=[]
-list_low=[]
-dic_result={"PERFECT": list_perfect, "GOOD": list_good, "MEDIOCRE": list_mediocre, "LOW": list_low}
 
 # READING THE EXPERIMENTS
 # Reading the experiments features
@@ -363,5 +310,85 @@ with open(filenameMetrics_path, newline='') as f:
     # Including the last metric
     metric = input_exp.Experiment_Metrics(prev_id, list_gestures)
     list_metrics.append(metric)
+
+mean_precision, mean_recall, mean_f1score = list_metrics[0].calculateMean()  
+
+print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+
+# Creating the TKS Fuzzy System
+tks = TKS()
+tks.creating_input()
+tks.creating_output()
+tks.creating_fuzzy_rules()
+list_perfect = []
+list_good = []
+list_mediocre = []
+list_low = []
+for metric in list_metrics:
+    mean_precision, mean_recall, mean_f1score = metric.calculateMean()
+    tks.engine.input_variable("Precision").value = mean_precision
+    tks.engine.input_variable("Recall").value = mean_recall
+    tks.engine.input_variable("F1_score").value = mean_f1score
+    tks.engine.process()
+    if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
+        list_perfect.append(metric.getId())
+    elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")) >= threshold:
+        list_good.append(metric.getId())
+    elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")) >= threshold:
+        list_mediocre.append(metric.getId())
+    elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")) >= threshold:
+        list_low.append(metric.getId())
+    else:
+        print("ERROR: The output variable is wrong.")
+
+
+
+#tks.engine.output_variable("Result").defuzzify()
+
+
+
+# print("Activation degree: ", tks.engine.output_variable("Power").fuzzy.activation_degree(tks.engine.output_variable("Power").term("HIGH")))
+#result = tks.engine.output_variable("Power").fuzzy_value()
+#print("Result: ", result)
+
+print("Rules: ", tks.engine.rule_block("Rules").rules[0].weight.__str__())
+print("Rules: ", tks.engine.rule_block("Rules").rules[1].weight.__str__())
+print("Rules: ", tks.engine.rule_block("Rules").rules[2].weight.__str__())
+
+#print("Value output low:", tks.engine.output_variable("Result").terms.
+
+list_terms = tks.engine.output_variable("Result").terms
+for term in list_terms:
+    print("Terms name: ", term.name.__str__())
+    print("Terms value: ", term.membership(0.2).__str__())
+
+list_rules = tks.engine.rule_block("Rules").rules
+
+#tks.engine.rule_block("Rules").
+
+for rule in list_rules:
+    print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
+
+threshold = 0.9
+print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")).__str__())
+print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")).__str__())
+print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")).__str__())
+print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")).__str__())
+
+if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
+    print("Result is over threshold")
+else:
+    print("Result is under threshold")
+
+# GETTING RESULTS
+
+# Initialize dictionary
+list_perfect=[]
+list_good=[]
+list_mediocre=[]
+list_low=[]
+dic_result={"PERFECT": list_perfect, "GOOD": list_good, "MEDIOCRE": list_mediocre, "LOW": list_low}
+
+
 
 print("PROCESS FINISHED")

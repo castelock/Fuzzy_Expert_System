@@ -1,4 +1,5 @@
 import csv
+import statistics
 
 class Experiment:
 
@@ -110,6 +111,34 @@ class Experiment_Metrics:
             for gesture in gestures_list:
                 row = [gesture.getId(), gesture.getName(), gesture.getPrecision(), gesture.getRecall(), gesture.getF1_score(), gesture.getSupport()]
                 writer.writerow(row) 
+                
+    # Calculate the mean of the gestures metrics per experiment
+    def calculateMean(self):
+        gestures_list = self.getGestures()
+        sum_precision = 0
+        sum_recall = 0
+        sum_f1score = 0
+        data_precision = []
+        data_recall = []
+        data_f1score = []
+        for gesture in gestures_list:
+            """sum_precision += gesture.precision
+            sum_recall += gesture.recall
+            sum_f1score += gesture.f1_score"""
+
+            data_precision.append(float(gesture.precision))
+            data_recall.append(float(gesture.recall))
+            data_f1score.append(float(gesture.f1_score))
+
+        
+        mean_precision = statistics.mean(data_precision)
+        mean_recall = statistics.mean(data_recall)
+        mean_f1score = statistics.mean(data_f1score)
+
+        # TO DO
+        # print("Mean: ",mean_precision +" "+mean_recall+" "+mean_f1score)
+
+        return mean_precision, mean_recall, mean_f1score
 
 class Gesture:
 
