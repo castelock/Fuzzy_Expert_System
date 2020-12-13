@@ -329,6 +329,8 @@ for metric in list_metrics:
     tks.engine.input_variable("Precision").value = mean_precision
     tks.engine.input_variable("Recall").value = mean_recall
     tks.engine.input_variable("F1_score").value = mean_f1score
+    # TO DO
+    print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
     tks.engine.process()
     if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
         list_perfect.append(metric.getId())
