@@ -278,6 +278,18 @@ exp_89 = Experiment("89", "Keras", "VGG16", "Adam", "0.001", "0.1", "200", "mse"
 exp_90 = Experiment("90", "Keras", "VGG19", "Adam", "0.001", "0.1", "200", "mse", "10", gestures_10g, "10")
 exp_91 = Experiment("91", "Keras", "VGG16", "Adam", "0.001", "0.1", "200", "categorical_crossentropy", "10", gestures_10g, "10")
 exp_92 = Experiment("92", "Keras", "VGG19", "Adam", "0.001", "0.1", "200", "categorical_crossentropy", "10", gestures_10g, "10")
+exp_93 = Experiment("93", "Keras", "VGG16", "Adam", "0.001", "0.1", "30", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_94 = Experiment("94", "Keras", "VGG16", "Adam", "0.001", "0.1", "50", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_95 = Experiment("95", "Keras", "VGG16", "Adam", "0.001", "0.1", "50", "mse", "10", gestures_10g, "17")
+exp_96 = Experiment("96", "Keras", "VGG19", "Adam", "0.001", "0.1", "50", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_97 = Experiment("97", "Keras", "VGG19", "Adam", "0.001", "0.1", "100", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_98 = Experiment("98", "Keras", "VGG16", "Adam", "0.001", "0.1", "70", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_99 = Experiment("99", "Keras", "VGG16", "Adam", "0.001", "0.1", "100", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_100 = Experiment("100", "Keras", "VGG16", "Adam", "0.001", "0.1", "30", "mse", "10", gestures_10g, "17")
+exp_101 = Experiment("101", "Keras", "VGG16", "Adam", "0.001", "0.1", "70", "mse", "10", gestures_10g, "17")
+exp_102 = Experiment("102", "Keras", "VGG16", "Adam", "0.001", "0.1", "100", "mse", "10", gestures_10g, "17")
+exp_103 = Experiment("103", "Keras", "VGG19", "Adam", "0.001", "0.1", "30", "categorical_crossentropy", "10", gestures_10g, "17")
+exp_104 = Experiment("104", "Keras", "VGG19", "Adam", "0.001", "0.1", "70", "categorical_crossentropy", "10", gestures_10g, "17")
 
 # Adding the metrics gesture
 stop_sign1 = Gesture("1", "stop_sign", "1.0", "0.3", "0.46", "90.0")
