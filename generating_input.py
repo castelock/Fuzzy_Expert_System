@@ -317,25 +317,65 @@ swipe_left5 = Gesture("5", "swipe_left", "0.93", "0.93", "0.93", "123.0")
 thumb_up5 = Gesture("5", "thumb_up", "0.63", "0.88", "0.74", "86.0")
 gestures_5 = [stop_sign5, swipe_left5, thumb_up5]
 
-stop_sign5 = Gesture("5", "stop_sign", "0.82", "0.51", "0.63", "90.0")
-swipe_left5 = Gesture("5", "swipe_left", "0.93", "0.93", "0.93", "123.0")
-thumb_up5 = Gesture("5", "thumb_up", "0.63", "0.88", "0.74", "86.0")
-gestures_5 = [stop_sign5, swipe_left5, thumb_up5]
+stop_sign6 = Gesture("6", "stop_sign", "0.96", "0.56", "0.7", "90.0")
+swipe_left6 = Gesture("6", "swipe_left", "0.78", "0.81", "0.79", "88.0")
+thumb_up6 = Gesture("6", "thumb_up", "0.64", "0.91", "0.75", "86.0")
+gestures_6 = [stop_sign6, swipe_left6, thumb_up6]
 
 stop_sign7 = Gesture("7", "stop_sign", "0.06", "0.04", "0.05", "90.0")
 swipe_left7 = Gesture("7", "swipe_left", "0.0", "0.0", "0.0", "123.0")
 thumb_up7 = Gesture("7", "thumb_up", "0.26", "0.72", "0.39", "86.0")
 gestures_7 = [stop_sign7, swipe_left7, thumb_up7]
 
+stop_sign8 = Gesture("8", "stop_sign", "0.0", "0.0", "0.0", "90.0")
+swipe_left8 = Gesture("8", "swipe_left", "0.35", "0.45", "0.39", "123.0")
+thumb_up8 = Gesture("8", "thumb_up", "0.31", "0.51", "0.38", "86.0")
+gestures_8 = [stop_sign8, swipe_left8, thumb_up8]
+
+stop_sign9 = Gesture("9", "stop_sign", "0.0", "0.0", "0.0", "90.0")
+swipe_left9 = Gesture("9", "swipe_left", "0.41", "1.0", "0.58", "123.0")
+thumb_up9 = Gesture("9", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_9 = [stop_sign9, swipe_left9, thumb_up9]
+
+stop_sign10 = Gesture("10", "stop_sign", "0.31", "1.0", "0.48", "90.0")
+swipe_left10 = Gesture("10", "swipe_left", "0.0", "0.0", "0.0", "123.0")
+thumb_up10 = Gesture("10", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_10 = [stop_sign10, swipe_left10, thumb_up10]
+
 stop_sign11 = Gesture("11", "stop_sign", "1.0", "0.22", "0.36", "90.0")
 swipe_left11 = Gesture("11", "swipe_left", "0.68", "0.87", "0.76", "123.0")
 thumb_up11 = Gesture("11", "thumb_up", "0.61", "0.86", "0.71", "86.0")
 gestures_11 = [stop_sign11, swipe_left11, thumb_up11]
 
+stop_sign12 = Gesture("12", "stop_sign", "0.88", "0.48", "0.62", "90.0")
+swipe_left12 = Gesture("12", "swipe_left", "0.75", "0.89", "0.81", "123.0")
+thumb_up12 = Gesture("12", "thumb_up", "0.6", "0.72", "0.66", "86.0")
+gestures_12 = [stop_sign12, swipe_left12, thumb_up12]
+
+stop_sign13 = Gesture("13", "stop_sign", "0.91", "0.48", "0.63", "90.0")
+swipe_left13 = Gesture("13", "swipe_left", "0.69", "0.99", "0.81", "123.0")
+thumb_up13 = Gesture("13", "thumb_up", "0.81", "0.7", "0.75", "86.0")
+gestures_13 = [stop_sign13, swipe_left13, thumb_up13]
+
+stop_sign14 = Gesture("14", "stop_sign", "0.31", "0.97", "0.46", "90.0")
+swipe_left14 = Gesture("14", "swipe_left", "0.29", "0.03", "0.06", "123.0")
+thumb_up14 = Gesture("14", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_14 = [stop_sign14, swipe_left14, thumb_up14]
+
 stop_sign15 = Gesture("15", "stop_sign", "0.36", "0.97", "0.52", "90.0")
 swipe_left15 = Gesture("15", "swipe_left", "0.23", "0.03", "0.06", "88.0")
 thumb_up15 = Gesture("15", "thumb_up", "0.0", "0.0", "0.0", "86.0")
 gestures_15 = [stop_sign15, swipe_left15, thumb_up15]
+
+stop_sign16 = Gesture("16", "stop_sign", "1.0", "0.03", "0.06", "90.0")
+swipe_left16 = Gesture("16", "swipe_left", "0.46", "0.54", "0.49", "123.0")
+thumb_up16 = Gesture("16", "thumb_up", "0.44", "0.78", "0.56", "86.0")
+gestures_16 = [stop_sign16, swipe_left16, thumb_up16]
+
+stop_sign17 = Gesture("17", "stop_sign", "0.95", "0.84", "0.89", "90.0")
+swipe_left17 = Gesture("17", "swipe_left", "1.0", "0.81", "0.9", "123.0")
+thumb_up17 = Gesture("17", "thumb_up", "0.7", "0.97", "0.81", "86.0")
+gestures_17 = [stop_sign17, swipe_left17, thumb_up17]
 
 stop_sign22 = Gesture("22", "stop_sign", "0.93", "0.97", "0.95", "90.0")
 swipe_left22 = Gesture("22", "swipe_left", "0.88", "0.98", "0.92", "88.0")
