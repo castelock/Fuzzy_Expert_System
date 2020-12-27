@@ -630,6 +630,63 @@ swipe_left62 = Gesture("62", "swipe_left", "1.0", "1.0", "1.0", "87.0")
 thumb_up62 = Gesture("62", "thumb_up", "1.0", "1.0", "1.0", "86.0")
 gestures_62 = [slide_2_fingers_right62, stop_sign62, swipe_down62, swipe_left62, thumb_up62]
 
+slide_2_fingers_right63 = Gesture("63", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+stop_sign63 = Gesture("63", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+swipe_down63 = Gesture("63", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+swipe_left63 = Gesture("63", "swipe_left", "1.0", "1.0", "1.0", "87.0")
+thumb_up63 = Gesture("63", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_63 = [slide_2_fingers_right63, stop_sign63, swipe_down63, swipe_left63, thumb_up63]
+
+pull_hand_in64 = Gesture("64", "pull_hand_in", "0.79", "0.34", "0.48", "90.0")
+slide_2_fingers_right64 = Gesture("64", "slide_2_fingers_right", "1.0", "0.04", "0.09", "89.0")
+slide_2_fingers_up64 = Gesture("64", "slide_2_fingers_up", "0.44", "0.83", "0.57", "88.0")
+stop_sign64 = Gesture("64", "stop_sign", "0.87", "0.29", "0.43", "90.0")
+swipe_down64 = Gesture("64", "swipe_down", "1.0", "0.09", "0.17", "86.0")
+swipe_left64 = Gesture("64", "swipe_left", "0.91", "0.35", "0.51", "88.0")
+thumb_up64 = Gesture("64", "thumb_up", "0.21", "1.0", "0.34", "86.0")
+zoom_in_with_2_fingers64 = Gesture("64", "zoom_in_with_2_fingers", "1.0", "0.09", "0.16", "91.0")
+gestures_64 = [pull_hand_in64, slide_2_fingers_right64, slide_2_fingers_up64, stop_sign64, swipe_down64, swipe_left64, thumb_up64, zoom_in_with_2_fingers64]
+
+pull_hand_in65 = Gesture("65", "pull_hand_in", "0.69", "0.61", "0.65", "90.0")
+slide_2_fingers_right65 = Gesture("65", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
+slide_2_fingers_up65 = Gesture("65", "slide_2_fingers_up", "0.62", "0.62", "0.62", "88.0")
+stop_sign65 = Gesture("65", "stop_sign", "0.74", "0.22", "0.34", "90.0")
+swipe_down65 = Gesture("65", "swipe_down", "1.0", "0.06", "0.11", "86.0")
+swipe_left65 = Gesture("65", "swipe_left", "0.55", "0.59", "0.57", "88.0")
+thumb_up65 = Gesture("65", "thumb_up", "0.21", "0.97", "0.35", "86.0")
+zoom_in_with_2_fingers65 = Gesture("65", "zoom_in_with_2_fingers", "1.0", "0.22", "0.36", "91.0")
+gestures_65 = [pull_hand_in65, slide_2_fingers_right65, slide_2_fingers_up65, stop_sign65, swipe_down65, swipe_left65, thumb_up65, zoom_in_with_2_fingers65]
+
+pull_hand_in66 = Gesture("66", "pull_hand_in", "0.43", "0.86", "0.57", "90.0")
+slide_2_fingers_right66 = Gesture("66", "slide_2_fingers_right", "0.91", "0.34", "0.49", "89.0")
+slide_2_fingers_up66 = Gesture("66", "slide_2_fingers_up", "0.75", "0.43", "0.55", "88.0")
+stop_sign66 = Gesture("66", "stop_sign", "1.0", "0.44", "0.62", "90.0")
+swipe_down66 = Gesture("66", "swipe_down", "1.0", "0.06", "0.11", "86.0")
+swipe_left66 = Gesture("66", "swipe_left", "0.62", "0.77", "0.69", "88.0")
+thumb_up66 = Gesture("66", "thumb_up", "0.35", "0.93", "0.51", "86.0")
+zoom_in_with_2_fingers66 = Gesture("66", "zoom_in_with_2_fingers", "0.98", "0.63", "0.77", "91.0")
+gestures_66 = [pull_hand_in66, slide_2_fingers_right66, slide_2_fingers_up66, stop_sign66, swipe_down66, swipe_left66, thumb_up66, zoom_in_with_2_fingers66]
+
+pull_hand_in67 = Gesture("67", "pull_hand_in", "0.89", "0.93", "0.91", "90.0")
+slide_2_fingers_right67 = Gesture("67", "slide_2_fingers_right", "0.94", "1.0", "0.97", "89.0")
+slide_2_fingers_up67 = Gesture("67", "slide_2_fingers_up", "0.93", "0.92", "0.93", "88.0")
+stop_sign67 = Gesture("67", "stop_sign", "0.89", "1.0", "0.94", "90.0")
+swipe_down67 = Gesture("67", "swipe_down", "1.0", "0.85", "0.92", "86.0")
+swipe_left67 = Gesture("67", "swipe_left", "0.98", "1.0", "0.99", "88.0")
+thumb_up67 = Gesture("67", "thumb_up", "1.0", "0.88", "0.94", "86.0")
+zoom_in_with_2_fingers67 = Gesture("67", "zoom_in_with_2_fingers", "0.99", "1.0", "0.99", "91.0")
+gestures_67 = [pull_hand_in67, slide_2_fingers_right67, slide_2_fingers_up67, stop_sign67, swipe_down67, swipe_left67, thumb_up67, zoom_in_with_2_fingers67]
+
+pull_hand_in68 = Gesture("68", "pull_hand_in", "0.99", "0.87", "0.92", "90.0")
+slide_2_fingers_right68 = Gesture("68", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+slide_2_fingers_up68 = Gesture("68", "slide_2_fingers_up", "0.94", "0.94", "0.94", "88.0")
+stop_sign68 = Gesture("68", "stop_sign", "0.85", "0.99", "0.91", "90.0")
+swipe_down68 = Gesture("68", "swipe_down", "1.0", "0.99", "0.99", "86.0")
+swipe_left68 = Gesture("68", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+thumb_up68 = Gesture("68", "thumb_up", "1.0", "0.97", "0.98", "86.0")
+zoom_in_with_2_fingers68 = Gesture("68", "zoom_in_with_2_fingers", "1.0", "1.0", "1.0", "91.0")
+gestures_68 = [pull_hand_in68, slide_2_fingers_right68, slide_2_fingers_up68, stop_sign68, swipe_down68, swipe_left68, thumb_up68, zoom_in_with_2_fingers68]
+
 pull_hand_in69 = Gesture("69", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
 slide_2_fingers_right69 = Gesture("69", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
 slide_2_fingers_up69 = Gesture("69", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
@@ -639,6 +696,17 @@ swipe_left69 = Gesture("69", "swipe_left", "1.0", "1.0", "1.0", "88.0")
 thumb_up69 = Gesture("69", "thumb_up", "1.0", "1.0", "1.0", "86.0")
 zoom_in_with_2_fingers69 = Gesture("69", "zoom_in_with_2_fingers", "1.0", "1.0", "1.0", "91.0")
 gestures_69 = [pull_hand_in69, slide_2_fingers_right69, slide_2_fingers_up69, stop_sign69, swipe_down69, swipe_left69, thumb_up69, zoom_in_with_2_fingers69]
+
+pull_hand_in70 = Gesture("70", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+slide_2_fingers_right70 = Gesture("70", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+slide_2_fingers_up70 = Gesture("70", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+stop_sign70 = Gesture("70", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+swipe_down70 = Gesture("70", "swipe_down", "1.0", "1.0", "1.0", "86.0")
+swipe_left70 = Gesture("70", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+thumb_up70 = Gesture("70", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+zoom_in_with_2_fingers70 = Gesture("70", "zoom_in_with_2_fingers", "1.0", "1.0", "1.0", "91.0")
+gestures_70 = [pull_hand_in70, slide_2_fingers_right70, slide_2_fingers_up70, stop_sign70, swipe_down70, swipe_left70, thumb_up70, zoom_in_with_2_fingers70]
+
 
 pull_hand_in71 = Gesture("71", "pull_hand_in", "0.25", "0.44", "0.32", "90.0")
 slide_2_fingers_right71 = Gesture("71", "slide_2_fingers_right", "0.22", "0.21", "0.21", "89.0")
@@ -650,6 +718,17 @@ thumb_up71 = Gesture("71", "thumb_up", "0.0", "0.0", "0.0", "86.0")
 zoom_in_with_2_fingers71 = Gesture("71", "zoom_in_with_2_fingers", "0.4", "0.42", "0.41", "91.0")
 gestures_71 = [pull_hand_in71, slide_2_fingers_right71, slide_2_fingers_up71, stop_sign71, swipe_down71, swipe_left71, thumb_up71, zoom_in_with_2_fingers71]
 
+pull_hand_in72 = Gesture("72", "pull_hand_in", "0.81", "0.47", "0.59", "90.0")
+slide_2_fingers_right72 = Gesture("72", "slide_2_fingers_right", "1.0", "0.13", "0.24", "89.0")
+slide_2_fingers_up72 = Gesture("72", "slide_2_fingers_up", "0.49", "0.97", "0.65", "88.0")
+stop_sign72 = Gesture("72", "stop_sign", "0.91", "0.68", "0.78", "90.0")
+swipe_down72 = Gesture("72", "swipe_down", "1.0", "0.01", "0.02", "86.0")
+swipe_left72 = Gesture("72", "swipe_left", "0.77", "0.69", "0.73", "88.0")
+thumb_up72 = Gesture("72", "thumb_up", "0.27", "1.0", "0.43", "86.0")
+zoom_in_with_2_fingers72 = Gesture("72", "zoom_in_with_2_fingers", "1.0", "0.12", "0.22", "91.0")
+gestures_72 = [pull_hand_in72, slide_2_fingers_right72, slide_2_fingers_up72, stop_sign72, swipe_down72, swipe_left72, thumb_up72, zoom_in_with_2_fingers72]
+
+
 pull_hand_in73 = Gesture("73", "pull_hand_in", "0.97", "0.39", "0.56", "90.0")
 slide_2_fingers_right73 = Gesture("73", "slide_2_fingers_right", "1.0", "0.11", "0.2", "89.0")
 slide_2_fingers_up73 = Gesture("73", "slide_2_fingers_up", "0.67", "0.66", "0.66", "88.0")
@@ -660,6 +739,15 @@ thumb_up73 = Gesture("73", "thumb_up", "0.22", "1.0", "0.36", "86.0")
 zoom_in_with_2_fingers73 = Gesture("73", "zoom_in_with_2_fingers", "1.0", "0.23", "0.38", "91.0")
 gestures_73 = [pull_hand_in73, slide_2_fingers_right73, slide_2_fingers_up73, stop_sign73, swipe_down73, swipe_left73, thumb_up73, zoom_in_with_2_fingers73]
 
+pull_hand_in74 = Gesture("74", "pull_hand_in", "0.67", "0.83", "0.74", "90.0")
+slide_2_fingers_right74 = Gesture("74", "slide_2_fingers_right", "1.0", "0.38", "0.55", "89.0")
+slide_2_fingers_up74 = Gesture("74", "slide_2_fingers_up", "0.77", "0.98", "0.86", "88.0")
+stop_sign74 = Gesture("74", "stop_sign", "0.87", "0.74", "0.8", "90.0")
+swipe_down74 = Gesture("74", "swipe_down", "1.0", "0.17", "0.3", "86.0")
+swipe_left74 = Gesture("74", "swipe_left", "0.78", "0.84", "0.81", "88.0")
+thumb_up74 = Gesture("74", "thumb_up", "0.41", "1.0", "0.59", "86.0")
+zoom_in_with_2_fingers74 = Gesture("74", "zoom_in_with_2_fingers", "1.0", "0.6", "0.75", "91.0")
+gestures_74 = [pull_hand_in74, slide_2_fingers_right74, slide_2_fingers_up74, stop_sign74, swipe_down74, swipe_left74, thumb_up74, zoom_in_with_2_fingers74]
 
 pull_hand_in75 = Gesture("75", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
 slide_2_fingers_right75 = Gesture("75", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
@@ -680,6 +768,63 @@ swipe_left76 = Gesture("76", "swipe_left", "0.95", "1.0", "0.97", "88.0")
 thumb_up76 = Gesture("76", "thumb_up", "1.0", "0.93", "0.96", "86.0")
 zoom_in_with_2_fingers76 = Gesture("76", "zoom_in_with_2_fingers", "0.99", "1.0", "0.99", "91.0")
 gestures_76 = [pull_hand_in76, slide_2_fingers_right76, slide_2_fingers_up76, stop_sign76, swipe_down76, swipe_left76, thumb_up76, zoom_in_with_2_fingers76]
+
+pull_hand_in77 = Gesture("77", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+slide_2_fingers_right77 = Gesture("77", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+slide_2_fingers_up77 = Gesture("77", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+stop_sign77 = Gesture("77", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+swipe_down77 = Gesture("77", "swipe_down", "1.0", "1.0", "1.0", "86.0")
+swipe_left77 = Gesture("77", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+thumb_up77 = Gesture("77", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+zoom_in_with_2_fingers77 = Gesture("77", "zoom_in_with_2_fingers", "1.0", "1.0", "1.0", "91.0")
+gestures_77 = [pull_hand_in77, slide_2_fingers_right77, slide_2_fingers_up77, stop_sign77, swipe_down77, swipe_left77, thumb_up77, zoom_in_with_2_fingers77]
+
+pull_hand_in78 = Gesture("77", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+slide_2_fingers_right78 = Gesture("77", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+slide_2_fingers_up78 = Gesture("77", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+stop_sign78 = Gesture("77", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+swipe_down78 = Gesture("77", "swipe_down", "1.0", "1.0", "1.0", "86.0")
+swipe_left78 = Gesture("77", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+thumb_up78 = Gesture("77", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+zoom_in_with_2_fingers78 = Gesture("77", "zoom_in_with_2_fingers", "1.0", "1.0", "1.0", "91.0")
+gestures_78 = [pull_hand_in78, slide_2_fingers_right78, slide_2_fingers_up78, stop_sign78, swipe_down78, swipe_left78, thumb_up78, zoom_in_with_2_fingers78]
+
+pull_hand_in79 = Gesture("79", "pull_hand_in", "0.68", "0.44", "0.54", "90.0")
+slide_2_fingers_right79 = Gesture("79", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
+slide_2_fingers_up79 = Gesture("79", "slide_2_fingers_up", "0.41", "0.8", "0.54", "88.0")
+stop_sign79 = Gesture("79", "stop_sign", "0.77", "0.62", "0.69", "90.0")
+swipe_down79 = Gesture("79", "swipe_down", "1.0", "0.12", "0.21", "86.0")
+swipe_left79 = Gesture("79", "swipe_left", "0.69", "0.6", "0.64", "88.0")
+thumb_up79 = Gesture("79", "thumb_up", "0.19", "0.85", "0.31", "86.0")
+zoom_in_with_2_fingers79 = Gesture("79", "zoom_in_with_2_fingers", "1.0", "0.05", "0.1", "91.0")
+zoom_in_with_full_hand79 = Gesture("79", "zoom_in_with_full_hand", "1.0", "0.06", "0.11", "87.0")
+zoom_out_with_2_fingers79 = Gesture("79", "zoom_out_with_2_fingers", "0.58", "0.66", "0.62", "89.0")
+gestures_79 = [pull_hand_in79, slide_2_fingers_right79, slide_2_fingers_up79, stop_sign79, swipe_down79, swipe_left79, thumb_up79, zoom_in_with_2_fingers79, zoom_in_with_full_hand79, zoom_out_with_2_fingers79]
+
+pull_hand_in80 = Gesture("80", "pull_hand_in", "0.49", "0.19", "0.27", "90.0")
+slide_2_fingers_right80 = Gesture("80", "slide_2_fingers_right", "1.0", "0.01", "0.02", "89.0")
+slide_2_fingers_up80 = Gesture("80", "slide_2_fingers_up", "0.93", "0.15", "0.25", "88.0")
+stop_sign80 = Gesture("80", "stop_sign", "0.61", "0.16", "0.25", "90.0")
+swipe_down80 = Gesture("80", "swipe_down", "1.0", "0.09", "0.17", "86.0")
+swipe_left80 = Gesture("80", "swipe_left", "0.61", "0.7", "0.66", "88.0")
+thumb_up80 = Gesture("80", "thumb_up", "0.21", "0.94", "0.35", "86.0")
+zoom_in_with_2_fingers80 = Gesture("80", "zoom_in_with_2_fingers", "1.0", "0.13", "0.23", "91.0")
+zoom_in_with_full_hand80 = Gesture("80", "zoom_in_with_full_hand", "1.0", "0.09", "0.16", "90.0")
+zoom_out_with_2_fingers80 = Gesture("80", "zoom_out_with_2_fingers", "0.25", "0.85", "0.39", "88.0")
+gestures_80 = [pull_hand_in80, slide_2_fingers_right80, slide_2_fingers_up80, stop_sign80, swipe_down80, swipe_left80, thumb_up80, zoom_in_with_2_fingers80, zoom_in_with_full_hand80, zoom_out_with_2_fingers80]
+
+pull_hand_in81 = Gesture("81", "pull_hand_in", "0.42", "0.72", "0.53", "90.0")
+slide_2_fingers_right81 = Gesture("81", "slide_2_fingers_right", "1.0", "0.44", "0.61", "89.0")
+slide_2_fingers_up81 = Gesture("81", "slide_2_fingers_up", "0.79", "0.22", "0.34", "88.0")
+stop_sign81 = Gesture("81", "stop_sign", "0.75", "0.56", "0.64", "90.0")
+swipe_down81 = Gesture("81", "swipe_down", "1.0", "0.07", "0.13", "86.0")
+swipe_left81 = Gesture("81", "swipe_left", "0.37", "0.95", "0.53", "88.0")
+thumb_up81 = Gesture("81", "thumb_up", "0.46", "0.72", "0.56", "86.0")
+zoom_in_with_2_fingers81 = Gesture("81", "zoom_in_with_2_fingers", "1.0", "0.52", "0.68", "91.0")
+zoom_in_with_full_hand81 = Gesture("81", "zoom_in_with_full_hand", "1.0", "0.18", "0.31", "87.0")
+zoom_out_with_2_fingers81 = Gesture("81", "zoom_out_with_2_fingers", "0.45", "0.83", "0.58", "89.0")
+gestures_81 = [pull_hand_in81, slide_2_fingers_right81, slide_2_fingers_up81, stop_sign81, swipe_down81, swipe_left81, thumb_up81, zoom_in_with_2_fingers81, zoom_in_with_full_hand81, zoom_out_with_2_fingers81]
+
 
 pull_hand_in82 = Gesture("82", "pull_hand_in", "0.82", "0.97", "0.89", "90.0")
 slide_2_fingers_right82 = Gesture("82", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
