@@ -384,11 +384,7 @@ else:
 
 # GETTING RESULTS
 
-# Initialize dictionary
-list_perfect=[]
-list_good=[]
-list_mediocre=[]
-list_low=[]
+# Create dictionary for the results
 dic_result={"PERFECT": list_perfect, "GOOD": list_good, "MEDIOCRE": list_mediocre, "LOW": list_low}
 
 
