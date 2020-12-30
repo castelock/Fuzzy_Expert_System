@@ -102,24 +102,44 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
     fp_perfect = pred_pg+pred_pm+pred_pl
     fn_perfect = pred_gp+pred_mp+pred_lp
 
-    acc_rate_perfect = (tp_perfect + tn_perfect) / (tp_perfect + tn_perfect + fp_perfect + fn_perfect)
-    precision_perfect = tp_perfect/(tp_perfect+fp_perfect)
+    try:
+        acc_rate_perfect = (tp_perfect + tn_perfect) / (tp_perfect + tn_perfect + fp_perfect + fn_perfect)
+    except(ZeroDivisionError):
+        acc_rate_perfect = 0
+    try:
+        precision_perfect = tp_perfect/(tp_perfect+fp_perfect)
+    except(ZeroDivisionError):
+        precision_perfect = 0
 
     tp_good = pred_gg
     tn_good = pred_pp+pred_pm+pred_pl+pred_mp+pred_mm+pred_ml+pred_lp+pred_lm+pred_ll
     fp_good = pred_gp+pred_gm+pred_gl
     fn_good = pred_pg+pred_mg+pred_lg
 
-    acc_rate_good = (tp_good + tn_good) / (tp_good + tn_good + fp_good + fn_good)
-    precision_good = tp_good/(tp_good+fp_good)
+    try:
+        acc_rate_good = (tp_good + tn_good) / (tp_good + tn_good + fp_good + fn_good)
+    except(ZeroDivisionError):
+        acc_rate_good = 0
+    
+    try:
+        precision_good = tp_good/(tp_good+fp_good)
+    except(ZeroDivisionError):
+        precision_good = 0
 
     tp_mediocre = pred_mm
     tn_mediocre = pred_pp+pred_pg+pred_pl+pred_gp+pred_gg+pred_gl+pred_lp+pred_lg+pred_ll
     fp_mediocre = pred_mp+pred_mg+pred_ml
     fn_mediocre = pred_pm+pred_gm+pred_gl
 
-    acc_rate_mediocre = (tp_mediocre + tn_mediocre) / (tp_mediocre + tn_mediocre + fp_mediocre + fn_mediocre)
-    precision_mediocre = tp_mediocre/(tp_mediocre+fp_mediocre)
+    try:
+        acc_rate_mediocre = (tp_mediocre + tn_mediocre) / (tp_mediocre + tn_mediocre + fp_mediocre + fn_mediocre)
+    except(ZeroDivisionError):
+        acc_rate_mediocre = 0
+    
+    try:
+        precision_mediocre = tp_mediocre/(tp_mediocre+fp_mediocre)
+    except(ZeroDivisionError):
+        precision_mediocre = 0
     
 
     tp_low = pred_ll
@@ -127,8 +147,15 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
     fp_low = pred_lp+pred_lg+pred_lm
     fn_low = pred_pl+pred_gl+pred_ml
 
-    acc_rate_low = (tp_low + tn_low) / (tp_low + tn_low + fp_low + fn_low)
-    precision_low = tp_low/(tp_low+fp_low)
+    try:
+        acc_rate_low = (tp_low + tn_low) / (tp_low + tn_low + fp_low + fn_low)
+    except(ZeroDivisionError):
+        acc_rate_low = 0
+
+    try:
+        precision_low = tp_low/(tp_low+fp_low)
+    except(ZeroDivisionError):
+        precision_low = 0
 
 
     confusion_matrix = np.array([[pred_pp,pred_pg,pred_pm,pred_pl], [pred_gp,pred_gg,pred_gm,pred_gl], [pred_mp,pred_mg,pred_mm,pred_ml], [pred_lp,pred_lg,pred_lm,pred_ll]])
@@ -152,13 +179,13 @@ class TKS:
     def __init__(self):
         # Declaring and Initializing the Fuzzy Engine
         self.engine = fl.Engine(
-        name="GestureRecognition_Rank",
+        name="Takagi-Sugeno-Kang_Fuzzy_System",
         description="")
 
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
         x = np.arange(0,1,0.1)
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -170,7 +197,7 @@ class TKS:
                 fl.Gaussian("HIGH",0.9,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
-                 ]                
+                 ]                         
             ),
         fl.InputVariable(
             name="Recall",
@@ -183,7 +210,7 @@ class TKS:
                 fl.Gaussian("HIGH",0.9,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
-                 ]                
+                 ]                          
             ),
         fl.InputVariable(
             name="F1_score",
@@ -196,9 +223,56 @@ class TKS:
                 fl.Gaussian("HIGH",0.9,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
-                 ]                
+                 ]
+                            
+            )
+        ]"""
+
+        self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Triangle("HIGH",0.75,1.0,1.0),
+                fl.Triangle("MEDIUM",0,0.5,0.75),
+                fl.Triangle("LOW",0,0,0.5)
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Triangle("HIGH",0.75,1.0,1.0),
+                fl.Triangle("MEDIUM",0,0.5,0.75),
+                fl.Triangle("LOW",0,0,0.5)
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Triangle("HIGH",0.75,1.0,1.0),
+                fl.Triangle("MEDIUM",0,0.5,0.75),
+                fl.Triangle("LOW",0,0,0.5)
+                ]
+                            
             )
         ]
+        
+        
+        
 
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
@@ -249,14 +323,14 @@ class TKS:
 
 
 
-# MANDANI
+# MAMDANI
 
-"""class Mandani:
+class Mandani:
 
     def __init__(self):
         # Declaring and Initializing the Fuzzy Engine
         self.engine = fl.Engine(
-        name="GestureRecognition_Rank",
+        name="Mamdani_Fuzzy_System",
         description="")
 
 #Defining the Input Variables (Fuzzification)
@@ -367,7 +441,7 @@ engine.rule_blocks = [
       fl.Rule.create("if Ambient is BRIGHT then Power is LOW", engine)
       ]
       )
-]"""
+]
 
 # Building the GUI
 """window = gui_tk.Window("Fuzzy Expert System")
