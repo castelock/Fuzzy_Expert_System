@@ -597,7 +597,7 @@ class Tsukamoto:
 
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
-        engine.input_variables = [
+        self.engine.input_variables = [
             fl.InputVariable(
             name="Precision",
             description="",
@@ -606,18 +606,44 @@ class Tsukamoto:
             maximum=1.000,
             lock_range=False,
             terms=[
-            fl.Bell("Dark", -10.000, 5.000, 3.000), 
-            fl.Bell("medium", 0.000, 5.000, 3.000), 
-            fl.Bell("Bright", 10.000, 5.000, 3.000) 
+            fl.Bell("LOW", 0, 8, 4), # Bell(center, width,slope)
+            fl.Bell("MEDIUM", 0.5, 8, 4), 
+            fl.Bell("HIGH", 1.0, 8, 4) 
+            ]
+            ),
+            fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+            fl.Bell("LOW", 0, 8, 4), # Bell(center, width,slope)
+            fl.Bell("MEDIUM", 0.5, 8, 4), 
+            fl.Bell("HIGH", 1.0, 8, 4) 
+            ]
+            ),
+            fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+            fl.Bell("LOW", 0, 8, 4), # Bell(center, width,slope)
+            fl.Bell("MEDIUM", 0.5, 8, 4), 
+            fl.Bell("HIGH", 1.0, 8, 4) 
             ]
             )
         ]
         
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
-        engine.output_variables = [
+        self.engine.output_variables = [
             fl.OutputVariable(
-            name="Power",
+            name="Result",
             description="",
             enabled=True,
             minimum=0.000,
@@ -627,29 +653,35 @@ class Tsukamoto:
             defuzzifier=fl.Centroid(200),
             lock_previous=False,
             terms=[
-            fl.Sigmoid("LOW", 0.500, -30.000), #Triangular Membership Function defining "LOW Light"
-            fl.Sigmoid("MEDIUM", 0.130, 30.000), #Triangular Membership Function defining "MEDIUM light"
-            fl.Sigmoid("HIGH", 0.830, 30.000), #Triangular Membership Function defining "HIGH Light"
-            fl.Triangle("HIGH", 0.500, 0.750, 1.000)
+            fl.Sigmoid("BAD", 0, 2), 
+            fl.Sigmoid("MEDIOCRE", 0.5, 2), 
+            fl.Sigmoid("GOOD", 0.7, 2),
+            fl.Sigmoid("PERFECT", 1.0, 2)
             ]
             )
         ]
 
 # Creation of Fuzzy Rule Base
     def creating_fuzzy_rules(self):
-        engine.rule_blocks = [
+        self.engine.rule_blocks = [
             fl.RuleBlock(
-            name="",
+            name="Rules",
             description="",
             enabled=True,
-            conjunction=None,
-            disjunction=None,
-            implication=None,
+            conjunction=fl.Minimum(),
+            disjunction=fl.Maximum(),
+            implication=fl.Minimum(),
             activation=fl.General(),
             rules=[
-            fl.Rule.create("if Ambient is DARK then Power is HIGH", engine),
-            fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", engine),
-            fl.Rule.create("if Ambient is BRIGHT then Power is LOW", engine)
+                fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
+                fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
+                fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),                    
+                fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if Precision is MEDIUM and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if Precision is HIGH and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if Precision is MEDIUM and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if F1_score is LOW then Result is BAD", self.engine),
+                fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
             ]
             )
         ]
@@ -743,6 +775,7 @@ print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_r
 list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
 
 # Creating Tsukamoto Fuzzy System
+list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
 
 # GETTING RESULTS
 
