@@ -171,6 +171,172 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
 
     return acc_rate_perfect, acc_rate_good, acc_rate_mediocre, acc_rate_low
 
+def create_TKS(list_metrics, threshold):
+    tks = TKS()
+    tks.creating_input()
+    tks.creating_output()
+    tks.creating_fuzzy_rules()
+    list_perfect = []
+    list_good = []
+    list_mediocre = []
+    list_low = []
+    for metric in list_metrics:
+        mean_precision, mean_recall, mean_f1score = metric.calculateMean()
+        tks.engine.input_variable("Precision").value = mean_precision
+        tks.engine.input_variable("Recall").value = mean_recall
+        tks.engine.input_variable("F1_score").value = mean_f1score
+        # TO DO
+        print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        tks.engine.process()
+        if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
+            list_perfect.append(metric.getId())
+        elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")) >= threshold:
+            list_good.append(metric.getId())
+        elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")) >= threshold:
+            list_mediocre.append(metric.getId())
+        elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")) >= threshold:
+            list_low.append(metric.getId())
+        else:
+            print("ERROR: The output variable is wrong.")
+
+
+    # print("Activation degree: ", tks.engine.output_variable("Power").fuzzy.activation_degree(tks.engine.output_variable("Power").term("HIGH")))
+    #result = tks.engine.output_variable("Power").fuzzy_value()
+    #print("Result: ", result)
+
+    print("Rules: ", tks.engine.rule_block("Rules").rules[0].weight.__str__())
+    print("Rules: ", tks.engine.rule_block("Rules").rules[1].weight.__str__())
+    print("Rules: ", tks.engine.rule_block("Rules").rules[2].weight.__str__())
+
+    list_terms = tks.engine.output_variable("Result").terms
+    for term in list_terms:
+        print("Terms name: ", term.name.__str__())
+        print("Terms value: ", term.membership(0.2).__str__())
+
+    list_rules = tks.engine.rule_block("Rules").rules
+
+    for rule in list_rules:
+        print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
+    
+    print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")).__str__())
+    print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")).__str__())
+    print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")).__str__())
+    print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")).__str__())
+
+    if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
+        print("Result is over threshold")
+    else:
+        print("Result is under threshold")
+
+    return list_perfect, list_good, list_mediocre, list_low
+
+def create_Mamdani(list_metrics, threshold):
+    mamdani = Mamdani()
+    mamdani.creating_input()
+    mamdani.creating_output()
+    mamdani.creating_fuzzy_rules()
+    list_perfect = []
+    list_good = []
+    list_mediocre = []
+    list_low = []
+    for metric in list_metrics:
+        mean_precision, mean_recall, mean_f1score = metric.calculateMean()
+        mamdani.engine.input_variable("Precision").value = mean_precision
+        mamdani.engine.input_variable("Recall").value = mean_recall
+        mamdani.engine.input_variable("F1_score").value = mean_f1score
+        # TO DO
+        print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        mamdani.engine.process()
+        if mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("PERFECT")) >= threshold:
+            list_perfect.append(metric.getId())
+        elif mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("GOOD")) >= threshold:
+            list_good.append(metric.getId())
+        elif mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("MEDIOCRE")) >= threshold:
+            list_mediocre.append(metric.getId())
+        elif mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("BAD")) >= threshold:
+            list_low.append(metric.getId())
+        else:
+            print("ERROR: The output variable is wrong.")
+
+    print("Rules: ", mamdani.engine.rule_block("Rules").rules[0].weight.__str__())
+    print("Rules: ", mamdani.engine.rule_block("Rules").rules[1].weight.__str__())
+    print("Rules: ", mamdani.engine.rule_block("Rules").rules[2].weight.__str__())
+
+    list_terms = mamdani.engine.output_variable("Result").terms
+    for term in list_terms:
+        print("Terms name: ", term.name.__str__())
+        print("Terms value: ", term.membership(0.2).__str__())
+
+    list_rules = mamdani.engine.rule_block("Rules").rules
+
+    for rule in list_rules:
+        print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
+    
+    print( "Activation degree: ", mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("PERFECT")).__str__())
+    print( "Activation degree: ", mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("GOOD")).__str__())
+    print( "Activation degree: ", mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("MEDIOCRE")).__str__())
+    print( "Activation degree: ", mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("BAD")).__str__())
+
+    if mamdani.engine.output_variable("Result").fuzzy.activation_degree(mamdani.engine.output_variable("Result").term("PERFECT")) >= threshold:
+        print("Result is over threshold")
+    else:
+        print("Result is under threshold")
+
+    return list_perfect, list_good, list_mediocre, list_low
+
+def create_Tsukamoto(list_metrics, threshold):
+    tsukamoto = Tsukamoto()
+    tsukamoto.creating_input()
+    tsukamoto.creating_output()
+    tsukamoto.creating_fuzzy_rules()
+    list_perfect = []
+    list_good = []
+    list_mediocre = []
+    list_low = []
+    for metric in list_metrics:
+        mean_precision, mean_recall, mean_f1score = metric.calculateMean()
+        tsukamoto.engine.input_variable("Precision").value = mean_precision
+        tsukamoto.engine.input_variable("Recall").value = mean_recall
+        tsukamoto.engine.input_variable("F1_score").value = mean_f1score
+        # TO DO
+        print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        tsukamoto.engine.process()
+        if tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("PERFECT")) >= threshold:
+            list_perfect.append(metric.getId())
+        elif tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("GOOD")) >= threshold:
+            list_good.append(metric.getId())
+        elif tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("MEDIOCRE")) >= threshold:
+            list_mediocre.append(metric.getId())
+        elif tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("BAD")) >= threshold:
+            list_low.append(metric.getId())
+        else:
+            print("ERROR: The output variable is wrong.")
+
+    print("Rules: ", tsukamoto.engine.rule_block("Rules").rules[0].weight.__str__())
+    print("Rules: ", tsukamoto.engine.rule_block("Rules").rules[1].weight.__str__())
+    print("Rules: ", tsukamoto.engine.rule_block("Rules").rules[2].weight.__str__())
+
+    list_terms = tsukamoto.engine.output_variable("Result").terms
+    for term in list_terms:
+        print("Terms name: ", term.name.__str__())
+        print("Terms value: ", term.membership(0.2).__str__())
+
+    list_rules = tsukamoto.engine.rule_block("Rules").rules
+
+    for rule in list_rules:
+        print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
+    
+    print( "Activation degree: ", tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("PERFECT")).__str__())
+    print( "Activation degree: ", tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("GOOD")).__str__())
+    print( "Activation degree: ", tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("MEDIOCRE")).__str__())
+    print( "Activation degree: ", tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("BAD")).__str__())
+
+    if tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("PERFECT")) >= threshold:
+        print("Result is over threshold")
+    else:
+        print("Result is under threshold")
+
+    return list_perfect, list_good, list_mediocre, list_low
 
 # TAKAGI-SUGENO-KANG
 
@@ -269,11 +435,8 @@ class TKS:
                 ]
                             
             )
-        ]
-        
-        
-        
-
+        ]        
+    
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
         self.engine.output_variables = [
@@ -289,7 +452,7 @@ class TKS:
             lock_previous=False,
             terms=[
                 fl.Constant("PERFECT", 1),
-                fl.Constant("GOOD", 0.9),
+                fl.Constant("GOOD", 0.8),
                 fl.Constant("MEDIOCRE", 0.6),
                 fl.Constant("BAD", 0.35),
                 ]
@@ -306,7 +469,7 @@ class TKS:
                 conjunction=fl.Minimum(),
                 disjunction=fl.Maximum(),
                 implication=None,
-                activation=fl.Highest(),
+                activation=fl.General(),
                 rules=[
                     fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
@@ -325,7 +488,7 @@ class TKS:
 
 # MAMDANI
 
-class Mandani:
+class Mamdani:
 
     def __init__(self):
         # Declaring and Initializing the Fuzzy Engine
@@ -333,7 +496,7 @@ class Mandani:
         name="Mamdani_Fuzzy_System",
         description="")
 
-#Defining the Input Variables (Fuzzification)
+# Defining the Input Variables (Fuzzification)
     def creating_input(self):
         self.engine.input_variables = [
             fl.InputVariable(
@@ -344,104 +507,152 @@ class Mandani:
             maximum=1.000,
             lock_range=False,
             terms=[
-            fl.Triangle("DARK", 0.000, 0.250, 0.500), #Triangular Membership Function defining "Dark"
-            fl.Triangle("MEDIUM", 0.250, 0.500, 0.750), #Triangular Membership Function defining "Medium"
-            fl.Triangle("BRIGHT", 0.500, 0.750, 1.000) #Triangular Membership Function defining "Bright"
+            fl.Triangle("LOW", 0, 0, 0.5), 
+            fl.Triangle("MEDIUM", 0, 0.5, 0.75),
+            fl.Triangle("HIGH", 0.75, 1.0, 1.0) 
+            ]
+            ),
+            fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+            fl.Triangle("LOW", 0, 0, 0.5), 
+            fl.Triangle("MEDIUM", 0, 0.5, 0.75),
+            fl.Triangle("HIGH", 0.75, 1.0, 1.0) 
+            ]
+            ),
+            fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+            fl.Triangle("LOW", 0, 0, 0.5), 
+            fl.Triangle("MEDIUM", 0, 0.5, 0.75),
+            fl.Triangle("HIGH", 0.75, 1.0, 1.0) 
             ]
             )
         ]
-#Defining the Output Variables (Defuzzification)
-engine.output_variables = [
-      fl.OutputVariable(
-      name="Power",
-      description="",
-      enabled=True,
-      minimum=0.000,
-      maximum=1.000,
-      lock_range=False,
-      aggregation=fl.Maximum(),
-      defuzzifier=fl.Centroid(200),
-      lock_previous=False,
-      terms=[
-      fl.Triangle("LOW", 0.000, 0.250, 0.500), #Triangular Membership Function defining "LOW Light"
-      fl.Triangle("MEDIUM", 0.250, 0.500, 0.750), #Triangular Membership Function defining "MEDIUM light"
-      fl.Triangle("HIGH", 0.500, 0.750, 1.000) #Triangular Membership Function defining "HIGH Light"
-      ]
-      )
-]
-#Creation of Fuzzy Rule Base
-engine.rule_blocks = [
-      fl.RuleBlock(
-      name="",
-      description="",
-      enabled=True,
-      conjunction=None,
-      disjunction=None,
-      implication=fl.Minimum(),
-      activation=fl.General(),
-      rules=[
-      fl.Rule.create("if Ambient is DARK then Power is HIGH", engine),
-      fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", engine),
-      fl.Rule.create("if Ambient is BRIGHT then Power is LOW", engine)
-      ]
-      )
-]
+
+# Defining the Output Variables (Defuzzification)
+    def creating_output(self):
+        self.engine.output_variables = [
+            fl.OutputVariable(
+            name="Result",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            aggregation=fl.Maximum(),
+            defuzzifier=fl.Centroid(200),
+            lock_previous=False,
+            terms=[
+            fl.Triangle("BAD", 0, 0, 0.5), 
+            fl.Triangle("MEDIOCRE", 0, 0.5, 0.7),
+            fl.Triangle("GOOD", 0.5, 0.7, 0.9), 
+            fl.Triangle("PERFECT", 0.9, 1.0, 1.0)
+            ]
+            )
+        ]
+
+# Creation of Fuzzy Rule Base
+    def creating_fuzzy_rules(self):
+        self.engine.rule_blocks = [
+            fl.RuleBlock(
+            name="Rules",
+            description="",
+            enabled=True,
+            conjunction=fl.Minimum(),
+            disjunction=fl.Maximum(),
+            implication=fl.Minimum(),
+            activation=fl.General(),
+            rules=[
+                fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
+                fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
+                fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),                    
+                fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if Precision is MEDIUM and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if Precision is HIGH and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if Precision is MEDIUM and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
+                fl.Rule.create("if F1_score is LOW then Result is BAD", self.engine),
+                fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
+            ]
+            )
+        ]
 
 # TSUKAMOTO
-#Defining the Input Variables (Fuzzification)
-engine.input_variables = [
-      fl.InputVariable(
-      name="Ambient",
-      description="",
-      enabled=True,
-      minimum=0.000,
-      maximum=1.000,
-      lock_range=False,
-      terms=[
-      fl.Bell("Dark", -10.000, 5.000, 3.000), #Generalized Bell Membership Function defining "Dark"
-      fl.Bell("medium", 0.000, 5.000, 3.000), #Generalized Bell  Membership Function defining "Medium"
-      fl.Bell("Bright", 10.000, 5.000, 3.000) #Generalized Bell  Membership Function defining "Bright"
-      ]
-      )
-]
-#Defining the Output Variables (Defuzzification)
-engine.output_variables = [
-      fl.OutputVariable(
-      name="Power",
-      description="",
-      enabled=True,
-      minimum=0.000,
-      maximum=1.000,
-      lock_range=False,
-      aggregation=fl.Maximum(),
-      defuzzifier=fl.Centroid(200),
-      lock_previous=False,
-      terms=[
-      fl.Sigmoid("LOW", 0.500, -30.000), #Triangular Membership Function defining "LOW Light"
-      fl.Sigmoid("MEDIUM", 0.130, 30.000), #Triangular Membership Function defining "MEDIUM light"
-      fl.Sigmoid("HIGH", 0.830, 30.000), #Triangular Membership Function defining "HIGH Light"
-      fl.Triangle("HIGH", 0.500, 0.750, 1.000)
-      ]
-      )
-]
+class Tsukamoto:
+    def __init__(self):
+        # Declaring and Initializing the Fuzzy Engine
+        self.engine = fl.Engine(
+        name="Tsukamoto_Fuzzy_System",
+        description="")
 
-#Creation of Fuzzy Rule Base
-engine.rule_blocks = [
-      fl.RuleBlock(
-      name="",
-      description="",
-      enabled=True,
-      conjunction=None,
-      disjunction=None,
-      implication=None,
-      activation=fl.General(),
-      rules=[
-      fl.Rule.create("if Ambient is DARK then Power is HIGH", engine),
-      fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", engine),
-      fl.Rule.create("if Ambient is BRIGHT then Power is LOW", engine)
-      ]
-      )
-]
+# Defining the Input Variables (Fuzzification)
+    def creating_input(self):
+        engine.input_variables = [
+            fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+            fl.Bell("Dark", -10.000, 5.000, 3.000), 
+            fl.Bell("medium", 0.000, 5.000, 3.000), 
+            fl.Bell("Bright", 10.000, 5.000, 3.000) 
+            ]
+            )
+        ]
+        
+# Defining the Output Variables (Defuzzification)
+    def creating_output(self):
+        engine.output_variables = [
+            fl.OutputVariable(
+            name="Power",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            aggregation=fl.Maximum(),
+            defuzzifier=fl.Centroid(200),
+            lock_previous=False,
+            terms=[
+            fl.Sigmoid("LOW", 0.500, -30.000), #Triangular Membership Function defining "LOW Light"
+            fl.Sigmoid("MEDIUM", 0.130, 30.000), #Triangular Membership Function defining "MEDIUM light"
+            fl.Sigmoid("HIGH", 0.830, 30.000), #Triangular Membership Function defining "HIGH Light"
+            fl.Triangle("HIGH", 0.500, 0.750, 1.000)
+            ]
+            )
+        ]
+
+# Creation of Fuzzy Rule Base
+    def creating_fuzzy_rules(self):
+        engine.rule_blocks = [
+            fl.RuleBlock(
+            name="",
+            description="",
+            enabled=True,
+            conjunction=None,
+            disjunction=None,
+            implication=None,
+            activation=fl.General(),
+            rules=[
+            fl.Rule.create("if Ambient is DARK then Power is HIGH", engine),
+            fl.Rule.create("if Ambient is MEDIUM then Power is MEDIUM", engine),
+            fl.Rule.create("if Ambient is BRIGHT then Power is LOW", engine)
+            ]
+            )
+        ]
 
 # Building the GUI
 """window = gui_tk.Window("Fuzzy Expert System")
@@ -525,65 +736,13 @@ mean_precision, mean_recall, mean_f1score = list_metrics[0].calculateMean()
 
 print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_recall.__str__()+" "+mean_f1score.__str__())
 
-# Creating the TKS Fuzzy System
-tks = TKS()
-tks.creating_input()
-tks.creating_output()
-tks.creating_fuzzy_rules()
-list_perfect = []
-list_good = []
-list_mediocre = []
-list_low = []
-for metric in list_metrics:
-    mean_precision, mean_recall, mean_f1score = metric.calculateMean()
-    tks.engine.input_variable("Precision").value = mean_precision
-    tks.engine.input_variable("Recall").value = mean_recall
-    tks.engine.input_variable("F1_score").value = mean_f1score
-    # TO DO
-    print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
-    tks.engine.process()
-    if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
-        list_perfect.append(metric.getId())
-    elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")) >= threshold:
-        list_good.append(metric.getId())
-    elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")) >= threshold:
-        list_mediocre.append(metric.getId())
-    elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")) >= threshold:
-        list_low.append(metric.getId())
-    else:
-        print("ERROR: The output variable is wrong.")
+# Creating TKS Fuzzy System
+# list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
 
+# Creating Mamdani Fuzzy System
+list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
 
-# print("Activation degree: ", tks.engine.output_variable("Power").fuzzy.activation_degree(tks.engine.output_variable("Power").term("HIGH")))
-#result = tks.engine.output_variable("Power").fuzzy_value()
-#print("Result: ", result)
-
-print("Rules: ", tks.engine.rule_block("Rules").rules[0].weight.__str__())
-print("Rules: ", tks.engine.rule_block("Rules").rules[1].weight.__str__())
-print("Rules: ", tks.engine.rule_block("Rules").rules[2].weight.__str__())
-
-list_terms = tks.engine.output_variable("Result").terms
-for term in list_terms:
-    print("Terms name: ", term.name.__str__())
-    print("Terms value: ", term.membership(0.2).__str__())
-
-list_rules = tks.engine.rule_block("Rules").rules
-
-#tks.engine.rule_block("Rules").
-
-for rule in list_rules:
-    print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
-
-threshold = 0.9
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")).__str__())
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")).__str__())
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("MEDIOCRE")).__str__())
-print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("BAD")).__str__())
-
-if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
-    print("Result is over threshold")
-else:
-    print("Result is under threshold")
+# Creating Tsukamoto Fuzzy System
 
 # GETTING RESULTS
 
