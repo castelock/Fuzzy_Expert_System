@@ -186,8 +186,15 @@ def create_TKS(list_metrics, threshold):
         tks.engine.input_variable("Recall").value = mean_recall
         tks.engine.input_variable("F1_score").value = mean_f1score
         # TO DO
-        print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        # print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
         tks.engine.process()
+        # TO DO
+        """tks.engine.input_variable("Precision").value = 0.4
+        tks.engine.process()
+        list_rules = tks.engine.rule_block("Rules").rules
+        for rule in list_rules:
+            print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)"""
+
         if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
             list_perfect.append(metric.getId())
         elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")) >= threshold:
@@ -204,19 +211,11 @@ def create_TKS(list_metrics, threshold):
     #result = tks.engine.output_variable("Power").fuzzy_value()
     #print("Result: ", result)
 
-    print("Rules: ", tks.engine.rule_block("Rules").rules[0].weight.__str__())
-    print("Rules: ", tks.engine.rule_block("Rules").rules[1].weight.__str__())
-    print("Rules: ", tks.engine.rule_block("Rules").rules[2].weight.__str__())
-
-    list_terms = tks.engine.output_variable("Result").terms
-    for term in list_terms:
-        print("Terms name: ", term.name.__str__())
-        print("Terms value: ", term.membership(0.2).__str__())
-
-    list_rules = tks.engine.rule_block("Rules").rules
+    
+    """list_rules = tks.engine.rule_block("Rules").rules
 
     for rule in list_rules:
-        print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)
+        print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)"""
     
     print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")).__str__())
     print( "Activation degree: ", tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")).__str__())
@@ -227,6 +226,10 @@ def create_TKS(list_metrics, threshold):
         print("Result is over threshold")
     else:
         print("Result is under threshold")
+
+    # TO DO
+
+    
 
     return list_perfect, list_good, list_mediocre, list_low
 
@@ -299,7 +302,7 @@ def create_Tsukamoto(list_metrics, threshold):
         tsukamoto.engine.input_variable("Recall").value = mean_recall
         tsukamoto.engine.input_variable("F1_score").value = mean_f1score
         # TO DO
-        print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        # print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
         tsukamoto.engine.process()
         if tsukamoto.engine.output_variable("Result").fuzzy.activation_degree(tsukamoto.engine.output_variable("Result").term("PERFECT")) >= threshold:
             list_perfect.append(metric.getId())
@@ -312,14 +315,6 @@ def create_Tsukamoto(list_metrics, threshold):
         else:
             print("ERROR: The output variable is wrong.")
 
-    print("Rules: ", tsukamoto.engine.rule_block("Rules").rules[0].weight.__str__())
-    print("Rules: ", tsukamoto.engine.rule_block("Rules").rules[1].weight.__str__())
-    print("Rules: ", tsukamoto.engine.rule_block("Rules").rules[2].weight.__str__())
-
-    list_terms = tsukamoto.engine.output_variable("Result").terms
-    for term in list_terms:
-        print("Terms name: ", term.name.__str__())
-        print("Terms value: ", term.membership(0.2).__str__())
 
     list_rules = tsukamoto.engine.rule_block("Rules").rules
 
@@ -351,7 +346,7 @@ class TKS:
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
         x = np.arange(0,1,0.1)
-        """self.engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -360,7 +355,7 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("HIGH",1.0,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]                         
@@ -373,7 +368,7 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("HIGH",1.0,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]                          
@@ -386,15 +381,15 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("HIGH",1.0,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]
                             
             )
-        ]"""
+        ]
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -435,7 +430,7 @@ class TKS:
                 ]
                             
             )
-        ]        
+        ]"""        
     
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
@@ -461,7 +456,7 @@ class TKS:
 
 # Creation of Fuzzy Rule Base
     def creating_fuzzy_rules(self):
-        self.engine.rule_blocks = [
+        """self.engine.rule_blocks = [
             fl.RuleBlock(
                 name="Rules",
                 description="",
@@ -469,7 +464,7 @@ class TKS:
                 conjunction=fl.Minimum(),
                 disjunction=fl.Maximum(),
                 implication=None,
-                activation=fl.General(),
+                activation=fl.Highest(),
                 rules=[
                     fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
@@ -479,6 +474,23 @@ class TKS:
                     fl.Rule.create("if Precision is HIGH and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                     fl.Rule.create("if Precision is MEDIUM and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                     fl.Rule.create("if F1_score is LOW then Result is BAD", self.engine),
+                    fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
+                ]
+            )
+        ]"""
+        # TO DO
+        self.engine.rule_blocks = [
+            fl.RuleBlock(
+                name="Rules",
+                description="",
+                enabled=True,
+                conjunction=fl.Minimum(),
+                disjunction=fl.Maximum(),
+                implication=None,
+                activation=fl.Highest(),
+                rules=[
+                    fl.Rule.create("if Precision is HIGH then Result is PERFECT", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM then Result is GOOD", self.engine),                     
                     fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
                 ]
             )
@@ -769,13 +781,13 @@ mean_precision, mean_recall, mean_f1score = list_metrics[0].calculateMean()
 print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_recall.__str__()+" "+mean_f1score.__str__())
 
 # Creating TKS Fuzzy System
-# list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
+list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
 
 # Creating Mamdani Fuzzy System
-list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
+# list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
 
 # Creating Tsukamoto Fuzzy System
-list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
+# list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
 
 # GETTING RESULTS
 
