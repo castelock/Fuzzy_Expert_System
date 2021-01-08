@@ -355,7 +355,7 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",1.2,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]                         
@@ -368,7 +368,7 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",1.2,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]                          
@@ -381,7 +381,7 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",1.2,0.5),
                 fl.Gaussian("MEDIUM",0.6,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]
@@ -456,7 +456,7 @@ class TKS:
 
 # Creation of Fuzzy Rule Base
     def creating_fuzzy_rules(self):
-        """self.engine.rule_blocks = [
+        self.engine.rule_blocks = [
             fl.RuleBlock(
                 name="Rules",
                 description="",
@@ -477,9 +477,9 @@ class TKS:
                     fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
                 ]
             )
-        ]"""
+        ]
         # TO DO
-        self.engine.rule_blocks = [
+        """self.engine.rule_blocks = [
             fl.RuleBlock(
                 name="Rules",
                 description="",
@@ -494,7 +494,7 @@ class TKS:
                     fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
                 ]
             )
-        ]
+        ]"""
 
 
 
