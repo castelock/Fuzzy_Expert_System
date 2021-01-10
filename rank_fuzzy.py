@@ -186,7 +186,17 @@ def create_TKS(list_metrics, threshold):
         tks.engine.input_variable("Recall").value = mean_recall
         tks.engine.input_variable("F1_score").value = mean_f1score
         # TO DO
-        # print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
+        # To write in a file
+        with open("metrics.csv", 'a+', newline='') as csvfile:
+            fieldnames = ['Id', 'Precision', 'Recall', 'F1_score']
+            writer = csv.writer(csvfile, delimiter=';')
+            # Writing the header
+            writer.writerow(fieldnames) 
+            # Writing the content
+            row = [metric.getId(), mean_precision.__str__(), mean_recall.__str__(), mean_f1score.__str__()]
+            writer.writerow(row)
+
         tks.engine.process()
         # TO DO
         """tks.engine.input_variable("Precision").value = 0.4
