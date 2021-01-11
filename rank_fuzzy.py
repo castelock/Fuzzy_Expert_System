@@ -11,10 +11,10 @@ from mlxtend.plotting import plot_confusion_matrix
 
 # METHODS
 def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, list_low_pred):
-    list_perfect_true = {"24", "25", "26", "27", "28", "29", "44", "45", "47", "48", "52", "53", "54", "55", "60", "61", "62", "63", "69", "70", "75", "77", "78", "84", "85", "91", "92", "93", "94", "96", "98", "99", "103", "104"}
-    list_good_true = {"3", "4", "17", "19", "21", "22", "23", "46", "67", "68", "76", "82", "83", "89", "90", "97", "101", "102"}
-    list_mediocre_true = {"1", "2", "5", "6", "12", "13", "18", "20", "49", "51", "57", "58", "59", "64", "66", "72", "73", "74", "79", "80", "81", "86", "87", "88", "95", "100"}
-    list_low_true = {"7", "8", "9", "10", "11", "14", "15", "16", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "50", "56", "65", "71"}
+    list_perfect_true = {"23","24", "25", "26", "27", "28", "29", "44", "45", "47", "48", "52", "53", "54", "55", "60", "61", "62", "63", "68", "69", "70", "75", "76", "77", "78", "84", "85", "90", "91", "92", "93", "94", "96", "97", "98", "99", "103", "104"}
+    list_good_true = {"3", "4", "17", "18", "19", "21", "22", "67", "82", "83", "89", "101", "102"}
+    list_mediocre_true = {"1", "2", "5", "6", "11", "12", "13", "20", "46", "51", "59", "66", "74", "88", "95", "100"}
+    list_low_true = {"7", "8", "9", "10", "14", "15", "16", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "49", "50", "56", "57", "58", "64", "65", "71", "72", "73", "79", "80", "81", "86", "87"}
 
     # Right answers for each case
     pred_pp = 0
@@ -180,6 +180,12 @@ def create_TKS(list_metrics, threshold):
     list_good = []
     list_mediocre = []
     list_low = []
+    # Writing the header of the file
+    with open("metrics.csv", 'w', newline='') as csvfile:
+        fieldnames = ['Id', 'Precision', 'Recall', 'F1_score']
+        writer = csv.writer(csvfile, delimiter=';')
+        writer.writerow(fieldnames) 
+
     for metric in list_metrics:
         mean_precision, mean_recall, mean_f1score = metric.calculateMean()
         tks.engine.input_variable("Precision").value = mean_precision
@@ -188,23 +194,22 @@ def create_TKS(list_metrics, threshold):
         # TO DO
         print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
         # To write in a file
-        with open("metrics.csv", 'a+', newline='') as csvfile:
-            fieldnames = ['Id', 'Precision', 'Recall', 'F1_score']
-            writer = csv.writer(csvfile, delimiter=';')
-            # Writing the header
-            writer.writerow(fieldnames) 
+        with open("metrics.csv", 'a+', newline='') as csvfile:            
+            writer = csv.writer(csvfile, delimiter=';')            
             # Writing the content
             row = [metric.getId(), mean_precision.__str__(), mean_recall.__str__(), mean_f1score.__str__()]
             writer.writerow(row)
 
         tks.engine.process()
+
         # TO DO
-        """tks.engine.input_variable("Precision").value = 0.4
+        """tks.engine.input_variable("Precision").value = 0.55
         tks.engine.process()
         list_rules = tks.engine.rule_block("Rules").rules
         for rule in list_rules:
             print("Trigerred: ", rule.triggered.__str__() + " " + rule.antecedent.text)"""
-
+        ####################################################################################
+        
         if tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("PERFECT")) >= threshold:
             list_perfect.append(metric.getId())
         elif tks.engine.output_variable("Result").fuzzy.activation_degree(tks.engine.output_variable("Result").term("GOOD")) >= threshold:
@@ -365,8 +370,9 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",1.2,0.5),
-                fl.Gaussian("MEDIUM",0.6,0.5),
+                fl.Gaussian("VERY_HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("MEDIUM",0.7,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]                         
             ),
@@ -378,8 +384,9 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",1.2,0.5),
-                fl.Gaussian("MEDIUM",0.6,0.5),
+                fl.Gaussian("VERY_HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("MEDIUM",0.7,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]                          
             ),
@@ -391,8 +398,9 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[
-                fl.Gaussian("HIGH",1.2,0.5),
-                fl.Gaussian("MEDIUM",0.6,0.5),
+                fl.Gaussian("VERY_HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("MEDIUM",0.7,0.5),
                 fl.Gaussian("LOW",0.35,0.5)
                  ]
                             
@@ -476,9 +484,11 @@ class TKS:
                 implication=None,
                 activation=fl.Highest(),
                 rules=[
-                    fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
+                    fl.Rule.create("if Precision is VERY_HIGH and Recall is VERY_HIGH and F1_score is VERY_HIGH then Result is PERFECT", self.engine),
+                    fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
                     fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),                    
+                    fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                     fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                     fl.Rule.create("if Precision is MEDIUM and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
@@ -499,8 +509,9 @@ class TKS:
                 implication=None,
                 activation=fl.Highest(),
                 rules=[
-                    fl.Rule.create("if Precision is HIGH then Result is PERFECT", self.engine),
-                    fl.Rule.create("if Precision is MEDIUM then Result is GOOD", self.engine),                     
+                    fl.Rule.create("if Precision is VERY_HIGH then Result is PERFECT", self.engine),
+                    fl.Rule.create("if Precision is HIGH then Result is GOOD", self.engine),
+                    fl.Rule.create("if Precision is MEDIUM then Result is MEDIOCRE", self.engine),                     
                     fl.Rule.create("if Precision is LOW then Result is BAD", self.engine)
                 ]
             )
