@@ -203,7 +203,7 @@ def create_TKS(list_metrics, threshold):
         tks.engine.process()
 
         # TO DO
-        """tks.engine.input_variable("Precision").value = 0.55
+        """tks.engine.input_variable("Precision").value = 0.8
         tks.engine.process()
         list_rules = tks.engine.rule_block("Rules").rules
         for rule in list_rules:
@@ -361,7 +361,7 @@ class TKS:
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
         x = np.arange(0,1,0.1)
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -405,9 +405,9 @@ class TKS:
                  ]
                             
             )
-        ]
+        ]"""
 
-        """self.engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -415,10 +415,11 @@ class TKS:
             minimum=0.000,
             maximum=1.000,
             lock_range=False,
-            terms=[ 
-                fl.Triangle("HIGH",0.75,1.0,1.0),
-                fl.Triangle("MEDIUM",0,0.5,0.75),
-                fl.Triangle("LOW",0,0,0.5)
+            terms=[
+                fl.Triangle("VERY_HIGH",0.9,1.0,1.0), 
+                fl.Triangle("HIGH",0.7,0.9,1.0),
+                fl.Triangle("MEDIUM",0.35,0.7,0.9),
+                fl.Triangle("LOW",0,0.35,0.7)
                 ]                 
             ),
         fl.InputVariable(
@@ -429,9 +430,10 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[ 
-                fl.Triangle("HIGH",0.75,1.0,1.0),
-                fl.Triangle("MEDIUM",0,0.5,0.75),
-                fl.Triangle("LOW",0,0,0.5)
+                fl.Triangle("VERY_HIGH",0.9,1.0,1.0), 
+                fl.Triangle("HIGH",0.7,0.9,1.0),
+                fl.Triangle("MEDIUM",0.35,0.7,0.9),
+                fl.Triangle("LOW",0,0.35,0.7)
                 ]                            
             ),
         fl.InputVariable(
@@ -442,13 +444,150 @@ class TKS:
             maximum=1.000,
             lock_range=False,
             terms=[ 
-                fl.Triangle("HIGH",0.75,1.0,1.0),
-                fl.Triangle("MEDIUM",0,0.5,0.75),
-                fl.Triangle("LOW",0,0,0.5)
+                fl.Triangle("VERY_HIGH",0.9,1.0,1.0), 
+                fl.Triangle("HIGH",0.7,0.9,1.0),
+                fl.Triangle("MEDIUM",0.35,0.7,0.9),
+                fl.Triangle("LOW",0,0.35,0.7)
                 ]
                             
             )
-        ]"""        
+        ] 
+
+        """self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Bell("VERY_HIGH", 1.0, 8, 4), # Bell(center, width,slope)    
+                fl.Bell("HIGH", 0.9, 8, 4),            
+                fl.Bell("MEDIUM", 0.7, 8, 4), 
+                fl.Bell("LOW", 0.35, 8, 4) 
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Bell("VERY_HIGH", 1.0, 8, 4), # Bell(center, width,slope)    
+                fl.Bell("HIGH", 0.9, 8, 4),            
+                fl.Bell("MEDIUM", 0.7, 8, 4), 
+                fl.Bell("LOW", 0.35, 8, 4) 
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Bell("VERY_HIGH", 1.0, 8, 4), # Bell(center, width,slope)    
+                fl.Bell("HIGH", 0.9, 8, 4),            
+                fl.Bell("MEDIUM", 0.7, 8, 4), 
+                fl.Bell("LOW", 0.35, 8, 4) 
+                ]
+                            
+            )
+        ]"""
+
+        """self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Sigmoid("VERY_HIGH", 1.0, 0.5), # Sigmoid(inflection, slope)    
+                fl.Sigmoid("HIGH", 0.9, 0.5),            
+                fl.Sigmoid("MEDIUM", 0.7, 0.5), 
+                fl.Sigmoid("LOW", 0.35, 0.5)
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Sigmoid("VERY_HIGH", 1.0, 0.5), # Sigmoid(inflection, slope)    
+                fl.Sigmoid("HIGH", 0.9, 0.5),            
+                fl.Sigmoid("MEDIUM", 0.7, 0.5), 
+                fl.Sigmoid("LOW", 0.35, 0.5)  
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Sigmoid("VERY_HIGH", 1.0, 0.5), # Sigmoid(inflection, slope)    
+                fl.Sigmoid("HIGH", 0.9, 0.5),            
+                fl.Sigmoid("MEDIUM", 0.7, 0.5), 
+                fl.Sigmoid("LOW", 0.35, 0.5)  
+                ]                            
+            )
+        ] """
+
+        """self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Ramp("VERY_HIGH", 0.95, 1.0), # Ramp (start, end)    
+                fl.Ramp("HIGH", 0.8, 0.95),            
+                fl.Ramp("MEDIUM", 0.55, 0.8), 
+                fl.Ramp("LOW", 0.0, 0.55) 
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Ramp("VERY_HIGH", 0.95, 1.0), # Ramp (start, end)    
+                fl.Ramp("HIGH", 0.8, 0.95),            
+                fl.Ramp("MEDIUM", 0.55, 0.8), 
+                fl.Ramp("LOW", 0.0, 0.55)   
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Ramp("VERY_HIGH", 0.95, 1.0), # Ramp (start, end)    
+                fl.Ramp("HIGH", 0.8, 0.95),            
+                fl.Ramp("MEDIUM", 0.55, 0.8), 
+                fl.Ramp("LOW", 0.0, 0.55) 
+                ]                            
+            )
+        ]"""                 
     
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
@@ -482,7 +621,7 @@ class TKS:
                 conjunction=fl.Minimum(),
                 disjunction=fl.Maximum(),
                 implication=None,
-                activation=fl.Highest(),
+                activation=fl.General(),
                 rules=[
                     fl.Rule.create("if Precision is VERY_HIGH and Recall is VERY_HIGH and F1_score is VERY_HIGH then Result is PERFECT", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),
@@ -531,8 +670,8 @@ class Mamdani:
 
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
-        self.engine.input_variables = [
-            fl.InputVariable(
+        """self.engine.input_variables = [
+        fl.InputVariable(
             name="Precision",
             description="",
             enabled=True,
@@ -540,12 +679,59 @@ class Mamdani:
             maximum=1.000,
             lock_range=False,
             terms=[
-            fl.Triangle("LOW", 0, 0, 0.5), 
-            fl.Triangle("MEDIUM", 0, 0.5, 0.75),
-            fl.Triangle("HIGH", 0.75, 1.0, 1.0) 
-            ]
+                fl.Triangle("VERY_HIGH",0.9,1.0,1.0), 
+                fl.Triangle("HIGH",0.7,0.9,1.0),
+                fl.Triangle("MEDIUM",0.35,0.7,0.9),
+                fl.Triangle("LOW",0,0.35,0.7)
+                ]                 
             ),
-            fl.InputVariable(
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Triangle("VERY_HIGH",0.9,1.0,1.0), 
+                fl.Triangle("HIGH",0.7,0.9,1.0),
+                fl.Triangle("MEDIUM",0.35,0.7,0.9),
+                fl.Triangle("LOW",0,0.35,0.7)
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Triangle("VERY_HIGH",0.9,1.0,1.0), 
+                fl.Triangle("HIGH",0.7,0.9,1.0),
+                fl.Triangle("MEDIUM",0.35,0.7,0.9),
+                fl.Triangle("LOW",0,0.35,0.7)
+                ]
+                            
+            )
+        ]"""
+
+        """self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Gaussian("VERY_HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("MEDIUM",0.7,0.5),
+                fl.Gaussian("LOW",0.35,0.5)
+                 ]                         
+            ),
+        fl.InputVariable(
             name="Recall",
             description="",
             enabled=True,
@@ -553,12 +739,13 @@ class Mamdani:
             maximum=1.000,
             lock_range=False,
             terms=[
-            fl.Triangle("LOW", 0, 0, 0.5), 
-            fl.Triangle("MEDIUM", 0, 0.5, 0.75),
-            fl.Triangle("HIGH", 0.75, 1.0, 1.0) 
-            ]
+                fl.Gaussian("VERY_HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("MEDIUM",0.7,0.5),
+                fl.Gaussian("LOW",0.35,0.5)
+                 ]                          
             ),
-            fl.InputVariable(
+        fl.InputVariable(
             name="F1_score",
             description="",
             enabled=True,
@@ -566,10 +753,103 @@ class Mamdani:
             maximum=1.000,
             lock_range=False,
             terms=[
-            fl.Triangle("LOW", 0, 0, 0.5), 
-            fl.Triangle("MEDIUM", 0, 0.5, 0.75),
-            fl.Triangle("HIGH", 0.75, 1.0, 1.0) 
-            ]
+                fl.Gaussian("VERY_HIGH",1.0,0.5),
+                fl.Gaussian("HIGH",0.9,0.5),
+                fl.Gaussian("MEDIUM",0.7,0.5),
+                fl.Gaussian("LOW",0.35,0.5)
+                 ]
+                            
+            )
+        ]"""
+
+        """self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Bell("VERY_HIGH", 1.0, 8, 4), # Bell(center, width,slope)    
+                fl.Bell("HIGH", 0.9, 8, 4),            
+                fl.Bell("MEDIUM", 0.7, 8, 4), 
+                fl.Bell("LOW", 0.35, 8, 4) 
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Bell("VERY_HIGH", 1.0, 8, 4), # Bell(center, width,slope)    
+                fl.Bell("HIGH", 0.9, 8, 4),            
+                fl.Bell("MEDIUM", 0.7, 8, 4), 
+                fl.Bell("LOW", 0.35, 8, 4) 
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Bell("VERY_HIGH", 1.0, 8, 4), # Bell(center, width,slope)    
+                fl.Bell("HIGH", 0.9, 8, 4),            
+                fl.Bell("MEDIUM", 0.7, 8, 4), 
+                fl.Bell("LOW", 0.35, 8, 4) 
+                ]
+                            
+            )
+        ]""" 
+
+        self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Ramp("VERY_HIGH", 0.95, 1.0), # Ramp (start, end)    
+                fl.Ramp("HIGH", 0.8, 0.95),            
+                fl.Ramp("MEDIUM", 0.55, 0.8), 
+                fl.Ramp("LOW", 0.0, 0.55) 
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Ramp("VERY_HIGH", 0.95, 1.0), # Ramp (start, end)    
+                fl.Ramp("HIGH", 0.8, 0.95),            
+                fl.Ramp("MEDIUM", 0.55, 0.8), 
+                fl.Ramp("LOW", 0.0, 0.55)   
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Ramp("VERY_HIGH", 0.95, 1.0), # Ramp (start, end)    
+                fl.Ramp("HIGH", 0.8, 0.95),            
+                fl.Ramp("MEDIUM", 0.55, 0.8), 
+                fl.Ramp("LOW", 0.0, 0.55) 
+                ]                            
             )
         ]
 
@@ -587,10 +867,10 @@ class Mamdani:
             defuzzifier=fl.Centroid(200),
             lock_previous=False,
             terms=[
-            fl.Triangle("BAD", 0, 0, 0.5), 
-            fl.Triangle("MEDIOCRE", 0, 0.5, 0.7),
-            fl.Triangle("GOOD", 0.5, 0.7, 0.9), 
-            fl.Triangle("PERFECT", 0.9, 1.0, 1.0)
+            fl.Triangle("BAD", 0,0.35,0.7), 
+            fl.Triangle("MEDIOCRE", 0.35,0.7,0.9),
+            fl.Triangle("GOOD", 0.7,0.9,1.0), 
+            fl.Triangle("PERFECT", 0.9,1.0,1.0)
             ]
             )
         ]
@@ -607,9 +887,11 @@ class Mamdani:
             implication=fl.Minimum(),
             activation=fl.General(),
             rules=[
-                fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is PERFECT", self.engine),
+                fl.Rule.create("if Precision is VERY_HIGH and Recall is VERY_HIGH and F1_score is VERY_HIGH then Result is PERFECT", self.engine),
+                fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),
                 fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is HIGH then Result is GOOD", self.engine),
                 fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),                    
+                fl.Rule.create("if Precision is HIGH and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                 fl.Rule.create("if Precision is MEDIUM and Recall is HIGH and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                 fl.Rule.create("if Precision is MEDIUM and Recall is MEDIUM and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
                 fl.Rule.create("if Precision is HIGH and Recall is LOW and F1_score is MEDIUM then Result is MEDIOCRE", self.engine),
@@ -802,10 +1084,10 @@ mean_precision, mean_recall, mean_f1score = list_metrics[0].calculateMean()
 print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_recall.__str__()+" "+mean_f1score.__str__())
 
 # Creating TKS Fuzzy System
-list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
+# list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
 
 # Creating Mamdani Fuzzy System
-# list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
+list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
 
 # Creating Tsukamoto Fuzzy System
 # list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
