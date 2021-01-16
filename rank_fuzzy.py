@@ -10,7 +10,7 @@ import sklearn.metrics
 from mlxtend.plotting import plot_confusion_matrix
 
 # METHODS
-def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, list_low_pred):
+def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, list_low_pred, results_filename):
     list_perfect_true = {"23","24", "25", "26", "27", "28", "29", "44", "45", "47", "48", "52", "53", "54", "55", "60", "61", "62", "63", "68", "69", "70", "75", "76", "77", "78", "84", "85", "90", "91", "92", "93", "94", "96", "97", "98", "99", "103", "104"}
     list_good_true = {"3", "4", "17", "18", "19", "21", "22", "67", "82", "83", "89", "101", "102"}
     list_mediocre_true = {"1", "2", "5", "6", "11", "12", "13", "20", "46", "51", "59", "66", "74", "88", "95", "100"}
@@ -41,7 +41,7 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
     acc_rate_perfect = 0
     acc_rate_good = 0
     acc_rate_mediocre = 0
-    acc_rate_low = 0
+    acc_rate_bad = 0
 
 
     # Counting the right answers for perfect cases
@@ -97,20 +97,30 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
 
     acc_rate = sklearn.metrics.accuracy_score(list_perfect_true, list_perfect_pred)"""
 
+    # Calculating metric for perfect case
     tp_perfect = pred_pp
     tn_perfect = pred_gg+pred_gm+pred_gl+pred_mg+pred_mm+pred_ml+pred_lg+pred_lm+pred_ll
     fp_perfect = pred_pg+pred_pm+pred_pl
     fn_perfect = pred_gp+pred_mp+pred_lp
-
+    
     try:
         acc_rate_perfect = (tp_perfect + tn_perfect) / (tp_perfect + tn_perfect + fp_perfect + fn_perfect)
     except(ZeroDivisionError):
         acc_rate_perfect = 0
     try:
-        precision_perfect = tp_perfect/(tp_perfect+fp_perfect)
+        precision_perfect = tp_perfect/(tp_perfect+fn_perfect)
     except(ZeroDivisionError):
         precision_perfect = 0
+    try:
+        recall_perfect = tp_perfect/(tp_perfect+fn_perfect)
+    except(ZeroDivisionError):
+        recall_perfect = 0
+    try:
+        f1_score_perfect = 2*precision_perfect*recall_perfect/(precision_perfect+recall_perfect)
+    except(ZeroDivisionError):
+        f1_score_perfect = 0
 
+    # Calculating metric for good case
     tp_good = pred_gg
     tn_good = pred_pp+pred_pm+pred_pl+pred_mp+pred_mm+pred_ml+pred_lp+pred_lm+pred_ll
     fp_good = pred_gp+pred_gm+pred_gl
@@ -119,13 +129,21 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
     try:
         acc_rate_good = (tp_good + tn_good) / (tp_good + tn_good + fp_good + fn_good)
     except(ZeroDivisionError):
-        acc_rate_good = 0
-    
+        acc_rate_good = 0    
     try:
         precision_good = tp_good/(tp_good+fp_good)
     except(ZeroDivisionError):
         precision_good = 0
+    try:
+        recall_good = tp_good/(tp_good+fn_good)
+    except(ZeroDivisionError):
+        recall_good = 0
+    try:
+        f1_score_good = 2*precision_good*recall_good/(precision_good+recall_good)
+    except(ZeroDivisionError):
+        f1_score_good = 0
 
+    # Calculating metric for mediocre case
     tp_mediocre = pred_mm
     tn_mediocre = pred_pp+pred_pg+pred_pl+pred_gp+pred_gg+pred_gl+pred_lp+pred_lg+pred_ll
     fp_mediocre = pred_mp+pred_mg+pred_ml
@@ -140,27 +158,41 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
         precision_mediocre = tp_mediocre/(tp_mediocre+fp_mediocre)
     except(ZeroDivisionError):
         precision_mediocre = 0
+    try:
+        recall_mediocre = tp_mediocre/(tp_mediocre+fn_mediocre)
+    except(ZeroDivisionError):
+        recall_mediocre = 0
+    try:
+        f1_score_mediocre = 2*precision_mediocre*recall_mediocre/(precision_mediocre+recall_mediocre)
+    except(ZeroDivisionError):
+        f1_score_mediocre = 0
     
-
-    tp_low = pred_ll
-    tn_low = pred_pp+pred_pg+pred_pm+pred_gp+pred_gg+pred_gm+pred_mp+pred_mg+pred_mm
-    fp_low = pred_lp+pred_lg+pred_lm
-    fn_low = pred_pl+pred_gl+pred_ml
-
-    try:
-        acc_rate_low = (tp_low + tn_low) / (tp_low + tn_low + fp_low + fn_low)
-    except(ZeroDivisionError):
-        acc_rate_low = 0
+    # Calculating metric for bad case
+    tp_bad = pred_ll
+    tn_bad = pred_pp+pred_pg+pred_pm+pred_gp+pred_gg+pred_gm+pred_mp+pred_mg+pred_mm
+    fp_bad = pred_lp+pred_lg+pred_lm
+    fn_bad = pred_pl+pred_gl+pred_ml
 
     try:
-        precision_low = tp_low/(tp_low+fp_low)
+        acc_rate_bad = (tp_bad + tn_bad) / (tp_bad + tn_bad + fp_bad + fn_bad)
     except(ZeroDivisionError):
-        precision_low = 0
-
+        acc_rate_bad = 0
+    try:
+        precision_bad = tp_bad/(tp_bad+fp_bad)
+    except(ZeroDivisionError):
+        precision_bad = 0
+    try:
+        recall_bad = tp_bad/(tp_bad+fn_bad)
+    except(ZeroDivisionError):
+        recall_bad = 0
+    try:
+        f1_score_bad = 2*precision_bad*recall_bad/(precision_bad+recall_bad)
+    except(ZeroDivisionError):
+        f1_score_bad = 0
 
     confusion_matrix = np.array([[pred_pp,pred_pg,pred_pm,pred_pl], [pred_gp,pred_gg,pred_gm,pred_gl], [pred_mp,pred_mg,pred_mm,pred_ml], [pred_lp,pred_lg,pred_lm,pred_ll]])
 
-    class_names = ["Perfect", "Good", "Mediocre", "Low"]
+    class_names = ["Perfect", "Good", "Mediocre", "Bad"]
 
     fig, ax = plot_confusion_matrix(conf_mat=confusion_matrix,
                                 colorbar=True,
@@ -169,7 +201,17 @@ def evaluate_predictions(list_perfect_pred, list_good_pred, list_mediocre_pred, 
                                 class_names=class_names)
     plt.show()
 
-    return acc_rate_perfect, acc_rate_good, acc_rate_mediocre, acc_rate_low
+    with open(results_path+results_filename, 'w', newline='') as csvfile:
+        fieldnames = ['Classes', 'Accuracy', 'Precision', 'Recall', 'F1_score']
+        writer = csv.writer(csvfile, delimiter=';')
+        writer.writerow(fieldnames)
+        row_perfect = ["Perfect", acc_rate_perfect, precision_perfect, recall_perfect, f1_score_perfect]
+        row_good = ["Good", acc_rate_good, precision_good, recall_good, f1_score_good]
+        row_mediocre = ["Mediocre", acc_rate_mediocre, precision_mediocre, recall_mediocre, f1_score_mediocre]
+        row_bad = ["Bad", acc_rate_bad, precision_bad, recall_bad, f1_score_bad]
+        writer.writerows([row_perfect, row_good, row_mediocre, row_bad])
+
+    return acc_rate_perfect, acc_rate_good, acc_rate_mediocre, acc_rate_bad
 
 def create_TKS(list_metrics, threshold):
     tks = TKS()
@@ -1216,6 +1258,8 @@ plt.show()"""
 
 # Input folder path
 input_path = "input/"
+# Results folder path
+results_path = "results/"
 # File to store the experiments characteristics
 filename_exp = "experiments.csv"
 filenameExp_path = input_path + filename_exp
@@ -1274,12 +1318,15 @@ print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_r
 
 # Creating TKS Fuzzy System
 list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
+results_filename = "results_metrics_tks.csv"
 
 # Creating Mamdani Fuzzy System
 # list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
+# results_filename = "results_metrics_mamdani.csv"
 
 # Creating Tsukamoto Fuzzy System
 # list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
+# results_filename = "results_metrics_tsukamoto.csv"
 
 # GETTING RESULTS
 
@@ -1287,6 +1334,6 @@ list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, thre
 dic_result={"PERFECT": list_perfect, "GOOD": list_good, "MEDIOCRE": list_mediocre, "LOW": list_low}
 
 # Evaluate the results
-evaluate_predictions(dic_result["PERFECT"], dic_result["GOOD"], dic_result["MEDIOCRE"], dic_result["LOW"])
+evaluate_predictions(dic_result["PERFECT"], dic_result["GOOD"], dic_result["MEDIOCRE"], dic_result["LOW"], results_filename)
 
 print("PROCESS FINISHED")
