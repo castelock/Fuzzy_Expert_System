@@ -1,0 +1,5 @@
+Classes;Accuracy;Precision;Recall;F1_score
+Perfect;1.0;1.0;1.0;1.0
+Good;1.0;1.0;1.0;1.0
+Mediocre;1.0;1.0;1.0;1.0
+Bad;1.0;1.0;1.0;1.0

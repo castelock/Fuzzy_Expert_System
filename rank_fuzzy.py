@@ -539,6 +539,52 @@ class TKS:
             )
         ]""" 
 
+        self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Trapezoid("VERY_HIGH",0.9,1.0,1.0,1.2), # Trapezoid(vertexA, vertexB, vertexC, vertexD)
+                fl.Trapezoid("HIGH",0.7,0.9,0.9,1.0),
+                fl.Trapezoid("MEDIUM",0.35,0.7,0.7,0.9),
+                fl.Trapezoid("LOW",0,0.35,0.35,0.7)
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Trapezoid("VERY_HIGH",0.9,1.0,1.0,1.2), 
+                fl.Trapezoid("HIGH",0.7,0.9,0.9,1.0),
+                fl.Trapezoid("MEDIUM",0.35,0.7,0.7,0.9),
+                fl.Trapezoid("LOW",0,0.35,0.35,0.7)
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Trapezoid("VERY_HIGH",0.9,1.0,1.0,1.2), 
+                fl.Trapezoid("HIGH",0.7,0.9,0.9,1.0),
+                fl.Trapezoid("MEDIUM",0.35,0.7,0.7,0.9),
+                fl.Trapezoid("LOW",0,0.35,0.35,0.7)
+                ]
+                            
+            )
+        ]
+
         """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
@@ -630,7 +676,7 @@ class TKS:
             )
         ] """
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -673,7 +719,7 @@ class TKS:
                 fl.Ramp("LOW", 0.0, 0.55) 
                 ]                            
             )
-        ]                 
+        ]"""                
     
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
@@ -802,6 +848,52 @@ class Mamdani:
             )
         ]"""
 
+        self.engine.input_variables = [
+        fl.InputVariable(
+            name="Precision",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[
+                fl.Trapezoid("VERY_HIGH",0.95,1.0,1.0,1.2), # Trapezoid(vertexA, vertexB, vertexC, vertexD)
+                fl.Trapezoid("HIGH",0.8,0.9,0.95,1.0),
+                fl.Trapezoid("MEDIUM",0.5,0.6,0.68,0.8),
+                fl.Trapezoid("LOW",0,0.25,0.35,0.5)
+                ]                 
+            ),
+        fl.InputVariable(
+            name="Recall",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Trapezoid("VERY_HIGH",0.95,1.0,1.0,1.2), # Trapezoid(vertexA, vertexB, vertexC, vertexD)
+                fl.Trapezoid("HIGH",0.8,0.9,0.95,1.0),
+                fl.Trapezoid("MEDIUM",0.5,0.6,0.68,0.8),
+                fl.Trapezoid("LOW",0,0.25,0.35,0.5)
+                ]                            
+            ),
+        fl.InputVariable(
+            name="F1_score",
+            description="",
+            enabled=True,
+            minimum=0.000,
+            maximum=1.000,
+            lock_range=False,
+            terms=[ 
+                fl.Trapezoid("VERY_HIGH",0.95,1.0,1.0,1.2), # Trapezoid(vertexA, vertexB, vertexC, vertexD)
+                fl.Trapezoid("HIGH",0.8,0.9,0.95,1.0),
+                fl.Trapezoid("MEDIUM",0.5,0.6,0.68,0.8),
+                fl.Trapezoid("LOW",0,0.25,0.35,0.5)
+                ]
+                            
+            )
+        ]
+
         """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
@@ -848,7 +940,7 @@ class Mamdani:
             )
         ]"""
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -892,7 +984,7 @@ class Mamdani:
                 ]
                             
             )
-        ]
+        ]"""
 
         """self.engine.input_variables = [
         fl.InputVariable(
@@ -971,7 +1063,7 @@ class Mamdani:
             conjunction=fl.Minimum(),
             disjunction=fl.Maximum(),
             implication=fl.Minimum(),
-            activation=fl.Highest(),
+            activation=fl.General(),
             rules=[
                 fl.Rule.create("if Precision is VERY_HIGH and Recall is VERY_HIGH and F1_score is VERY_HIGH then Result is PERFECT", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),
@@ -1319,12 +1411,12 @@ print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_r
 # results_filename = "results_metrics_tks.csv"
 
 # Creating Mamdani Fuzzy System
-# list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
-# results_filename = "results_metrics_mamdani.csv"
+list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
+results_filename = "results_metrics_mamdani.csv"
 
 # Creating Tsukamoto Fuzzy System
-list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
-results_filename = "results_metrics_tsukamoto.csv"
+# list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
+# results_filename = "results_metrics_tsukamoto.csv"
 
 # GETTING RESULTS
 
