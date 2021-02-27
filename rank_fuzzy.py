@@ -392,8 +392,8 @@ def create_Tsukamoto(list_metrics, threshold):
 
 class TKS:
 
-    def __init__(self):
-        # Declaring and Initializing the Fuzzy Engine
+# Declaring and Initializing the Fuzzy Engine
+    def __init__(self):        
         self.engine = fl.Engine(
         name="Takagi-Sugeno-Kang_Fuzzy_System",
         description="")
@@ -401,7 +401,7 @@ class TKS:
 # Defining the Input Variables (Fuzzification)
     def creating_input(self):
         x = np.arange(0,1,0.1)
-        """self.engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -445,7 +445,7 @@ class TKS:
                  ]
                             
             )
-        ]"""
+        ]
 
         """self.engine.input_variables = [
         fl.InputVariable(
@@ -493,7 +493,7 @@ class TKS:
             )
         ]"""
 
-        """self.engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -537,9 +537,9 @@ class TKS:
                 ]
                             
             )
-        ]""" 
+        ] 
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -583,9 +583,9 @@ class TKS:
                 ]
                             
             )
-        ]
+        ]"""
 
-        """self.engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -629,7 +629,7 @@ class TKS:
                 ]
                             
             )
-        ]"""
+        ]
 
         """self.engine.input_variables = [
         fl.InputVariable(
@@ -676,7 +676,7 @@ class TKS:
             )
         ] """
 
-        """self.engine.input_variables = [
+        self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -719,7 +719,7 @@ class TKS:
                 fl.Ramp("LOW", 0.0, 0.55) 
                 ]                            
             )
-        ]"""                
+        ]               
     
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
@@ -753,7 +753,7 @@ class TKS:
                 conjunction=fl.Minimum(),
                 disjunction=fl.Maximum(),
                 implication=None,
-                activation=fl.General(),
+                activation=fl.Highest(),
                 rules=[
                     fl.Rule.create("if Precision is VERY_HIGH and Recall is VERY_HIGH and F1_score is VERY_HIGH then Result is PERFECT", self.engine),
                     fl.Rule.create("if Precision is HIGH and Recall is HIGH and F1_score is HIGH then Result is GOOD", self.engine),
@@ -1407,12 +1407,12 @@ mean_precision, mean_recall, mean_f1score = list_metrics[0].calculateMean()
 print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_recall.__str__()+" "+mean_f1score.__str__())
 
 # Creating TKS Fuzzy System
-# list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
-# results_filename = "results_metrics_tks.csv"
+list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
+results_filename = "results_metrics_tks.csv"
 
 # Creating Mamdani Fuzzy System
-list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
-results_filename = "results_metrics_mamdani.csv"
+# list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
+# results_filename = "results_metrics_mamdani.csv"
 
 # Creating Tsukamoto Fuzzy System
 # list_perfect, list_good, list_mediocre, list_low = create_Tsukamoto(list_metrics,threshold)
