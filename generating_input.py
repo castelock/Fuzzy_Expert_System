@@ -182,15 +182,15 @@ filenameMetrics_path = input_path + filename_metrics
 print("Starting the input generation")
 
 # Adding the experiments
-gestures_3g = ["swipe_left", "thumb_up", "stop_sign"]
-gestures_5g = ["swipe_left", "thumb_up", "stop_sign", "swipe_down", "slide_2_fingers_right"]
-gestures_8g = ["swipe_left", "thumb_up", "stop_sign", "swipe_down", "slide_2_fingers_right", "slide_2_fingers_up", "zoom_in_with_2_fingers", "pull_hand_in"]
-gestures_10g = ["swipe_left", "thumb_up", "stop_sign", "swipe_down", "slide_2_fingers_right", "slide_2_fingers_up", "zoom_in_with_2_fingers", "pull_hand_in", "zoom_in_with_full_hand", "zoom_out_with_2_fingers"]
+gestures_3g = ["fist", "l", "palm"]
+gestures_5g = ["fist", "l", "palm", "ok", "thumb_up"]
 
-exp_1 = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "1.0", "100", "categorical_crossentropy", "3", gestures_3g, "10")
-exp_2 = Experiment("2", "Keras", "ResNet50", "Adam", "0.0001", "1.0", "100", "categorical_crossentropy", "3", gestures_3g, "10")
-exp_3 = Experiment("3", "Keras", "ResNet50", "SGD", None, None, "100", "categorical_crossentropy", "3", gestures_3g, "10")
-exp_4 = Experiment("4", "Keras", "ResNet50", "SGD", None, None, "100", "mse", "3", gestures_3g, "10")
+exp_1 = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "100", "categorical_crossentropy", "3")
+exp_2 = Experiment("2", Keras, ResNet101, Adam, 0.001, 100, categorical_crossentropy,3)
+
+exp_3 = Experiment(3, Keras, ResNet152, Adam, 0.001, 100, categorical_crossentropy, 3)
+exp_4 = Experiment(4, Keras, ResNet50V2, Adam, 0.001, 100, categorical_crossentropy, 3)
+# TO DO CONTINUE HERE
 exp_5 = Experiment("5", "Keras", "ResNet101", "SGD", None, None, "100", "mse", "3", gestures_3g, "10")
 exp_6 = Experiment("6", "Keras", "ResNet152", "SGD", None, None, "100", "mse", "3", gestures_3g, "10")
 exp_7 = Experiment("7", "Keras", "ResNet50V2", "SGD", None, None, "100", "mse", "3", gestures_3g, "10")
