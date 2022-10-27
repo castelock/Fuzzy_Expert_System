@@ -1,4 +1,6 @@
+from operator import attrgetter, itemgetter
 import fuzzylite as fl
+from Experiment import Experiment
 import GUI as gui_tk
 import numpy as np
 import matplotlib.pyplot as plt
@@ -222,18 +224,19 @@ def create_TKS(list_metrics, threshold):
     list_good = []
     list_mediocre = []
     list_low = []
+    
     # Writing the header of the file
     with open("metrics.csv", 'w', newline='') as csvfile:
         fieldnames = ['Id', 'Precision', 'Recall', 'F1_score']
         writer = csv.writer(csvfile, delimiter=';')
         writer.writerow(fieldnames) 
 
+    
     for metric in list_metrics:
         mean_precision, mean_recall, mean_f1score = metric.calculateMean()
         tks.engine.input_variable("Precision").value = mean_precision
         tks.engine.input_variable("Recall").value = mean_recall
         tks.engine.input_variable("F1_score").value = mean_f1score
-        # TO DO
         print("Experiment metric info: ", metric.getId() +" "+ mean_precision.__str__()+" "+mean_recall.__str__()+" "+mean_f1score.__str__())
         # To write in a file
         with open("metrics.csv", 'a+', newline='') as csvfile:            
@@ -241,7 +244,10 @@ def create_TKS(list_metrics, threshold):
             # Writing the content
             row = [metric.getId(), mean_precision.__str__(), mean_recall.__str__(), mean_f1score.__str__()]
             writer.writerow(row)
-
+        
+        exp = Experiment(metric.getId(), mean_precision, mean_f1score, mean_recall)   
+        experiments.append(exp)
+        
         tks.engine.process()
 
         # TO DO
@@ -1350,6 +1356,8 @@ plt.show()"""
 input_path = "input/"
 # Results folder path
 results_path = "results/"
+# Output path 
+output_path = "output/"
 # File to store the experiments characteristics
 filename_exp = "experiments.csv"
 filenameExp_path = input_path + filename_exp
@@ -1407,8 +1415,89 @@ mean_precision, mean_recall, mean_f1score = list_metrics[0].calculateMean()
 print("Mean: ",list_metrics[0].getId()+" "+ mean_precision.__str__() +" "+mean_recall.__str__()+" "+mean_f1score.__str__())
 
 # Creating TKS Fuzzy System
+experiments = []
+experiments_perfect = []
+experiments_good = []
+experiments_mediocre = []
+experiments_low = []
 list_perfect, list_good, list_mediocre, list_low = create_TKS(list_metrics, threshold)
+list_perfect_exp = []
+
+
+# Perfect Experiments
+for item in list_perfect:
+    for exp in experiments:
+        if item == exp.id:
+            experiments_perfect.append(exp)
+
+
+# Sort the experiments
+experiments_perfect_sorted = sorted(experiments_perfect, key=attrgetter('f1_score','precision'), reverse=True)
+
+# Good Experiments
+for item in list_good:
+    for exp in experiments:
+        if item == exp.id:
+            experiments_good.append(exp)
+
+experiments_good_sorted = sorted(experiments_good, key=attrgetter('f1_score', 'precision', 'recall'), reverse=True)
+
+# Mediocre Experiments
+for item in list_mediocre:
+    for exp in experiments:
+        if item == exp.id:
+            experiments_mediocre.append(exp)
+
+experiments_mediocre_sorted = sorted(experiments_mediocre, key=attrgetter('f1_score', 'precision', 'recall'), reverse=True)
+
+# Bad Experiments
+for item in list_low:
+    for exp in experiments:
+        if item == exp.id:
+            experiments_low.append(exp)
+
+experiments_low_sorted = sorted(experiments_low, key=attrgetter('f1_score', 'precision', 'recall'), reverse=True)
+
 results_filename = "results_metrics_tks.csv"
+ranking_filename = "ranking.csv"
+
+with open(output_path + ranking_filename, 'w', newline='') as csvfile:
+        fieldnames = ['Ranking']
+        writer = csv.writer(csvfile, delimiter=';')
+        writer.writerow(fieldnames) 
+    
+for element in experiments_perfect_sorted:        
+    # To write in a file
+    with open(output_path + ranking_filename, 'a+', newline='') as csvfile:            
+        writer = csv.writer(csvfile, delimiter=';')            
+        # Writing the content
+        row = [element.id]
+        writer.writerow(row)
+
+for element in experiments_good_sorted:        
+    # To write in a file
+    with open(output_path + ranking_filename, 'a+', newline='') as csvfile:            
+        writer = csv.writer(csvfile, delimiter=';')            
+        # Writing the content
+        row = [element.id]
+        writer.writerow(row)
+
+for element in experiments_mediocre_sorted:        
+    # To write in a file
+    with open(output_path + ranking_filename, 'a+', newline='') as csvfile:            
+        writer = csv.writer(csvfile, delimiter=';')            
+        # Writing the content
+        row = [element.id]
+        writer.writerow(row)
+            
+for element in experiments_low_sorted:        
+    # To write in a file
+    with open(output_path + ranking_filename, 'a+', newline='') as csvfile:            
+        writer = csv.writer(csvfile, delimiter=';')            
+        # Writing the content
+        row = [element.id]
+        writer.writerow(row)            
+
 
 # Creating Mamdani Fuzzy System
 # list_perfect, list_good, list_mediocre, list_low = create_Mamdani(list_metrics,threshold)
