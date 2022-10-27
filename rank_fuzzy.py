@@ -493,7 +493,7 @@ class TKS:
             )
         ]"""
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -537,7 +537,7 @@ class TKS:
                 ]
                             
             )
-        ] 
+        ] """
 
         """self.engine.input_variables = [
         fl.InputVariable(
@@ -585,7 +585,7 @@ class TKS:
             )
         ]"""
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -629,7 +629,7 @@ class TKS:
                 ]
                             
             )
-        ]
+        ]"""
 
         """self.engine.input_variables = [
         fl.InputVariable(
@@ -676,7 +676,7 @@ class TKS:
             )
         ] """
 
-        self.engine.input_variables = [
+        """self.engine.input_variables = [
         fl.InputVariable(
             name="Precision",
             description="",
@@ -719,7 +719,7 @@ class TKS:
                 fl.Ramp("LOW", 0.0, 0.55) 
                 ]                            
             )
-        ]               
+        ]"""               
     
 # Defining the Output Variables (Defuzzification)
     def creating_output(self):
