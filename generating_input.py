@@ -402,537 +402,512 @@ l20 = Gesture("20", "swipe_left", "0.88", "0.72", "0.79", "88.0")
 palm20 = Gesture("20", "thumb_up", "0.73", "0.97", "0.83", "86.0")
 gestures_20 = [fist20, l20, palm20]
 
-fist = Gesture("21", "stop_sign", "1.0", "0.59", "0.74", "90.0")
-l = Gesture("21", "swipe_left", "0.84", "1.0", "0.91", "123.0")
-palm = Gesture("21", "thumb_up", "0.86", "1.0", "0.92", "86.0")
-gestures_21 = [fist, l, palm]
-
-fist = Gesture("22", "stop_sign", "0.93", "0.97", "0.95", "90.0")
-l = Gesture("22", "swipe_left", "0.88", "0.98", "0.92", "88.0")
-palm = Gesture("22", "thumb_up", "0.96", "0.8", "0.87", "86.0")
-gestures_22 = [fist, l, palm]
-
-fist = Gesture("23", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("23", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm = Gesture("23", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_23 = [fist, l, palm]
-
-fist = Gesture("24", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("24", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm = Gesture("24", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_24 = [fist, l, palm]
-
-fist = Gesture("25", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("25", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm = Gesture("25", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_25 = [fist, l, palm]
-
-fist = Gesture("26", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("26", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm = Gesture("26", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_26 = [fist, l, palm]
-
-fist = Gesture("27", "stop_sign", "0.99", "0.97", "0.98", "90.0")
-l = Gesture("27", "swipe_left", "0.98", "0.99", "0.98", "123.0")
-palm = Gesture("27", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_27 = [fist, l, palm]
-
-fist = Gesture("28", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("28", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm = Gesture("28", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_28 = [fist, l, palm]
-
-fist = Gesture("29", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("29", "swipe_left", "1.0", "1.0", "1.0", "88.0")
-palm = Gesture("29", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_29 = [fist, l, palm]
-
-fist = Gesture("30", "stop_sign", "0.02", "0.01", "0.02", "90.0")
-l = Gesture("30", "swipe_left", "0.32", "0.81", "0.46", "88.0")
-palm = Gesture("30", "thumb_up", "0.0", "0.0", "0.0", "86.0")
-gestures_30 = [fist, l, palm]
-
-fist = Gesture("31", "stop_sign", "0.32", "0.51", "0.39", "90.0")
-l = Gesture("31", "swipe_left", "0.26", "0.28", "0.27", "88.0")
-palm = Gesture("31", "thumb_up", "0.24", "0.06", "0.09", "86.0")
-gestures_31 = [fist, l, palm]
-
-fist = Gesture("32", "stop_sign", "0.0", "0.0", "0.0", "90.0")
-l = Gesture("32", "swipe_left", "0.33", "1.0", "0.5", "88.0")
-palm = Gesture("32", "thumb_up", "0.0", "0.0", "0.0", "86.0")
-gestures_32 = [fist, l, palm]
-
-fist = Gesture("33", "stop_sign", "0.34", "1.0", "0.51", "90.0")
-l = Gesture("33", "swipe_left", "0.0", "0.0", "0.0", "88.0")
-palm = Gesture("33", "thumb_up", "0.0", "0.0", "0.0", "86.0")
-gestures_33 = [fist, l, palm]
-
-fist = Gesture("34", "stop_sign", "0.36", "0.39", "0.38", "90.0")
-l = Gesture("34", "swipe_left", "1.0", "0.08", "0.15", "88.0")
-palm = Gesture("34", "thumb_up", "0.34", "0.63", "0.44", "86.0")
-gestures_34 = [fist, l, palm]
-
-fist = Gesture("35", "stop_sign", "0.2", "0.11", "0.14", "90.0")
-l = Gesture("35", "swipe_left", "0.4", "0.11", "0.18", "88.0")
-palm = Gesture("35", "thumb_up", "0.29", "0.63", "0.39", "86.0")
-gestures_35 = [fist, l, palm]
-
-fist = Gesture("36", "stop_sign", "0.0", "0.0", "0.0", "90.0")
-l = Gesture("36", "swipe_left", "0.33", "1.0", "0.5", "88.0")
-palm = Gesture("36", "thumb_up", "0.0", "0.0", "0.0", "86.0")
-gestures_36 = [fist, l, palm]
-
-fist = Gesture("37", "stop_sign", "0.38", "0.03", "0.06", "90.0")
-l = Gesture("37", "swipe_left", "1.0", "0.01", "0.02", "88.0")
-palm = Gesture("37", "thumb_up", "0.32", "0.94", "0.48", "86.0")
-gestures_37 = [fist, l, palm]
-
-fist = Gesture("38", "stop_sign", "0.0", "0.0", "0.0", "90.0")
-l = Gesture("38", "swipe_left", "0.4", "0.92", "0.56", "123.0")
-palm = Gesture("38", "thumb_up", "0.37", "0.08", "0.13", "86.0")
-gestures_38 = [fist, l, palm]
-
-fist = Gesture("39", "stop_sign", "0.33", "0.64", "0.43", "90.0")
-l = Gesture("39", "swipe_left", "1.0", "0.07", "0.14", "123.0")
-palm = Gesture("39", "thumb_up", "0.29", "0.37", "0.32", "86.0")
-gestures_39 = [fist, l, palm]
-
-fist = Gesture("40", "stop_sign", "0.35", "0.99", "0.52", "90.0")
-l = Gesture("40", "swipe_left", "1.0", "0.03", "0.07", "88.0")
-palm = Gesture("40", "thumb_up", "0.2", "0.02", "0.04", "86.0")
-gestures_40 = [fist, l, palm]
-
-fist = Gesture("41", "stop_sign", "0.38", "0.06", "0.1", "90.0")
-l = Gesture("41", "swipe_left", "1.0", "0.11", "0.2", "88.0")
-palm = Gesture("41", "thumb_up", "0.34", "0.94", "0.5", "86.0")
-gestures_41 = [fist, l, palm]
-
-fist = Gesture("42", "stop_sign", "0.0", "0.0", "0.0", "90.0")
-l = Gesture("42", "swipe_left", "0.18", "0.05", "0.07", "88.0")
-palm = Gesture("42", "thumb_up", "0.32", "0.87", "0.47", "86.0")
-gestures_42 = [fist, l, palm]
-
-fist = Gesture("43", "stop_sign", "0.34", "1.0", "0.51", "90.0")
-l = Gesture("43", "swipe_left", "0.0", "0.0", "0.0", "88.0")
-palm = Gesture("43", "thumb_up", "0.0", "0.0", "0.0", "86.0")
-gestures_43 = [fist, l, palm]
-
-fist = Gesture("44", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("44", "swipe_left", "1.0", "1.0", "1.0", "88.0")
-palm = Gesture("44", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_44 = [fist, l, palm]
-
-fist = Gesture("45", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("45", "swipe_left", "1.0", "1.0", "1.0", "88.0")
-palm = Gesture("45", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_45 = [fist, l, palm]
-
-fist = Gesture("46", "stop_sign", "0.95", "0.6", "0.73", "90.0")
-l = Gesture("46", "swipe_left", "0.7", "0.91", "0.79", "88.0")
-palm = Gesture("46", "thumb_up", "0.81", "0.87", "0.84", "86.0")
-gestures_46 = [fist, l, palm]
-
-fist = Gesture("47", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("47", "swipe_left", "1.0", "1.0", "1.0", "88.0")
-palm = Gesture("47", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_47 = [fist, l, palm]
-
-fist = Gesture("48", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("48", "swipe_left", "1.0", "1.0", "1.0", "88.0")
-palm = Gesture("48", "thumb_up", "1.0", "1.0", "1.0", "86.0")
-gestures_48 = [fist, l, palm]
-
-fist = Gesture("49", "slide_2_fingers_right", "1.0", "0.17", "0.29", "89.0")
-l = Gesture("49", "stop_sign", "1.0", "0.5", "0.67", "90.0")
-palm = Gesture("49", "swipe_down", "1.0", "0.01", "0.02", "87.0")
-gestures_49 = [fist, l, palm]
-
-fist = Gesture("50", "slide_2_fingers_right", "1.0", "0.12", "0.22", "89.0")
-l = Gesture("50", "stop_sign", "1.0", "0.32", "0.49", "90.0")
-palm = Gesture("50", "swipe_down", "0.67", "0.02", "0.04", "87.0")
-gestures_50 = [fist, l, palm]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-palm = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-gestures_51 = [fist, l, palm]
-
-fist = Gesture("52", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-l = Gesture("52", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-palm = Gesture("52", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_52 = [fist, l, palm]
-
-fist = Gesture("53", "slide_2_fingers_right", "1.0", "0.99", "0.99", "89.0")
-l = Gesture("53", "stop_sign", "0.99", "1.0", "0.99", "90.0")
-palm = Gesture("53", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_53 = [fist, l, palm]
-
-fist = Gesture("54", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-l = Gesture("54", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-palm = Gesture("54", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_54 = [fist, l, palm]
-
-fist = Gesture("55", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-l = Gesture("55", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-palm = Gesture("55", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_55 = [fist, l, palm]
-
-fist = Gesture("56", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
-l = Gesture("56", "stop_sign", "0.24", "0.16", "0.19", "90.0")
-palm = Gesture("56", "swipe_down", "0.0", "0.0", "0.0", "87.0")
-gestures_56 = [fist, l, palm]
-
-fist = Gesture("57", "slide_2_fingers_right", "1.0", "0.26", "0.41", "89.0")
-l = Gesture("57", "stop_sign", "1.0", "0.44", "0.62", "90.0")
-palm = Gesture("57", "swipe_down", "1.0", "0.1", "0.19", "87.0")
-gestures_57 = [fist, l, palm]
-
-fist = Gesture("58", "slide_2_fingers_right", "1.0", "0.25", "0.4", "89.0")
-l = Gesture("58", "stop_sign", "0.93", "0.46", "0.61", "90.0")
-palm = Gesture("58", "swipe_down", "1.0", "0.07", "0.13", "87.0")
-gestures_58 = [fist, l, palm]
-
-fist = Gesture("59", "slide_2_fingers_right", "0.96", "0.53", "0.68", "89.0")
-l = Gesture("59", "stop_sign", "0.95", "0.89", "0.92", "90.0")
-palm = Gesture("59", "swipe_down", "1.0", "0.21", "0.34", "87.0")
-gestures_59 = [fist, l, palm]
-
-fist = Gesture("60", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-l = Gesture("60", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-palm = Gesture("60", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_60 = [fist, l, palm]
-
-fist = Gesture("61", "slide_2_fingers_right", "1.0", "0.99", "0.99", "89.0")
-l = Gesture("61", "stop_sign", "0.99", "1.0", "0.99", "90.0")
-palm = Gesture("61", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_61 = [fist, l, palm]
-
-fist = Gesture("62", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-l = Gesture("62", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-palm = Gesture("62", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_62 = [fist, l, palm]
-
-fist = Gesture("63", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-l = Gesture("63", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-palm = Gesture("63", "swipe_down", "1.0", "1.0", "1.0", "87.0")
-gestures_63 = [fist, l, palm]
-
-fist = Gesture("64", "pull_hand_in", "0.79", "0.34", "0.48", "90.0")
-l = Gesture("64", "slide_2_fingers_right", "1.0", "0.04", "0.09", "89.0")
-palm = Gesture("64", "slide_2_fingers_up", "0.44", "0.83", "0.57", "88.0")
-gestures_64 = [fist, l, palm]
-
-fist = Gesture("65", "pull_hand_in", "0.69", "0.61", "0.65", "90.0")
-l = Gesture("65", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
-palm = Gesture("65", "slide_2_fingers_up", "0.62", "0.62", "0.62", "88.0")
-gestures_65 = [fist, l, palm]
-
-fist = Gesture("66", "pull_hand_in", "0.43", "0.86", "0.57", "90.0")
-l = Gesture("66", "slide_2_fingers_right", "0.91", "0.34", "0.49", "89.0")
-palm = Gesture("66", "slide_2_fingers_up", "0.75", "0.43", "0.55", "88.0")
-gestures_66 = [fist, l, palm]
-
-fist = Gesture("67", "pull_hand_in", "0.89", "0.93", "0.91", "90.0")
-l = Gesture("67", "slide_2_fingers_right", "0.94", "1.0", "0.97", "89.0")
-palm = Gesture("67", "slide_2_fingers_up", "0.93", "0.92", "0.93", "88.0")
-gestures_67 = [fist, l, palm]
-
-fist = Gesture("68", "pull_hand_in", "0.99", "0.87", "0.92", "90.0")
-l = Gesture("68", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("68", "slide_2_fingers_up", "0.94", "0.94", "0.94", "88.0")
-gestures_68 = [fist, l, palm]
-
-fist = Gesture("69", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("69", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("69", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_69 = [fist, l, palm]
-
-fist = Gesture("70", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("70", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("70", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_70 = [fist, l, palm]
-
-
-fist = Gesture("71", "pull_hand_in", "0.25", "0.44", "0.32", "90.0")
-l = Gesture("71", "slide_2_fingers_right", "0.22", "0.21", "0.21", "89.0")
-palm = Gesture("71", "slide_2_fingers_up", "0.33", "0.22", "0.26", "88.0")
-gestures_71 = [fist, l, palm]
-
-fist = Gesture("72", "pull_hand_in", "0.81", "0.47", "0.59", "90.0")
-l = Gesture("72", "slide_2_fingers_right", "1.0", "0.13", "0.24", "89.0")
-palm = Gesture("72", "slide_2_fingers_up", "0.49", "0.97", "0.65", "88.0")
-gestures_72 = [fist, l, palm]
-
-
-fist = Gesture("73", "pull_hand_in", "0.97", "0.39", "0.56", "90.0")
-l = Gesture("73", "slide_2_fingers_right", "1.0", "0.11", "0.2", "89.0")
-palm = Gesture("73", "slide_2_fingers_up", "0.67", "0.66", "0.66", "88.0")
-gestures_73 = [fist, l, palm]
-
-fist = Gesture("74", "pull_hand_in", "0.67", "0.83", "0.74", "90.0")
-l = Gesture("74", "slide_2_fingers_right", "1.0", "0.38", "0.55", "89.0")
-palm = Gesture("74", "slide_2_fingers_up", "0.77", "0.98", "0.86", "88.0")
-gestures_74 = [fist, l, palm]
-
-fist = Gesture("75", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
-l = Gesture("75", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
-palm = Gesture("75", "slide_2_fingers_up", "0.98", "0.99", "0.98", "88.0")
-gestures_75 = [fist, l, palm]
-
-fist = Gesture("76", "pull_hand_in", "0.99", "0.96", "0.97", "90.0")
-l = Gesture("76", "slide_2_fingers_right", "0.99", "0.99", "0.99", "89.0")
-palm = Gesture("76", "slide_2_fingers_up", "1.0", "0.94", "0.97", "88.0")
-gestures_76 = [fist, l, palm]
-
-fist = Gesture("77", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("77", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("77", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_77 = [fist, l, palm]
-
-fist = Gesture("78", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("78", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("78", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_78 = [fist, l, palm]
-
-fist = Gesture("79", "pull_hand_in", "0.68", "0.44", "0.54", "90.0")
-l = Gesture("79", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
-palm = Gesture("79", "slide_2_fingers_up", "0.41", "0.8", "0.54", "88.0")
-gestures_79 = [fist, l, palm]
-
-fist = Gesture("80", "pull_hand_in", "0.49", "0.19", "0.27", "90.0")
-l = Gesture("80", "slide_2_fingers_right", "1.0", "0.01", "0.02", "89.0")
-palm = Gesture("80", "slide_2_fingers_up", "0.93", "0.15", "0.25", "88.0")
-gestures_80 = [fist, l, palm]
-
-fist = Gesture("81", "pull_hand_in", "0.42", "0.72", "0.53", "90.0")
-l = Gesture("81", "slide_2_fingers_right", "1.0", "0.44", "0.61", "89.0")
-palm = Gesture("81", "slide_2_fingers_up", "0.79", "0.22", "0.34", "88.0")
-gestures_81 = [fist, l, palm]
-
-
-fist = Gesture("82", "pull_hand_in", "0.82", "0.97", "0.89", "90.0")
-l = Gesture("82", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
-palm = Gesture("82", "slide_2_fingers_up", "0.95", "0.95", "0.95", "88.0")
-gestures_82 = [fist, l, palm]
-
-fist = Gesture("83", "pull_hand_in", "0.92", "0.81", "0.86", "90.0")
-l = Gesture("83", "slide_2_fingers_right", "0.91", "1.0", "0.95", "89.0")
-palm = Gesture("83", "slide_2_fingers_up", "0.99", "0.81", "0.89", "88.0")
-gestures_83 = [fist, l, palm]
-
-fist = Gesture("84", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("84", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("84", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_84 = [fist, l, palm]
-
-
-fist = Gesture("85", "pull_hand_in", "0.99", "1.0", "0.99", "90.0")
-l = Gesture("85", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("85", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_85 = [fist, l, palm]
-
-fist = Gesture("86", "pull_hand_in", "0.67", "0.46", "0.54", "90.0")
-l = Gesture("86", "slide_2_fingers_right", "1.0", "0.03", "0.07", "89.0")
-palm = Gesture("86", "slide_2_fingers_up", "0.48", "0.9", "0.62", "88.0")
-gestures_86 = [fist, l, palm]
-
-fist = Gesture("87", "pull_hand_in", "0.79", "0.33", "0.47", "90.0")
-l = Gesture("87", "slide_2_fingers_right", "1.0", "0.04", "0.09", "89.0")
-palm = Gesture("87", "slide_2_fingers_up", "0.45", "0.67", "0.54", "88.0")
-gestures_87 = [fist, l, palm]
-
-
-fist = Gesture("88", "pull_hand_in", "0.62", "0.81", "0.7", "90.0")
-l = Gesture("88", "slide_2_fingers_right", "1.0", "0.37", "0.54", "89.0")
-palm = Gesture("88", "slide_2_fingers_up", "0.65", "0.68", "0.67", "88.0")
-gestures_88 = [fist, l, palm]
-
-
-fist = Gesture("89", "pull_hand_in", "0.98", "0.98", "0.98", "90.0")
-l = Gesture("89", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
-palm = Gesture("89", "slide_2_fingers_up", "0.99", "1.0", "0.99", "88.0")
-gestures_89 = [fist, l, palm]
-
-fist = Gesture("90", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
-l = Gesture("90", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
-palm = Gesture("90", "slide_2_fingers_up", "0.99", "1.0", "0.99", "88.0")
-gestures_90 = [fist, l, palm]
-
-fist = Gesture("91", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
-l = Gesture("91", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("91", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_91 = [fist, l, palm]
-
-fist = Gesture("92", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
-l = Gesture("92", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
-palm = Gesture("92", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
-gestures_92 = [fist, l, palm]
-
-fist = Gesture("93", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
-l = Gesture("93", "slide_2_fingers_right", "0.99", "1.0", "1.0", "152.0")
-palm = Gesture("93", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-gestures_93 = [fist, l, palm]
-
-fist = Gesture("94", "pull_hand_in", "0.99", "1.0", "1.0", "154.0")
-l = Gesture("94", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-palm = Gesture("94", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-gestures_94 = [fist, l, palm]
-
-fist = Gesture("95", "pull_hand_in", "0.73", "0.7", "0.72", "154.0")
-l = Gesture("95", "slide_2_fingers_right", "0.61", "0.91", "0.73", "152.0")
-palm = Gesture("95", "slide_2_fingers_up", "0.69", "0.81", "0.74", "159.0")
-gestures_95 = [fist, l, palm]
-
-fist = Gesture("96", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
-l = Gesture("96", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-palm = Gesture("96", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-gestures_96 = [fist, l, palm]
-
-
-fist = Gesture("97", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
-l = Gesture("97", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-palm = Gesture("97", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-gestures_97 = [fist, l, palm]
-
-fist = Gesture("98", "pull_hand_in", "0.99", "1.0", "1.0", "154.0")
-l = Gesture("98", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-palm = Gesture("98", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-gestures_98 = [fist, l, palm]
-
-fist = Gesture("99", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
-l = Gesture("99", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-palm = Gesture("99", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-gestures_99 = [fist, l, palm]
-
-fist = Gesture("100", "pull_hand_in", "0.62", "0.65", "0.63", "154.0")
-l = Gesture("100", "slide_2_fingers_right", "0.62", "0.86", "0.72", "152.0")
-palm = Gesture("100", "slide_2_fingers_up", "0.5", "0.53", "0.52", "159.0")
-gestures_100 = [fist, l, palm]
-
-fist = Gesture("101", "pull_hand_in", "0.87", "0.77", "0.82", "154.0")
-l = Gesture("101", "slide_2_fingers_right","0.75", "0.88", "0.81", "152.0")
-ok = Gesture("101", "slide_2_fingers_up", "0.84", "0.75", "0.79", "159.0")
-palm = Gesture("101", "stop_sign", "0.74", "0.83", "0.78", "155.0")
-thumb_up = Gesture("101", "swipe_down", "0.83", "0.82", "0.82", "150.0")
-swipe_left101 = Gesture("101", "swipe_left", "0.82", "0.84", "0.83", "150.0")
-thumb_up101 = Gesture("101", "thumb_up", "0.93", "0.69", "0.79", "147.0")
-zoom_in_with_2_fingers101 = Gesture("101", "zoom_in_with_2_fingers", "0.84", "0.91", "0.87", "152.0")
-zoom_in_with_full_hand101 = Gesture("101", "zoom_in_with_full_hand", "0.88", "0.85", "0.86", "145.0")
-zoom_out_with_2_fingers101 = Gesture("101", "zoom_out_with_2_fingers", "0.79", "0.86", "0.82", "145.0")
-gestures_101 = [fist, l, ok, palm, thumb_up, swipe_left101, thumb_up101, zoom_in_with_2_fingers101, zoom_in_with_full_hand101, zoom_out_with_2_fingers101]
-
-fist = Gesture("102", "pull_hand_in", "0.91", "0.82", "0.86", "154.0")
-l = Gesture("102", "slide_2_fingers_right", "0.81", "0.96", "0.88", "152.0")
-ok = Gesture("102", "slide_2_fingers_up", "0.87", "0.84", "0.86", "159.0")
-palm = Gesture("102", "stop_sign", "0.76", "0.87", "0.81", "155.0")
-thumb_up = Gesture("102", "swipe_down", "0.86", "0.87", "0.86", "150.0")
-swipe_left102 = Gesture("102", "swipe_left", "0.88", "0.89", "0.88", "150.0")
-thumb_up102 = Gesture("102", "thumb_up", "0.91", "0.76", "0.83", "147.0")
-zoom_in_with_2_fingers102 = Gesture("102", "zoom_in_with_2_fingers", "0.83", "0.94", "0.88", "152.0")
-zoom_in_with_full_hand102 = Gesture("102", "zoom_in_with_full_hand", "0.85", "0.81", "0.83", "145.0")
-zoom_out_with_2_fingers102 = Gesture("102", "zoom_out_with_2_fingers", "0.97", "0.81", "0.88", "145.0")
-gestures_102 = [fist, l, ok, palm, thumb_up, swipe_left102, thumb_up102, zoom_in_with_2_fingers102, zoom_in_with_full_hand102, zoom_out_with_2_fingers102]
-
-fist = Gesture("103", "pull_hand_in", "1.0", "0.99", "1.0", "154.0")
-l = Gesture("103", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-ok = Gesture("103", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-palm = Gesture("103", "stop_sign", "1.0", "0.99", "0.99", "155.0")
-thumb_up = Gesture("103", "swipe_down", "1.0", "0.99", "1.0", "150.0")
-swipe_left103 = Gesture("103", "swipe_left", "1.0", "1.0", "1.0", "150.0")
-thumb_up103 = Gesture("103", "thumb_up", "0.99", "1.0", "1.0", "147.0")
-zoom_in_with_2_fingers103 = Gesture("103", "zoom_in_with_2_fingers", "0.99", "1.0", "0.99", "152.0")
-zoom_in_with_full_hand103 = Gesture("103", "zoom_in_with_full_hand", "1.0", "1.0", "1.0", "145.0")
-zoom_out_with_2_fingers103 = Gesture("103", "zoom_out_with_2_fingers", "0.99", "1.0", "1.0", "145.0")
-gestures_103 = [fist, l, ok, palm, thumb_up, swipe_left103, thumb_up103, zoom_in_with_2_fingers103, zoom_in_with_full_hand103, zoom_out_with_2_fingers103]
-
-fist = Gesture("104", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
-l = Gesture("104", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
-ok = Gesture("104", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
-palm = Gesture("104", "stop_sign", "1.0", "1.0", "1.0", "155.0")
-thumb_up = Gesture("104", "swipe_down", "1.0", "0.99", "1.0", "150.0")
-swipe_left104 = Gesture("104", "swipe_left", "1.0", "1.0", "1.0", "150.0")
-thumb_up104 = Gesture("104", "thumb_up", "1.0", "0.97", "0.99", "147.0")
-zoom_in_with_2_fingers104 = Gesture("104", "zoom_in_with_2_fingers", "1.0", "1.0", "1.0", "152.0")
-zoom_in_with_full_hand104 = Gesture("104", "zoom_in_with_full_hand", "0.97", "1.0", "0.98", "145.0")
-zoom_out_with_2_fingers104 = Gesture("104", "zoom_out_with_2_fingers", "1.0", "1.0", "1.0", "145.0")
-gestures_104 = [fist, l, ok, palm, thumb_up, swipe_left104, thumb_up104, zoom_in_with_2_fingers104, zoom_in_with_full_hand104, zoom_out_with_2_fingers104]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_105 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_106 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_107 = [fist, l, ok, swipepalm_left51, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_108 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_109 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_110 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_111 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_112 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_113 = [fist, l, ok, swipalmpe_left51, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_114 = [fist, l, ok, palm, thumb_up51]
-
-fist = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
-l = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
-ok = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
-palm = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
-thumb_up51 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
-gestures_115 = [fist, l, ok, palm, thumb_up51]
+fist21 = Gesture("21", "stop_sign", "1.0", "0.59", "0.74", "90.0")
+l21 = Gesture("21", "swipe_left", "0.84", "1.0", "0.91", "123.0")
+palm21 = Gesture("21", "thumb_up", "0.86", "1.0", "0.92", "86.0")
+gestures_21 = [fist21, l21, palm21]
+
+fist22 = Gesture("22", "stop_sign", "0.93", "0.97", "0.95", "90.0")
+l22 = Gesture("22", "swipe_left", "0.88", "0.98", "0.92", "88.0")
+palm22 = Gesture("22", "thumb_up", "0.96", "0.8", "0.87", "86.0")
+gestures_22 = [fist22, l22, palm22]
+
+fist23 = Gesture("23", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l23 = Gesture("23", "swipe_left", "1.0", "1.0", "1.0", "123.0")
+palm23 = Gesture("23", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_23 = [fist23, l23, palm23]
+
+fist24 = Gesture("24", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l24 = Gesture("24", "swipe_left", "1.0", "1.0", "1.0", "123.0")
+palm24 = Gesture("24", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_24 = [fist24, l24, palm24]
+
+fist25 = Gesture("25", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l25 = Gesture("25", "swipe_left", "1.0", "1.0", "1.0", "123.0")
+palm25 = Gesture("25", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_25 = [fist25, l25, palm25]
+
+fist26 = Gesture("26", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l26 = Gesture("26", "swipe_left", "1.0", "1.0", "1.0", "123.0")
+palm26 = Gesture("26", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_26 = [fist26, l26, palm26]
+
+fist27 = Gesture("27", "stop_sign", "0.99", "0.97", "0.98", "90.0")
+l27 = Gesture("27", "swipe_left", "0.98", "0.99", "0.98", "123.0")
+palm27 = Gesture("27", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_27 = [fist27, l27, palm27]
+
+fist28 = Gesture("28", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l28 = Gesture("28", "swipe_left", "1.0", "1.0", "1.0", "123.0")
+palm28 = Gesture("28", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_28 = [fist28, l28, palm28]
+
+fist29 = Gesture("29", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l29 = Gesture("29", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+palm29 = Gesture("29", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_29 = [fist29, l29, palm29]
+
+fist30 = Gesture("30", "stop_sign", "0.02", "0.01", "0.02", "90.0")
+l30 = Gesture("30", "swipe_left", "0.32", "0.81", "0.46", "88.0")
+palm30 = Gesture("30", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_30 = [fist30, l30, palm30]
+
+fist31 = Gesture("31", "stop_sign", "0.32", "0.51", "0.39", "90.0")
+l31 = Gesture("31", "swipe_left", "0.26", "0.28", "0.27", "88.0")
+palm31 = Gesture("31", "thumb_up", "0.24", "0.06", "0.09", "86.0")
+gestures_31 = [fist31, l31, palm31]
+
+fist32 = Gesture("32", "stop_sign", "0.0", "0.0", "0.0", "90.0")
+l32 = Gesture("32", "swipe_left", "0.33", "1.0", "0.5", "88.0")
+palm32 = Gesture("32", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_32 = [fist32, l32, palm32]
+
+fist33 = Gesture("33", "stop_sign", "0.34", "1.0", "0.51", "90.0")
+l33 = Gesture("33", "swipe_left", "0.0", "0.0", "0.0", "88.0")
+palm33 = Gesture("33", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_33 = [fist33, l33, palm33]
+
+fist34 = Gesture("34", "stop_sign", "0.36", "0.39", "0.38", "90.0")
+l34 = Gesture("34", "swipe_left", "1.0", "0.08", "0.15", "88.0")
+palm34 = Gesture("34", "thumb_up", "0.34", "0.63", "0.44", "86.0")
+gestures_34 = [fist34, l34, palm34]
+
+fist35 = Gesture("35", "stop_sign", "0.2", "0.11", "0.14", "90.0")
+l35 = Gesture("35", "swipe_left", "0.4", "0.11", "0.18", "88.0")
+palm35 = Gesture("35", "thumb_up", "0.29", "0.63", "0.39", "86.0")
+gestures_35 = [fist35, l35, palm35]
+
+fist36 = Gesture("36", "stop_sign", "0.0", "0.0", "0.0", "90.0")
+l36 = Gesture("36", "swipe_left", "0.33", "1.0", "0.5", "88.0")
+palm36 = Gesture("36", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_36 = [fist36, l36, palm36]
+
+fist37 = Gesture("37", "stop_sign", "0.38", "0.03", "0.06", "90.0")
+l37 = Gesture("37", "swipe_left", "1.0", "0.01", "0.02", "88.0")
+palm37 = Gesture("37", "thumb_up", "0.32", "0.94", "0.48", "86.0")
+gestures_37 = [fist37, l37, palm37]
+
+fist38 = Gesture("38", "stop_sign", "0.0", "0.0", "0.0", "90.0")
+l38 = Gesture("38", "swipe_left", "0.4", "0.92", "0.56", "123.0")
+palm38 = Gesture("38", "thumb_up", "0.37", "0.08", "0.13", "86.0")
+gestures_38 = [fist38, l38, palm38]
+
+fist39 = Gesture("39", "stop_sign", "0.33", "0.64", "0.43", "90.0")
+l39 = Gesture("39", "swipe_left", "1.0", "0.07", "0.14", "123.0")
+palm39 = Gesture("39", "thumb_up", "0.29", "0.37", "0.32", "86.0")
+gestures_39 = [fist39, l39, palm39]
+
+fist40 = Gesture("40", "stop_sign", "0.35", "0.99", "0.52", "90.0")
+l40 = Gesture("40", "swipe_left", "1.0", "0.03", "0.07", "88.0")
+palm40 = Gesture("40", "thumb_up", "0.2", "0.02", "0.04", "86.0")
+gestures_40 = [fist40, l40, palm40]
+
+fist41 = Gesture("41", "stop_sign", "0.38", "0.06", "0.1", "90.0")
+l41 = Gesture("41", "swipe_left", "1.0", "0.11", "0.2", "88.0")
+palm41 = Gesture("41", "thumb_up", "0.34", "0.94", "0.5", "86.0")
+gestures_41 = [fist41, l41, palm41]
+
+fist42 = Gesture("42", "stop_sign", "0.0", "0.0", "0.0", "90.0")
+l42 = Gesture("42", "swipe_left", "0.18", "0.05", "0.07", "88.0")
+palm42 = Gesture("42", "thumb_up", "0.32", "0.87", "0.47", "86.0")
+gestures_42 = [fist42, l42, palm42]
+
+fist43 = Gesture("43", "stop_sign", "0.34", "1.0", "0.51", "90.0")
+l43 = Gesture("43", "swipe_left", "0.0", "0.0", "0.0", "88.0")
+palm43 = Gesture("43", "thumb_up", "0.0", "0.0", "0.0", "86.0")
+gestures_43 = [fist43, l43, palm43]
+
+fist44 = Gesture("44", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l44 = Gesture("44", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+palm44 = Gesture("44", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_44 = [fist44, l44, palm44]
+
+fist45 = Gesture("45", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l45 = Gesture("45", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+palm45 = Gesture("45", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_45 = [fist45, l45, palm45]
+
+fist46 = Gesture("46", "stop_sign", "0.95", "0.6", "0.73", "90.0")
+l46 = Gesture("46", "swipe_left", "0.7", "0.91", "0.79", "88.0")
+palm46 = Gesture("46", "thumb_up", "0.81", "0.87", "0.84", "86.0")
+gestures_46 = [fist46, l46, palm46]
+
+fist47 = Gesture("47", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l47 = Gesture("47", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+palm47 = Gesture("47", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_47 = [fist47, l47, palm47]
+
+fist48 = Gesture("48", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+l48 = Gesture("48", "swipe_left", "1.0", "1.0", "1.0", "88.0")
+palm48 = Gesture("48", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+gestures_48 = [fist48, l48, palm48]
+
+fist49 = Gesture("49", "slide_2_fingers_right", "1.0", "0.17", "0.29", "89.0")
+l49 = Gesture("49", "stop_sign", "1.0", "0.5", "0.67", "90.0")
+palm49 = Gesture("49", "swipe_down", "1.0", "0.01", "0.02", "87.0")
+gestures_49 = [fist49, l49, palm49]
+
+fist50 = Gesture("50", "slide_2_fingers_right", "1.0", "0.12", "0.22", "89.0")
+l50 = Gesture("50", "stop_sign", "1.0", "0.32", "0.49", "90.0")
+palm50 = Gesture("50", "swipe_down", "0.67", "0.02", "0.04", "87.0")
+gestures_50 = [fist50, l50, palm50]
+
+fist51 = Gesture("51", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l51 = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+palm51 = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+gestures_51 = [fist51, l51, palm51]
+
+fist52 = Gesture("52", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+l52 = Gesture("52", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+palm52 = Gesture("52", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_52 = [fist52, l52, palm52]
+
+fist53 = Gesture("53", "slide_2_fingers_right", "1.0", "0.99", "0.99", "89.0")
+l53 = Gesture("53", "stop_sign", "0.99", "1.0", "0.99", "90.0")
+palm53 = Gesture("53", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_53 = [fist53, l53, palm53]
+
+fist54 = Gesture("54", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+l54 = Gesture("54", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+palm54 = Gesture("54", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_54 = [fist54, l54, palm54]
+
+fist55 = Gesture("55", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+l55 = Gesture("55", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+palm55 = Gesture("55", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_55 = [fist55, l55, palm55]
+
+fist56 = Gesture("56", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
+l56 = Gesture("56", "stop_sign", "0.24", "0.16", "0.19", "90.0")
+palm56 = Gesture("56", "swipe_down", "0.0", "0.0", "0.0", "87.0")
+gestures_56 = [fist56, l56, palm56]
+
+fist57 = Gesture("57", "slide_2_fingers_right", "1.0", "0.26", "0.41", "89.0")
+l57 = Gesture("57", "stop_sign", "1.0", "0.44", "0.62", "90.0")
+palm57 = Gesture("57", "swipe_down", "1.0", "0.1", "0.19", "87.0")
+gestures_57 = [fist57, l57, palm57]
+
+fist58 = Gesture("58", "slide_2_fingers_right", "1.0", "0.25", "0.4", "89.0")
+l58 = Gesture("58", "stop_sign", "0.93", "0.46", "0.61", "90.0")
+palm58 = Gesture("58", "swipe_down", "1.0", "0.07", "0.13", "87.0")
+gestures_58 = [fist58, l58, palm58]
+
+fist59 = Gesture("59", "slide_2_fingers_right", "0.96", "0.53", "0.68", "89.0")
+l59 = Gesture("59", "stop_sign", "0.95", "0.89", "0.92", "90.0")
+palm59 = Gesture("59", "swipe_down", "1.0", "0.21", "0.34", "87.0")
+gestures_59 = [fist59, l59, palm59]
+
+fist60 = Gesture("60", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+l60 = Gesture("60", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+palm60 = Gesture("60", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_60 = [fist60, l60, palm60]
+
+fist61 = Gesture("61", "slide_2_fingers_right", "1.0", "0.99", "0.99", "89.0")
+l61 = Gesture("61", "stop_sign", "0.99", "1.0", "0.99", "90.0")
+palm61 = Gesture("61", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_61 = [fist61, l61, palm61]
+
+fist62 = Gesture("62", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+l62 = Gesture("62", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+palm62 = Gesture("62", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_62 = [fist62, l62, palm62]
+
+fist63 = Gesture("63", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+l63 = Gesture("63", "stop_sign", "1.0", "1.0", "1.0", "90.0")
+palm63 = Gesture("63", "swipe_down", "1.0", "1.0", "1.0", "87.0")
+gestures_63 = [fist63, l63, palm63]
+
+fist64 = Gesture("64", "pull_hand_in", "0.79", "0.34", "0.48", "90.0")
+l64 = Gesture("64", "slide_2_fingers_right", "1.0", "0.04", "0.09", "89.0")
+palm64 = Gesture("64", "slide_2_fingers_up", "0.44", "0.83", "0.57", "88.0")
+gestures_64 = [fist64, l64, palm64]
+
+fist65 = Gesture("65", "pull_hand_in", "0.69", "0.61", "0.65", "90.0")
+l65 = Gesture("65", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
+palm65 = Gesture("65", "slide_2_fingers_up", "0.62", "0.62", "0.62", "88.0")
+gestures_65 = [fist65, l65, palm65]
+
+fist66 = Gesture("66", "pull_hand_in", "0.43", "0.86", "0.57", "90.0")
+l66 = Gesture("66", "slide_2_fingers_right", "0.91", "0.34", "0.49", "89.0")
+palm66 = Gesture("66", "slide_2_fingers_up", "0.75", "0.43", "0.55", "88.0")
+gestures_66 = [fist66, l66, palm66]
+
+fist67 = Gesture("67", "pull_hand_in", "0.89", "0.93", "0.91", "90.0")
+l67 = Gesture("67", "slide_2_fingers_right", "0.94", "1.0", "0.97", "89.0")
+palm67 = Gesture("67", "slide_2_fingers_up", "0.93", "0.92", "0.93", "88.0")
+gestures_67 = [fist67, l67, palm67]
+
+fist68 = Gesture("68", "pull_hand_in", "0.99", "0.87", "0.92", "90.0")
+l68 = Gesture("68", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm68 = Gesture("68", "slide_2_fingers_up", "0.94", "0.94", "0.94", "88.0")
+gestures_68 = [fist68, l68, palm68]
+
+fist69 = Gesture("69", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+l69 = Gesture("69", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm69 = Gesture("69", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_69 = [fist69, l69, palm69]
+
+fist70 = Gesture("70", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+l70 = Gesture("70", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm70 = Gesture("70", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_70 = [fist70, l70, palm70]
+
+
+fist71 = Gesture("71", "pull_hand_in", "0.25", "0.44", "0.32", "90.0")
+l71 = Gesture("71", "slide_2_fingers_right", "0.22", "0.21", "0.21", "89.0")
+palm71 = Gesture("71", "slide_2_fingers_up", "0.33", "0.22", "0.26", "88.0")
+gestures_71 = [fist71, l71, palm71]
+
+fist72 = Gesture("72", "pull_hand_in", "0.81", "0.47", "0.59", "90.0")
+l72 = Gesture("72", "slide_2_fingers_right", "1.0", "0.13", "0.24", "89.0")
+palm72 = Gesture("72", "slide_2_fingers_up", "0.49", "0.97", "0.65", "88.0")
+gestures_72 = [fist72, l72, palm72]
+
+fist73 = Gesture("73", "pull_hand_in", "0.97", "0.39", "0.56", "90.0")
+l73 = Gesture("73", "slide_2_fingers_right", "1.0", "0.11", "0.2", "89.0")
+palm73 = Gesture("73", "slide_2_fingers_up", "0.67", "0.66", "0.66", "88.0")
+gestures_73 = [fist73, l73, palm73]
+
+fist74 = Gesture("74", "pull_hand_in", "0.67", "0.83", "0.74", "90.0")
+l74 = Gesture("74", "slide_2_fingers_right", "1.0", "0.38", "0.55", "89.0")
+palm74 = Gesture("74", "slide_2_fingers_up", "0.77", "0.98", "0.86", "88.0")
+gestures_74 = [fist74, l74, palm74]
+
+fist75 = Gesture("75", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
+l75 = Gesture("75", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
+palm75 = Gesture("75", "slide_2_fingers_up", "0.98", "0.99", "0.98", "88.0")
+gestures_75 = [fist75, l75, palm75]
+
+fist76 = Gesture("76", "pull_hand_in", "0.99", "0.96", "0.97", "90.0")
+l76 = Gesture("76", "slide_2_fingers_right", "0.99", "0.99", "0.99", "89.0")
+palm76 = Gesture("76", "slide_2_fingers_up", "1.0", "0.94", "0.97", "88.0")
+gestures_76 = [fist76, l76, palm76]
+
+fist77 = Gesture("77", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+l77 = Gesture("77", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm77 = Gesture("77", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_77 = [fist77, l77, palm77]
+
+fist78 = Gesture("78", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+l78 = Gesture("78", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm78 = Gesture("78", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_78 = [fist78, l78, palm78]
+
+fist79 = Gesture("79", "pull_hand_in", "0.68", "0.44", "0.54", "90.0")
+l79 = Gesture("79", "slide_2_fingers_right", "0.0", "0.0", "0.0", "89.0")
+palm79 = Gesture("79", "slide_2_fingers_up", "0.41", "0.8", "0.54", "88.0")
+gestures_79 = [fist79, l79, palm79]
+
+fist80 = Gesture("80", "pull_hand_in", "0.49", "0.19", "0.27", "90.0")
+l80 = Gesture("80", "slide_2_fingers_right", "1.0", "0.01", "0.02", "89.0")
+palm80 = Gesture("80", "slide_2_fingers_up", "0.93", "0.15", "0.25", "88.0")
+gestures_80 = [fist80, l80, palm80]
+
+fist81 = Gesture("81", "pull_hand_in", "0.42", "0.72", "0.53", "90.0")
+l81 = Gesture("81", "slide_2_fingers_right", "1.0", "0.44", "0.61", "89.0")
+palm81 = Gesture("81", "slide_2_fingers_up", "0.79", "0.22", "0.34", "88.0")
+gestures_81 = [fist81, l81, palm81]
+
+
+fist82 = Gesture("82", "pull_hand_in", "0.82", "0.97", "0.89", "90.0")
+l82 = Gesture("82", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
+palm82 = Gesture("82", "slide_2_fingers_up", "0.95", "0.95", "0.95", "88.0")
+gestures_82 = [fist82, l82, palm82]
+
+fist83 = Gesture("83", "pull_hand_in", "0.92", "0.81", "0.86", "90.0")
+l83 = Gesture("83", "slide_2_fingers_right", "0.91", "1.0", "0.95", "89.0")
+palm83 = Gesture("83", "slide_2_fingers_up", "0.99", "0.81", "0.89", "88.0")
+gestures_83 = [fist83, l83, palm83]
+
+fist84 = Gesture("84", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+l84 = Gesture("84", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm84 = Gesture("84", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_84 = [fist84, l84, palm84]
+
+fist85 = Gesture("85", "pull_hand_in", "0.99", "1.0", "0.99", "90.0")
+l85 = Gesture("85", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm85 = Gesture("85", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_85 = [fist85, l85, palm85]
+
+fist86 = Gesture("86", "pull_hand_in", "0.67", "0.46", "0.54", "90.0")
+l86 = Gesture("86", "slide_2_fingers_right", "1.0", "0.03", "0.07", "89.0")
+palm86 = Gesture("86", "slide_2_fingers_up", "0.48", "0.9", "0.62", "88.0")
+gestures_86 = [fist86, l86, palm86]
+
+fist87 = Gesture("87", "pull_hand_in", "0.79", "0.33", "0.47", "90.0")
+l87 = Gesture("87", "slide_2_fingers_right", "1.0", "0.04", "0.09", "89.0")
+palm87 = Gesture("87", "slide_2_fingers_up", "0.45", "0.67", "0.54", "88.0")
+gestures_87 = [fist87, l87, palm87]
+
+fist88 = Gesture("88", "pull_hand_in", "0.62", "0.81", "0.7", "90.0")
+l88 = Gesture("88", "slide_2_fingers_right", "1.0", "0.37", "0.54", "89.0")
+palm88 = Gesture("88", "slide_2_fingers_up", "0.65", "0.68", "0.67", "88.0")
+gestures_88 = [fist88, l88, palm88]
+
+fist89 = Gesture("89", "pull_hand_in", "0.98", "0.98", "0.98", "90.0")
+l89 = Gesture("89", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
+palm89 = Gesture("89", "slide_2_fingers_up", "0.99", "1.0", "0.99", "88.0")
+gestures_89 = [fist89, l89, palm89]
+
+fist90 = Gesture("90", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
+l90 = Gesture("90", "slide_2_fingers_right", "0.99", "1.0", "0.99", "89.0")
+palm90 = Gesture("90", "slide_2_fingers_up", "0.99", "1.0", "0.99", "88.0")
+gestures_90 = [fist90, l90, palm90]
+
+fist91 = Gesture("91", "pull_hand_in", "1.0", "1.0", "1.0", "90.0")
+l91 = Gesture("91", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm91 = Gesture("91", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_91 = [fist91, l91, palm91]
+
+fist92 = Gesture("92", "pull_hand_in", "1.0", "0.99", "0.99", "90.0")
+l92 = Gesture("92", "slide_2_fingers_right", "1.0", "1.0", "1.0", "89.0")
+palm92 = Gesture("92", "slide_2_fingers_up", "1.0", "1.0", "1.0", "88.0")
+gestures_92 = [fist92, l92, palm92]
+
+fist93 = Gesture("93", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
+l93 = Gesture("93", "slide_2_fingers_right", "0.99", "1.0", "1.0", "152.0")
+palm93 = Gesture("93", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+gestures_93 = [fist93, l93, palm93]
+
+fist94 = Gesture("94", "pull_hand_in", "0.99", "1.0", "1.0", "154.0")
+l94 = Gesture("94", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+palm94 = Gesture("94", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+gestures_94 = [fist94, l94, palm94]
+
+fist95 = Gesture("95", "pull_hand_in", "0.73", "0.7", "0.72", "154.0")
+l95 = Gesture("95", "slide_2_fingers_right", "0.61", "0.91", "0.73", "152.0")
+palm95 = Gesture("95", "slide_2_fingers_up", "0.69", "0.81", "0.74", "159.0")
+gestures_95 = [fist95, l95, palm95]
+
+fist96 = Gesture("96", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
+l96 = Gesture("96", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+palm96 = Gesture("96", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+gestures_96 = [fist96, l96, palm96]
+
+fist97 = Gesture("97", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
+l97 = Gesture("97", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+palm97 = Gesture("97", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+gestures_97 = [fist97, l97, palm97]
+
+fist98 = Gesture("98", "pull_hand_in", "0.99", "1.0", "1.0", "154.0")
+l98 = Gesture("98", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+palm98 = Gesture("98", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+gestures_98 = [fist98, l98, palm98]
+
+fist99 = Gesture("99", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
+l99 = Gesture("99", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+palm99 = Gesture("99", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+gestures_99 = [fist99, l99, palm99]
+
+fist100 = Gesture("100", "pull_hand_in", "0.62", "0.65", "0.63", "154.0")
+l100 = Gesture("100", "slide_2_fingers_right", "0.62", "0.86", "0.72", "152.0")
+palm100 = Gesture("100", "slide_2_fingers_up", "0.5", "0.53", "0.52", "159.0")
+gestures_100 = [fist100, l100, palm100]
+
+fist101 = Gesture("101", "pull_hand_in", "0.87", "0.77", "0.82", "154.0")
+l101 = Gesture("101", "slide_2_fingers_right","0.75", "0.88", "0.81", "152.0")
+ok101 = Gesture("101", "slide_2_fingers_up", "0.84", "0.75", "0.79", "159.0")
+palm101 = Gesture("101", "stop_sign", "0.74", "0.83", "0.78", "155.0")
+thumb_up101 = Gesture("101", "swipe_down", "0.83", "0.82", "0.82", "150.0")
+gestures_101 = [fist101, l101, ok101, palm101, thumb_up101]
+
+fist102 = Gesture("102", "pull_hand_in", "0.91", "0.82", "0.86", "154.0")
+l102 = Gesture("102", "slide_2_fingers_right", "0.81", "0.96", "0.88", "152.0")
+ok102 = Gesture("102", "slide_2_fingers_up", "0.87", "0.84", "0.86", "159.0")
+palm102 = Gesture("102", "stop_sign", "0.76", "0.87", "0.81", "155.0")
+thumb_up102 = Gesture("102", "swipe_down", "0.86", "0.87", "0.86", "150.0")
+gestures_102 = [fist102, l102, ok102, palm102, thumb_up102]
+
+fist103 = Gesture("103", "pull_hand_in", "1.0", "0.99", "1.0", "154.0")
+l103 = Gesture("103", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+ok103 = Gesture("103", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+palm103 = Gesture("103", "stop_sign", "1.0", "0.99", "0.99", "155.0")
+thumb_up103 = Gesture("103", "swipe_down", "1.0", "0.99", "1.0", "150.0")
+gestures_103 = [fist103, l103, ok103, palm103, thumb_up103]
+
+fist104 = Gesture("104", "pull_hand_in", "1.0", "1.0", "1.0", "154.0")
+l104 = Gesture("104", "slide_2_fingers_right", "1.0", "1.0", "1.0", "152.0")
+ok104 = Gesture("104", "slide_2_fingers_up", "1.0", "1.0", "1.0", "159.0")
+palm104 = Gesture("104", "stop_sign", "1.0", "1.0", "1.0", "155.0")
+thumb_up104 = Gesture("104", "swipe_down", "1.0", "0.99", "1.0", "150.0")
+gestures_104 = [fist104, l104, ok104, palm104, thumb_up104]
+
+fist105 = Gesture("105", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l105 = Gesture("105", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok105 = Gesture("105", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm105 = Gesture("105", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up105 = Gesture("105", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_105 = [fist105, l105, ok105, palm105, thumb_up105]
+
+fist106 = Gesture("106", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l106 = Gesture("106", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok106 = Gesture("106", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm106 = Gesture("106", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up106 = Gesture("106", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_106 = [fist106, l106, ok106, palm106, thumb_up106]
+
+fist107 = Gesture("107", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l107 = Gesture("107", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok107 = Gesture("107", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm107 = Gesture("107", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up107 = Gesture("107", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_107 = [fist107, l107, ok107, palm107, thumb_up107]
+
+fist108 = Gesture("108", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l108 = Gesture("108", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok108 = Gesture("108", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm108 = Gesture("108", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up108 = Gesture("108", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_108 = [fist108, l108, ok108, palm108, thumb_up108]
+
+fist109 = Gesture("109", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l109 = Gesture("109", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok109 = Gesture("109", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm109 = Gesture("109", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up109 = Gesture("109", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_109 = [fist109, l109, ok109, palm109, thumb_up109]
+
+fist110 = Gesture("110", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l110 = Gesture("110", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok110 = Gesture("110", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm110 = Gesture("110", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up110 = Gesture("110", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_110 = [fist110, l110, ok110, palm110, thumb_up110]
+
+fist111 = Gesture("111", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l111 = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok111 = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm111 = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up111 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_111 = [fist111, l111, ok111, palm111, thumb_up111]
+
+fist112 = Gesture("112", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l112 = Gesture("51", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok112 = Gesture("51", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm112 = Gesture("51", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up112 = Gesture("51", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_112 = [fist112, l112, ok112, palm112, thumb_up112]
+
+fist113 = Gesture("113", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l113 = Gesture("113", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok113 = Gesture("113", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm113 = Gesture("113", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up113 = Gesture("113", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_113 = [fist113, l113, ok113, palm113, thumb_up113]
+
+fist114 = Gesture("114", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l114 = Gesture("114", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok114 = Gesture("114", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm114 = Gesture("114", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up114 = Gesture("114", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_114 = [fist114, l114, ok114, palm114, thumb_up114]
+
+fist115 = Gesture("115", "slide_2_fingers_right", "0.32", "0.87", "0.47", "86.0")
+l115 = Gesture("115", "stop_sign", "0.88", "0.84", "0.86", "90.0")
+ok115 = Gesture("115", "swipe_down", "1.0", "0.03", "0.07", "87.0")
+palm115 = Gesture("115", "swipe_left", "0.75", "0.85", "0.8", "88.0")
+thumb_up115 = Gesture("115", "thumb_up", "0.38", "1.0", "0.55", "86.0")
+gestures_115 = [fist115, l115, ok115, palm115, thumb_up115]
 
 # Adding the experiments metrics 
 
