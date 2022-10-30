@@ -402,29 +402,29 @@ l20 = Gesture("20", l, 0.0, 0.0, 0.0, 75.0)
 palm20 = Gesture("20", palm, 0.33, 1.0, 0.5, 75.0)
 gestures_20 = [fist20, l20, palm20]
 
-fist21 = Gesture("21", "stop_sign", "1.0", "0.59", "0.74", "90.0")
-l21 = Gesture("21", "swipe_left", "0.84", "1.0", "0.91", "123.0")
-palm21 = Gesture("21", "thumb_up", "0.86", "1.0", "0.92", "86.0")
+fist21 = Gesture("21", fist, 0.34, 1.0, 0.5, 76.0)
+l21 = Gesture("21", l, 0.0, 0.0, 0.0, 75.0)
+palm21 = Gesture("21", palm, 0.0, 0.0, 0.0, 75.0)
 gestures_21 = [fist21, l21, palm21]
 
-fist22 = Gesture("22", "stop_sign", "0.93", "0.97", "0.95", "90.0")
-l22 = Gesture("22", "swipe_left", "0.88", "0.98", "0.92", "88.0")
-palm22 = Gesture("22", "thumb_up", "0.96", "0.8", "0.87", "86.0")
+fist22 = Gesture("22", fist, 0.99, 1.0, 0.99, 76.0)
+l22 = Gesture("22", l, 1.0, 1.0, 1.0, 75.0)
+palm22 = Gesture("22", palm, 1.0, 0.99, 0.99, 75.0)
 gestures_22 = [fist22, l22, palm22]
 
-fist23 = Gesture("23", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l23 = Gesture("23", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm23 = Gesture("23", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+fist23 = Gesture("23", fist, 1.0, 1.0, 1.0, 76.0)
+l23 = Gesture("23", l, 1.0, 1.0, 1.0, 75.0)
+palm23 = Gesture("23", palm, 1.0, 1.0, 1.0, 75.0)
 gestures_23 = [fist23, l23, palm23]
 
-fist24 = Gesture("24", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l24 = Gesture("24", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm24 = Gesture("24", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+fist24 = Gesture("24", fist, 0.0, 0.0, 0.0, 76.0)
+l24 = Gesture("24", l, 0.0, 0.0, 0.0, 75.0)
+palm24 = Gesture("24", palm, 0.33, 1.0, 0.5, 75.0)
 gestures_24 = [fist24, l24, palm24]
 
-fist25 = Gesture("25", "stop_sign", "1.0", "1.0", "1.0", "90.0")
-l25 = Gesture("25", "swipe_left", "1.0", "1.0", "1.0", "123.0")
-palm25 = Gesture("25", "thumb_up", "1.0", "1.0", "1.0", "86.0")
+fist25 = Gesture("25", fist, 0.0, 0.0, 0.0, 76.0)
+l25 = Gesture("25", l, 0.0, 0.0, 0.0, 75.0)
+palm25 = Gesture("25", palm, 0.33, 0.99, 0.49, 75.0)
 gestures_25 = [fist25, l25, palm25]
 
 fist26 = Gesture("26", "stop_sign", "1.0", "1.0", "1.0", "90.0")
