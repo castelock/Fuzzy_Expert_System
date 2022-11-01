@@ -302,24 +302,24 @@ exp_114 = Experiment("114", "Keras", "DenseNet201", "Adam", "0.001", "100", "mse
 exp_115 = Experiment("115", "Keras", "NasNetLarge", "Adam", "0.001", "100", "mse", "5")
 
 # Adding the metrics gesture
-fist1 = Gesture("1", fist, 0.99, 1.0, 0.99, 76.0)
-l1 = Gesture("1", l, 1.0, 0.91, 0.95, 75.0)
-palm1 = Gesture("1", palm, 0.91, 0.99, 0.95, 75.0)
+fist1 = Gesture("1", "fist", "0.99", "1.0", "0.99", "76.0")
+l1 = Gesture("1", "l", "1.0", "0.91", "0.95", "75.0")
+palm1 = Gesture("1", "palm", "0.91", "0.99", "0.95", "75.0")
 gestures_1 = [fist1, l1, palm1]
 
-fist2 = Gesture("2", fist, 1.0, 0.74, 0.85, 76.0)
-l2 = Gesture("2", l, 1.0, 0.8, 0.89, 75.0)
-palm2 = Gesture("2", palm, 0.68, 1.0, 0.81, 75.0)
+fist2 = Gesture("2", "fist", "1.0", "0.74", "0.85", "76.0")
+l2 = Gesture("2", "l", "1.0", "0.8", "0.89", "75.0")
+palm2 = Gesture("2", "palm", "0.68", "1.0", "0.81", "75.0")
 gestures_2 = [fist2, l2, palm2]
 
-fist3 = Gesture("3", fist, 0.97, 1.0, 0.99, 76.0)
-l3 = Gesture("3", l, 1.0, 1.0, 1.0, 75.0)
-palm3 = Gesture("3", palm, 1.0, 0.97, 0.99, 75.0)
+fist3 = Gesture("3", "fist", "0.97", "1.0", "0.99", "76.0")
+l3 = Gesture("3", "l", "1.0", "1.0", "1.0", "75.0")
+palm3 = Gesture("3", "palm", "1.0", "0.97", "0.99", "75.0")
 gestures_3 = [fist3, l3, palm3]
 
-fist4 = Gesture("4", fist, 0.0 0.0, 0.0, 76.0)
-l4 = Gesture("4", l, 0.0, 0.0, 0.0, 75.0)
-palm4 = Gesture("4", palm, 0.33, 1.0, 0.5, 75.0)
+fist4 = Gesture("4", "fist", "0.0", "0.0", "0.0", "76.0")
+l4 = Gesture("4", "l", "0.0", "0.0", "0.0", "75.0")
+palm4 = Gesture("4", "palm", "0.33", "1.0", "0.5", "75.0")
 gestures_4 = [fist4, l4, palm4]
 
 fist5 = Gesture("5", fist, 0.0, 0.0, 0.0, 76.0)
