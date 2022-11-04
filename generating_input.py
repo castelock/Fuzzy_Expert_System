@@ -1248,6 +1248,17 @@ exp101_metrics.append_row(filenameMetrics_path)
 exp102_metrics.append_row(filenameMetrics_path)
 exp103_metrics.append_row(filenameMetrics_path)
 exp104_metrics.append_row(filenameMetrics_path)
+exp105_metrics.append_row(filenameMetrics_path)
+exp106_metrics.append_row(filenameMetrics_path)
+exp107_metrics.append_row(filenameMetrics_path)
+exp108_metrics.append_row(filenameMetrics_path)
+exp109_metrics.append_row(filenameMetrics_path)
+exp110_metrics.append_row(filenameMetrics_path)
+exp111_metrics.append_row(filenameMetrics_path)
+exp112_metrics.append_row(filenameMetrics_path)
+exp113_metrics.append_row(filenameMetrics_path)
+exp114_metrics.append_row(filenameMetrics_path)
+exp115_metrics.append_row(filenameMetrics_path)
 
 # READING THE FILES
 
