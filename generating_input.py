@@ -3,20 +3,20 @@ import statistics
 
 class Experiment:
 
-    def __init__(self, id, framework, model, optimizer, learning_rate, epsilon, epochs, loss_function, num_gestures, gesture_names, num_videos):
+    def __init__(self, id, framework, model, optimizer, learning_rate, epochs, loss_function, num_gestures, gesture_names):
 
         self.id = id
         self.framework = framework
         self.model = model
         self.optimizer = optimizer
         self.learning_rate  = learning_rate
-        self.epsilon = epsilon
+        #self.epsilon = epsilon
         self.epochs = epochs
         self.loss_function = loss_function
         self.num_gestures = num_gestures
         # This attribute is a list
         self.gesture_names = gesture_names
-        self.num_videos = num_videos
+        #self.num_videos = num_videos
 
     def getId(self):
         return self.id
@@ -53,12 +53,12 @@ class Experiment:
 
     def writeNewFile(self, filename):
         with open(filename, 'w', newline='') as csvfile:
-            fieldnames = ['Id', 'Framework', 'Model', 'Optimizer', 'Learning_rate', 'Epsilon', 'Epochs', 'Loss_function', 'Num_gestures', 'Gestures', 'Num_videos']
+            fieldnames = ['Id', 'Framework', 'Model', 'Optimizer', 'Learning_rate', 'Epochs', 'Loss_function', 'Num_gestures', 'Gestures']
             writer = csv.writer(csvfile, delimiter=';')
             # Writing the header
             writer.writerow(fieldnames) 
             # Writing the content
-            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpsilon(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGesture_names(), self.getNum_videos()]
+            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGesture_names()]
             writer.writerow(row)
 
     def append_row(self, filename):
@@ -67,7 +67,7 @@ class Experiment:
             # Create a writer object from csv module
             writer = csv.writer(csvfile, delimiter=';')
             # Add contents of list as last row in the csv file
-            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpsilon(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGesture_names(), self.getNum_videos()]
+            row = [self.getId(), self.getFramework(), self.getModel(), self.getOptimizer(), self.getLearning_rate(), self.getEpochs(), self.getLoss_function(), self.getNum_gestures(), self.getGesture_names()]
             writer.writerow(row)
     
     def print(self):
@@ -185,121 +185,121 @@ print("Starting the input generation")
 gestures_3g = ["fist", "l", "palm"]
 gestures_5g = ["fist", "l", "palm", "ok", "thumb_up"]
 
-exp_1 = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_2 = Experiment("2", "Keras", "ResNet101", "Adam", "0.001", "100", "categorical_crossentropy","3")
-exp_3 = Experiment("3", "Keras", "ResNet152", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_4 = Experiment("4", "Keras", "ResNet50V2", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_5 = Experiment("5", "Keras", "ResNet101V2", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_6 = Experiment("6", "Keras", "ResNet152V2", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_7 = Experiment("7", "Keras", "VGG16", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_8 = Experiment("8", "Keras", "VGG19", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_9 = Experiment("9", "Keras", "InceptionV3", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_10 = Experiment("10", "Keras", "InceptionResnetV2", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_11 = Experiment("11", "Keras", "MobileNetV2", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_12 = Experiment("12", "Keras", "DenseNet121", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_13 = Experiment("13", "Keras", "DenseNet169", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_14 = Experiment("14", "Keras", "DenseNet201", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_15 = Experiment("15", "Keras", "NasNetLarge", "Adam", "0.001", "100", "categorical_crossentropy", "3")
-exp_16 = Experiment("16", "Keras", "ResNet50", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_17 = Experiment("17", "Keras", "ResNet101", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_18 = Experiment("18", "Keras", "ResNet152", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_19 = Experiment("19", "Keras", "ResNet50V2", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_20 = Experiment("20", "Keras", "ResNet101V2", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_21 = Experiment("21", "Keras", "ResNet152V2", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_22 = Experiment("22", "Keras", "VGG16", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_23 = Experiment("23", "Keras", "VGG19", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_24 = Experiment("24", "Keras", "InceptionV3", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_25 = Experiment("25", "Keras", "InceptionResNetV2", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_26 = Experiment("26", "Keras", "MobileNetV2", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_27 = Experiment("27", "Keras", "DenseNet121", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_28 = Experiment("28", "Keras", "DenseNet169", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_29 = Experiment("29", "Keras", "DenseNet201", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_30 = Experiment("30", "Keras", "NasNetLarge", "SGD", "0.001", "100", "categorical_crossentropy", "3")
-exp_31 = Experiment("31", "Keras", "ResNet50", "Adam", "0.001", "100", "mse", "3")
-exp_32 = Experiment("32", "Keras", "ResNet101", "Adam", "0.001", "100", "mse", "3")
-exp_33 = Experiment("33", "Keras", "ResNet152", "Adam", "0.001", "100", "mse", "3")
-exp_34 = Experiment("34", "Keras", "ResNet50V2", "Adam", "0.001", "100", "mse", "3")
-exp_35 = Experiment("35", "Keras", "ResNet101V2", "Adam", "0.001", "100", "mse", "3")
-exp_36 = Experiment("36", "Keras", "ResNet152V2", "Adam", "0.001", "100", "mse", "3")
-exp_37 = Experiment("37", "Keras", "VGG16", "Adam", "0.001", "100", "mse", "3")
-exp_38 = Experiment("38", "Keras", "VGG19", "Adam", "0.001", "100", "mse", "3")
-exp_39 = Experiment("39", "Keras", "InceptionV3", "Adam", "0.001", "100", "mse", "3")
-exp_40 = Experiment("40", "Keras", "InceptionResNetV2", "Adam", "0.001", "100", "mse", "3")
-exp_41 = Experiment("41", "Keras", "MobileNetV2", "Adam", "0.001", "100", "mse", "3")
-exp_42 = Experiment("42", "Keras", "DenseNet121", "Adam", "0.001", "100", "mse", "3")
-exp_43 = Experiment("43", "Keras", "DenseNet169", "Adam", "0.001", "100", "mse", "3")
-exp_44 = Experiment("44", "Keras", "DenseNet201", "Adam", "0.001", "100", "mse", "3")
-exp_45 = Experiment("45", "Keras", "NasNetLarge", "Adam", "0.001", "100", "mse", "3")
-exp_46 = Experiment("46", "Keras", "ResNet50", "SGD", "0.001", "100", "mse", "3")
-exp_47 = Experiment("47", "Keras", "ResNet101", "SGD", "0.001", "100", "mse", "3")
-exp_48 = Experiment("48", "Keras", "ResNet152", "SGD", "0.001", "100", "mse", "3")
-exp_49 = Experiment("49", "Keras", "ResNet50V2", "SGD", "0.001", "100", "mse", "3")
-exp_50 = Experiment("50", "Keras", "ResNet101V2", "SGD", "0.001", "100", "mse", "3")
-exp_51 = Experiment("51", "Keras", "ResNet152V2", "SGD", "0.001", "100", "mse", "3")
-exp_52 = Experiment("52", "Keras", "VGG16", "SGD", "0.001", "100", "mse", "3")
-exp_53 = Experiment("53", "Keras", "VGG19", "SGD", "0.001", "100", "mse", "3")
-exp_54 = Experiment("54", "Keras", "InceptionV3", "SGD", "0.001", "100", "mse", "3")
-exp_55 = Experiment("55", "Keras", "InceptionResNetV2", "SGD", "0.001", "100", "mse", "3")
-exp_56 = Experiment("56", "Keras", "MobileNetV2", "SGD", "0.001", "100", "mse", "3")
-exp_57 = Experiment("57", "Keras", "DenseNet121", "SGD", "0.001", "100", "mse", "3")
-exp_58 = Experiment("58", "Keras", "DenseNet169", "SGD", "0.001", "100", "mse", "3")
-exp_59 = Experiment("59", "Keras", "DenseNet201", "SGD", "0.001", "100", "mse", "3")
-exp_60 = Experiment("60", "Keras", "NasNetLarge", "SGD", "0.001", "100", "mse", "3")
-exp_61 = Experiment("61", "Keras", "VGG16", "Adam", "0.0001", "100", "mse", "3")
-exp_62 = Experiment("62", "Keras", "VGG19", "Adam", "0.0001", "100", "mse", "3")
-exp_63 = Experiment("63", "Keras", "ResNet50V2", "Adam", "0.0001", "100", "mse", "3")
-exp_64 = Experiment("64", "Keras", "InceptionV3", "Adam", "0.0001", "100", "mse", "3")
-exp_65 = Experiment("65", "Keras", "DenseNet201", "Adam", "0.0001", "100", "mse", "3")
-exp_66 = Experiment("66", "Keras", "VGG16", "Adam", "0.01", "100", "mse", "3")
-exp_67 = Experiment("67", "Keras", "VGG19", "Adam", "0.01", "100", "mse", "3")
-exp_68 = Experiment("68", "Keras", "ResNet50V2", "Adam", "0.01", "100", "mse", "3")
-exp_69 = Experiment("69", "Keras", "InceptionV3", "Adam", "0.01", "100", "mse", "3")
-exp_70 = Experiment("70", "Keras", "DenseNet201", "Adam", "0.01", "100", "mse", "3")
-exp_71 = Experiment("71", "Keras", "VGG16", "SGD", "0.0001", "100", "mse", "3")
-exp_72 = Experiment("72", "Keras", "VGG19", "SGD", "0.0001", "100", "mse", "3")
-exp_73 = Experiment("73", "Keras", "ResNet50V2", "SGD", "0.0001", "100", "mse", "3")
-exp_74 = Experiment("74", "Keras", "InceptionV3", "SGD", "0.0001", "100", "mse", "3")
-exp_75 = Experiment("75", "Keras", "DenseNet201", "SGD", "0.0001", "100", "mse", "3")
-exp_76 = Experiment("76", "Keras", "VGG16", "SGD", "0.01", "100", "mse", "3")
-exp_77 = Experiment("77", "Keras", "VGG19", "SGD", "0.01", "100", "mse", "3")
-exp_78 = Experiment("78", "Keras", "ResNet50V2", "SGD", "0.01", "100", "mse", "3")
-exp_79 = Experiment("79", "Keras", "InceptionV3", "SGD", "0.01", "100", "mse", "3")
-exp_80 = Experiment("80", "Keras", "DenseNet201", "SGD", "0.01", "100", "mse", "3")
-exp_81 = Experiment("81", "Keras", "VGG16", "Adam", "0.001", "10", "mse", "3")
-exp_82 = Experiment("82", "Keras", "VGG19", "Adam", "0.001", "10", "mse", "3")
-exp_83 = Experiment("83", "Keras", "ResNet50V2", "Adam", "0.001", "10", "mse", "3")
-exp_84 = Experiment("84", "Keras", "InceptionV3", "Adam", "0.001", "10", "mse", "3")
-exp_85 = Experiment("85", "Keras", "DenseNet201", "Adam", "0.001", "10", "mse", "3")
-exp_86 = Experiment("86", "Keras", "VGG16", "Adam", "0.001", "30", "mse", "3")
-exp_87 = Experiment("87", "Keras", "VGG19", "Adam", "0.001", "30", "mse", "3")
-exp_88 = Experiment("88", "Keras", "ResNet50V2", "Adam", "0.001", "30", "mse", "3")
-exp_89 = Experiment("89", "Keras", "InceptionV3", "Adam", "0.001", "30", "mse", "3")
-exp_90 = Experiment("90", "Keras", "DenseNet201", "Adam", "0.001", "30", "mse", "3")
-exp_91 = Experiment("91", "Keras", "VGG16", "Adam", "0.001", "50", "mse", "3")
-exp_92 = Experiment("92", "Keras", "VGG19", "Adam", "0.001", "50", "mse", "3")
-exp_93 = Experiment("93", "Keras", "ResNet50V2", "Adam", "0.001", "50", "mse", "3")
-exp_94 = Experiment("94", "Keras", "InceptionV3", "Adam", "0.001", "50", "mse", "3")
-exp_95 = Experiment("95", "Keras", "DenseNet201", "Adam", "0.001", "50", "mse", "3")
-exp_96 = Experiment("96", "Keras", "VGG16", "Adam", "0.001", "70", "mse", "3")
-exp_97 = Experiment("97", "Keras", "VGG19", "Adam", "0.001", "70", "mse", "3")
-exp_98 = Experiment("98", "Keras", "ResNet50V2", "Adam", "0.001", "70", "mse", "3")
-exp_99 = Experiment("99", "Keras", "InceptionV3", "Adam", "0.001", "70", "mse", "3")
-exp_100 = Experiment("100", "Keras", "DenseNet201", "Adam", "0.001", "70", "mse", "3")
-exp_101 = Experiment("101", "Keras", "ResNet50", "Adam", "0.001", "100", "mse", "5")
-exp_102 = Experiment("102", "Keras", "ResNet101", "Adam", "0.001", "100", "mse", "5")
-exp_103 = Experiment("103", "Keras", "ResNet152", "Adam", "0.001", "100", "mse", "5")
-exp_104 = Experiment("104", "Keras", "ResNet50V2", "Adam", "0.001", "100", "mse", "5")
-exp_105 = Experiment("105", "Keras", "ResNet101V2", "Adam", "0.001", "100", "mse", "5")
-exp_106 = Experiment("106", "Keras", "ResNet152V2", "Adam", "0.001", "100", "mse", "5")
-exp_107 = Experiment("107", "Keras", "VGG16", "Adam", "0.001", "100", "mse", "5")
-exp_108 = Experiment("108", "Keras", "VGG19", "Adam", "0.001", "100", "mse", "5")
-exp_109 = Experiment("109", "Keras", "InceptionV3", "Adam", "0.001", "100", "mse", "5")
-exp_110 = Experiment("110", "Keras", "InceptionResNetV2", "Adam", "0.001", "100", "mse", "5")
-exp_111 = Experiment("111", "Keras", "MobileNetV2", "Adam", "0.001", "100", "mse", "5")
-exp_112 = Experiment("112", "Keras", "DenseNet121", "Adam", "0.001", "100", "mse", "5")
-exp_113 = Experiment("113", "Keras", "DenseNet169", "Adam", "0.001", "100", "mse", "5")
-exp_114 = Experiment("114", "Keras", "DenseNet201", "Adam", "0.001", "100", "mse", "5")
-exp_115 = Experiment("115", "Keras", "NasNetLarge", "Adam", "0.001", "100", "mse", "5")
+exp_1 = Experiment("1", "Keras", "ResNet50", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_2 = Experiment("2", "Keras", "ResNet101", "Adam", "0.001", "100", "categorical_crossentropy","3", "['fist', 'l', 'palm']")
+exp_3 = Experiment("3", "Keras", "ResNet152", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_4 = Experiment("4", "Keras", "ResNet50V2", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_5 = Experiment("5", "Keras", "ResNet101V2", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_6 = Experiment("6", "Keras", "ResNet152V2", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_7 = Experiment("7", "Keras", "VGG16", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_8 = Experiment("8", "Keras", "VGG19", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_9 = Experiment("9", "Keras", "InceptionV3", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_10 = Experiment("10", "Keras", "InceptionResnetV2", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_11 = Experiment("11", "Keras", "MobileNetV2", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_12 = Experiment("12", "Keras", "DenseNet121", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_13 = Experiment("13", "Keras", "DenseNet169", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_14 = Experiment("14", "Keras", "DenseNet201", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_15 = Experiment("15", "Keras", "NasNetLarge", "Adam", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_16 = Experiment("16", "Keras", "ResNet50", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_17 = Experiment("17", "Keras", "ResNet101", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_18 = Experiment("18", "Keras", "ResNet152", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_19 = Experiment("19", "Keras", "ResNet50V2", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_20 = Experiment("20", "Keras", "ResNet101V2", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_21 = Experiment("21", "Keras", "ResNet152V2", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_22 = Experiment("22", "Keras", "VGG16", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_23 = Experiment("23", "Keras", "VGG19", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_24 = Experiment("24", "Keras", "InceptionV3", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_25 = Experiment("25", "Keras", "InceptionResNetV2", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_26 = Experiment("26", "Keras", "MobileNetV2", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_27 = Experiment("27", "Keras", "DenseNet121", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_28 = Experiment("28", "Keras", "DenseNet169", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_29 = Experiment("29", "Keras", "DenseNet201", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_30 = Experiment("30", "Keras", "NasNetLarge", "SGD", "0.001", "100", "categorical_crossentropy", "3", "['fist', 'l', 'palm']")
+exp_31 = Experiment("31", "Keras", "ResNet50", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_32 = Experiment("32", "Keras", "ResNet101", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_33 = Experiment("33", "Keras", "ResNet152", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_34 = Experiment("34", "Keras", "ResNet50V2", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_35 = Experiment("35", "Keras", "ResNet101V2", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_36 = Experiment("36", "Keras", "ResNet152V2", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_37 = Experiment("37", "Keras", "VGG16", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_38 = Experiment("38", "Keras", "VGG19", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_39 = Experiment("39", "Keras", "InceptionV3", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_40 = Experiment("40", "Keras", "InceptionResNetV2", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_41 = Experiment("41", "Keras", "MobileNetV2", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_42 = Experiment("42", "Keras", "DenseNet121", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_43 = Experiment("43", "Keras", "DenseNet169", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_44 = Experiment("44", "Keras", "DenseNet201", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_45 = Experiment("45", "Keras", "NasNetLarge", "Adam", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_46 = Experiment("46", "Keras", "ResNet50", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_47 = Experiment("47", "Keras", "ResNet101", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_48 = Experiment("48", "Keras", "ResNet152", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_49 = Experiment("49", "Keras", "ResNet50V2", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_50 = Experiment("50", "Keras", "ResNet101V2", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_51 = Experiment("51", "Keras", "ResNet152V2", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_52 = Experiment("52", "Keras", "VGG16", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_53 = Experiment("53", "Keras", "VGG19", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_54 = Experiment("54", "Keras", "InceptionV3", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_55 = Experiment("55", "Keras", "InceptionResNetV2", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_56 = Experiment("56", "Keras", "MobileNetV2", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_57 = Experiment("57", "Keras", "DenseNet121", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_58 = Experiment("58", "Keras", "DenseNet169", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_59 = Experiment("59", "Keras", "DenseNet201", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_60 = Experiment("60", "Keras", "NasNetLarge", "SGD", "0.001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_61 = Experiment("61", "Keras", "VGG16", "Adam", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_62 = Experiment("62", "Keras", "VGG19", "Adam", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_63 = Experiment("63", "Keras", "ResNet50V2", "Adam", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_64 = Experiment("64", "Keras", "InceptionV3", "Adam", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_65 = Experiment("65", "Keras", "DenseNet201", "Adam", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_66 = Experiment("66", "Keras", "VGG16", "Adam", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_67 = Experiment("67", "Keras", "VGG19", "Adam", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_68 = Experiment("68", "Keras", "ResNet50V2", "Adam", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_69 = Experiment("69", "Keras", "InceptionV3", "Adam", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_70 = Experiment("70", "Keras", "DenseNet201", "Adam", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_71 = Experiment("71", "Keras", "VGG16", "SGD", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_72 = Experiment("72", "Keras", "VGG19", "SGD", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_73 = Experiment("73", "Keras", "ResNet50V2", "SGD", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_74 = Experiment("74", "Keras", "InceptionV3", "SGD", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_75 = Experiment("75", "Keras", "DenseNet201", "SGD", "0.0001", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_76 = Experiment("76", "Keras", "VGG16", "SGD", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_77 = Experiment("77", "Keras", "VGG19", "SGD", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_78 = Experiment("78", "Keras", "ResNet50V2", "SGD", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_79 = Experiment("79", "Keras", "InceptionV3", "SGD", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_80 = Experiment("80", "Keras", "DenseNet201", "SGD", "0.01", "100", "mse", "3", "['fist', 'l', 'palm']")
+exp_81 = Experiment("81", "Keras", "VGG16", "Adam", "0.001", "10", "mse", "3", "['fist', 'l', 'palm']")
+exp_82 = Experiment("82", "Keras", "VGG19", "Adam", "0.001", "10", "mse", "3", "['fist', 'l', 'palm']")
+exp_83 = Experiment("83", "Keras", "ResNet50V2", "Adam", "0.001", "10", "mse", "3", "['fist', 'l', 'palm']")
+exp_84 = Experiment("84", "Keras", "InceptionV3", "Adam", "0.001", "10", "mse", "3", "['fist', 'l', 'palm']")
+exp_85 = Experiment("85", "Keras", "DenseNet201", "Adam", "0.001", "10", "mse", "3", "['fist', 'l', 'palm']")
+exp_86 = Experiment("86", "Keras", "VGG16", "Adam", "0.001", "30", "mse", "3", "['fist', 'l', 'palm']")
+exp_87 = Experiment("87", "Keras", "VGG19", "Adam", "0.001", "30", "mse", "3", "['fist', 'l', 'palm']")
+exp_88 = Experiment("88", "Keras", "ResNet50V2", "Adam", "0.001", "30", "mse", "3", "['fist', 'l', 'palm']")
+exp_89 = Experiment("89", "Keras", "InceptionV3", "Adam", "0.001", "30", "mse", "3", "['fist', 'l', 'palm']")
+exp_90 = Experiment("90", "Keras", "DenseNet201", "Adam", "0.001", "30", "mse", "3", "['fist', 'l', 'palm']")
+exp_91 = Experiment("91", "Keras", "VGG16", "Adam", "0.001", "50", "mse", "3", "['fist', 'l', 'palm']")
+exp_92 = Experiment("92", "Keras", "VGG19", "Adam", "0.001", "50", "mse", "3", "['fist', 'l', 'palm']")
+exp_93 = Experiment("93", "Keras", "ResNet50V2", "Adam", "0.001", "50", "mse", "3", "['fist', 'l', 'palm']")
+exp_94 = Experiment("94", "Keras", "InceptionV3", "Adam", "0.001", "50", "mse", "3", "['fist', 'l', 'palm']")
+exp_95 = Experiment("95", "Keras", "DenseNet201", "Adam", "0.001", "50", "mse", "3", "['fist', 'l', 'palm']")
+exp_96 = Experiment("96", "Keras", "VGG16", "Adam", "0.001", "70", "mse", "3", "['fist', 'l', 'palm']")
+exp_97 = Experiment("97", "Keras", "VGG19", "Adam", "0.001", "70", "mse", "3", "['fist', 'l', 'palm']")
+exp_98 = Experiment("98", "Keras", "ResNet50V2", "Adam", "0.001", "70", "mse", "3", "['fist', 'l', 'palm']")
+exp_99 = Experiment("99", "Keras", "InceptionV3", "Adam", "0.001", "70", "mse", "3", "['fist', 'l', 'palm']")
+exp_100 = Experiment("100", "Keras", "DenseNet201", "Adam", "0.001", "70", "mse", "3", "['fist', 'l', 'palm']")
+exp_101 = Experiment("101", "Keras", "ResNet50", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_102 = Experiment("102", "Keras", "ResNet101", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_103 = Experiment("103", "Keras", "ResNet152", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_104 = Experiment("104", "Keras", "ResNet50V2", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_105 = Experiment("105", "Keras", "ResNet101V2", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_106 = Experiment("106", "Keras", "ResNet152V2", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_107 = Experiment("107", "Keras", "VGG16", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_108 = Experiment("108", "Keras", "VGG19", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_109 = Experiment("109", "Keras", "InceptionV3", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_110 = Experiment("110", "Keras", "InceptionResNetV2", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_111 = Experiment("111", "Keras", "MobileNetV2", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_112 = Experiment("112", "Keras", "DenseNet121", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_113 = Experiment("113", "Keras", "DenseNet169", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_114 = Experiment("114", "Keras", "DenseNet201", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
+exp_115 = Experiment("115", "Keras", "NasNetLarge", "Adam", "0.001", "100", "mse", "5", "['fist', 'l', 'palm', 'ok', 'thumb_up']")
 
 # Adding the metrics gesture
 fist1 = Gesture("1", "fist", "0.99", "1.0", "0.99", "76.0")
@@ -634,7 +634,7 @@ gestures_66 = [fist66, l66, palm66]
 
 fist67 = Gesture("67", "fist", "0.0", "0.0", "0.0", "76.0")
 l67 = Gesture("67", "l", "0.33", "1.0", "0.5", "75.0")
-palm67 = Gesture("67", "palm", "0.0", "0.0", "75.0")
+palm67 = Gesture("67", "palm", "0.0", "0.0", "0.0", "75.0")
 gestures_67 = [fist67, l67, palm67]
 
 fist68 = Gesture("68", "fist", "0.0", "0.0", "0.0", "76.0")
@@ -748,13 +748,13 @@ palm89 = Gesture("89", "palm", "0.0", "0.0", "0.0", "75.0")
 gestures_89 = [fist89, l89, palm89]
 
 fist90 = Gesture("90", "fist", "0.0", "0.0", "0.0", "76.0")
-l90 = Gesture("90", "l," "0.33", "1.0", "0.5", "75.0")
+l90 = Gesture("90", "l", "0.33", "1.0", "0.5", "75.0")
 palm90 = Gesture("90", "palm", "0.0", "0.0", "0.0", "75.0")
 gestures_90 = [fist90, l90, palm90]
 
 fist91 = Gesture("91", "fist", "0.99", "1.0", "0.99", "76.0")
 l91 = Gesture("91", "l", "1.0", "1.0", "1.0", "75.0")
-palm91 = Gesture("91", "palm," "1.0", "0.99", "0.99", "75.0")
+palm91 = Gesture("91", "palm", "1.0", "0.99", "0.99", "75.0")
 gestures_91 = [fist91, l91, palm91]
 
 fist92 = Gesture("92", "fist", "0.99", "1.0", "0.99", "76.0")
@@ -1269,7 +1269,7 @@ with open(filenameExp_path, newline='') as f:
     # Skipping the header line
     next(reader)   
     for row in reader:
-        experiment = Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
+        experiment = Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
         list_exp.append(experiment)
 
 # Reading the experiments metrics
