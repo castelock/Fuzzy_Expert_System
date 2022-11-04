@@ -1374,7 +1374,7 @@ with open(filenameExp_path, newline='') as f:
     # Skipping the header line
     next(reader)   
     for row in reader:
-        experiment = input_exp.Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
+        experiment = input_exp.Experiment(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
         # list_exp.append(experiment)
         list_exp[experiment.getId()]=experiment
 
